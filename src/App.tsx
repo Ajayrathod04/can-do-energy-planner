@@ -3,7 +3,8 @@ import { HashRouterProvider, useRouter } from './lib/router';
 import { useAppStore, selectActiveMode } from './lib/store';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
-import { TourGuide } from './components/TourGuide';
+import { JudgeTour } from './components/JudgeTour';
+import { NozzleCursor } from './components/NozzleCursor';
 import { LandingPage } from './scenes/LandingPage';
 import { AppView } from './app/AppView';
 import { SystemShowcase } from './scenes/SystemShowcase';
@@ -25,6 +26,7 @@ const AppContent: React.FC = () => {
         highContrast ? 'contrast-125 saturate-150' : ''
       } ${dyslexiaFont ? 'font-dyslexic' : ''}`}
     >
+      <NozzleCursor />
       <Navbar />
 
       <main id="main-content" className="flex-1 flex flex-col">
@@ -33,7 +35,7 @@ const AppContent: React.FC = () => {
         {route === '/system' && <SystemShowcase />}
       </main>
 
-      <TourGuide />
+      <JudgeTour />
       <Footer />
     </div>
   );
