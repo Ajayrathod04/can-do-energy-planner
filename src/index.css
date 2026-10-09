@@ -90,3 +90,21 @@
     radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
   background-size: 24px 24px, 48px 48px;
 }
+
+/* 2.3 Tier 2: Print Stencil Stylesheet for A4 Planning Sheets */
+@media print {
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+  }
+  header, footer, nav, button, input, .sr-only, canvas {
+    display: none !important;
+  }
+  .brutal-card {
+    border: 2px solid #000000 !important;
+    box-shadow: none !important;
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    page-break-inside: avoid;
+  }
+}
