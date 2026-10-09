@@ -1,0 +1,92 @@
+@import './styles/tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: var(--color-concrete);
+    color: var(--color-paper);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  /* High contrast focus rings */
+  :focus-visible {
+    outline: 3px solid #FFD93D !important;
+    outline-offset: 3px !important;
+  }
+
+  /* Accessible Skip Link */
+  .skip-link {
+    position: absolute;
+    top: -9999px;
+    left: 1rem;
+    background: #0A0A0A;
+    color: #F4EFE6;
+    padding: 0.75rem 1.5rem;
+    font-weight: 700;
+    z-index: 9999;
+    border: 3px solid #F4EFE6;
+  }
+
+  .skip-link:focus {
+    top: 1rem;
+  }
+}
+
+/* Neo-brutalist custom utilities */
+.brutal-card {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  border: 3px solid var(--color-ink);
+  box-shadow: 6px 6px 0px var(--color-ink);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.brutal-card-dark {
+  background-color: #1A1A1A;
+  color: var(--color-paper);
+  border: 3px solid var(--color-paper);
+  box-shadow: 6px 6px 0px var(--color-paper);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.brutal-btn {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  border: 3px solid var(--color-ink);
+  box-shadow: 4px 4px 0px var(--color-ink);
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brutal-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--color-ink);
+}
+
+.brutal-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--color-ink);
+}
+
+.brutal-btn-primary {
+  background-color: var(--active-mode-color);
+  color: #0A0A0A;
+}
+
+/* Concrete pattern overlay */
+.concrete-texture {
+  background-color: #121212;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 24px 24px, 48px 48px;
+}
