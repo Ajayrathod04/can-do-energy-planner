@@ -1,6 +1,8 @@
 import React from 'react';
 import { useAppStore, selectActiveMode, selectCanTotalCost } from '../lib/store';
 import { SprayCanView } from '../three/SprayCanView';
+import { DripCanvas } from '../components/DripCanvas';
+import { CapLockGuard } from '../components/CapLockGuard';
 import { AlertTriangle, CheckCircle, Droplet, ArrowDown } from 'lucide-react';
 
 interface CanDockProps {
@@ -60,12 +62,21 @@ export const CanDock: React.FC<CanDockProps> = ({ onOpenDeferral, isOverDropZone
         </div>
       )}
 
-      {/* 3D Can Stage */}
+      {/* 3D Can Stage with Fluid Overload Drip Simulation */}
       <div className="relative w-full aspect-square max-h-[340px] bg-neutral-900 border-3 border-ink flex items-center justify-center shadow-[4px_4px_0px_#0A0A0A]">
+        {/* 1.2 Overload Drip Simulation behind the can */}
+        {isOverflow && (
+          <DripCanvas
+            overflowUnits={overflowAmount}
+            color={activeMode.accentColor}
+            className="z-10"
+          />
+        )}
+
         {/* Subtle splatter overlay in overflow */}
         {isOverflow && (
           <div
-            className="absolute inset-0 pointer-events-none z-10 opacity-40 mix-blend-screen"
+            className="absolute inset-0 pointer-events-none z-10 opacity-30 mix-blend-screen"
             style={{
               backgroundImage: 'url(./img/splatter-overlay.png)',
               backgroundSize: 'cover',
@@ -91,6 +102,9 @@ export const CanDock: React.FC<CanDockProps> = ({ onOpenDeferral, isOverDropZone
           </div>
         )}
       </div>
+
+      {/* 1.3 Cap-Lock Guard at 100% Volume */}
+      <CapLockGuard onOpenDeferral={onOpenDeferral} />
 
       {/* Real-time Progress Bar */}
       <div className="space-y-1">
