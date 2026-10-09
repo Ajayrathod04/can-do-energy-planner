@@ -1,0 +1,47 @@
+:root {
+  /* Surfaces */
+  --color-paper: #F4EFE6;
+  --color-ink: #0A0A0A;
+  --color-concrete: #121212;
+  --color-concrete-light: #1E1E1E;
+  --color-concrete-border: #2A2A2A;
+
+  /* Mode Palette */
+  --color-focus: #2F5BFF;
+  --color-focus-text: #6B8CFF; /* Contrast lifted for small body text */
+  --color-grind: #FF6B2C;
+  --color-create: #FF3D8B;
+  --color-chill: #B6FF3B;
+  --color-social: #FFD93D;
+  --color-recover: #8B5CF6;
+
+  /* Active Mode Dynamic Tokens (Default: Focus) */
+  --active-mode-color: var(--color-focus);
+  --active-mode-name: "FOCUS";
+
+  /* Neo-brutalist styling */
+  --border-width-brutal: 3px;
+  --border-brutal: 3px solid #0A0A0A;
+  --border-brutal-light: 3px solid #F4EFE6;
+  --shadow-brutal: 6px 6px 0px #0A0A0A;
+  --shadow-brutal-sm: 3px 3px 0px #0A0A0A;
+  --shadow-brutal-lg: 10px 10px 0px #0A0A0A;
+  --shadow-brutal-white: 6px 6px 0px #F4EFE6;
+  --shadow-brutal-active: 2px 2px 0px #0A0A0A;
+
+  /* Typography */
+  --font-display: "Archivo Black", Anton, sans-serif;
+  --font-tag: "Permanent Marker", cursive;
+  --font-body: "Space Grotesk", sans-serif;
+  --font-dyslexic: "OpenDyslexic", "Space Grotesk", sans-serif;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
