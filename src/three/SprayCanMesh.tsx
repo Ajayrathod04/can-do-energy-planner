@@ -24,16 +24,17 @@ export const SprayCanMesh: React.FC<SprayCanMeshProps> = ({
   const canGeometry = useMemo(() => createSprayCanGeometry(), []);
   const capGeometry = useMemo(() => createSprayCapGeometry(), []);
 
-  // Dynamic label texture updated when mode or capacity changes
+  // Dynamic label texture updated when mode, pattern, or capacity changes
   const labelTexture = useMemo(() => {
     return createLabelTexture({
       modeName: mode.name,
       accentColor: mode.accentColor,
+      pattern: mode.pattern,
       multiplier: mode.multiplier,
       capacity,
       usedCapacity,
     });
-  }, [mode.name, mode.accentColor, mode.multiplier, capacity, usedCapacity]);
+  }, [mode.name, mode.accentColor, mode.pattern, mode.multiplier, capacity, usedCapacity]);
 
   // Metallic materials
   const canMaterial = useMemo(() => {

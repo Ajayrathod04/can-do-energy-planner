@@ -44,6 +44,7 @@ interface AppState {
   toggleInCan: (id: string) => void;
   moveTaskToTomorrow: (id: string) => void;
   completeTask: (id: string) => void;
+  logRestSession: (note?: string) => void;
   resetDemo: () => void;
   toggleSound: () => void;
   setA11ySetting: (key: 'highContrast' | 'reducedMotion' | 'dyslexiaFont' | 'fontScale', value: boolean | number) => void;
@@ -219,6 +220,27 @@ export const useAppStore = create<AppState>((set) => ({
       const next = {
         ...state,
         tasks: updatedTasks,
+        wallTags: [newTag, ...state.wallTags],
+      };
+      savePersistedState(next);
+      return next;
+    });
+  },
+
+  logRestSession: (note = 'Resting counts as capacity renewal') => {
+    set(state => {
+      const newTag: WallTag = {
+        id: `wall-tag-rest-${Date.now()}`,
+        taskId: 'rest-session',
+        title: note,
+        modeColor: '#8B5CF6',
+        modeName: 'RECOVER',
+        cost: 0,
+        completedAt: 'Just now',
+        seed: Math.floor(Math.random() * 100000),
+      };
+      const next = {
+        ...state,
         wallTags: [newTag, ...state.wallTags],
       };
       savePersistedState(next);
