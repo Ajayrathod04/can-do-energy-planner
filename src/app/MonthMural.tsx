@@ -123,7 +123,7 @@ export const MonthMural: React.FC = () => {
     // 6. Footer attribution
     ctx.fillStyle = '#F4EFE6';
     ctx.font = 'bold 20px "Space Grotesk", sans-serif';
-    ctx.fillText('CAN-DO · by AJRathod', 70, 1270);
+    ctx.fillText('AJRathod / ajaybr2021@gmail.com', 70, 1270);
 
     ctx.fillStyle = '#888888';
     ctx.font = '14px monospace';

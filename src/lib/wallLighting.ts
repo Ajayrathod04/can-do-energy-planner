@@ -34,28 +34,28 @@ export function getWallLightingTheme(setting: WallLightingSetting = 'auto'): Wal
       return {
         period: 'dawn',
         name: 'Dawn (Warm Amber)',
-        backgroundClass: 'bg-gradient-to-b from-[#2A160A] via-[#1A1210] to-[#121212]',
+        backgroundClass: 'bg-gradient-to-b from-[#FFF4E0] to-[#FFF6E5]',
         glowColor: 'rgba(255, 140, 50, 0.15)',
         hasStreetlight: false,
-        description: 'First light horizon amber warming the concrete.',
+        description: 'First light horizon amber warming the paper.',
       };
     case 'day':
       return {
         period: 'day',
-        name: 'Day (Soft White)',
-        backgroundClass: 'bg-[#1C1C1E]',
-        glowColor: 'rgba(244, 239, 230, 0.08)',
+        name: 'Day (Sky & Cream)',
+        backgroundClass: 'bg-gradient-to-b from-[#DDF1FF] to-[#FFF6E5]',
+        glowColor: 'rgba(56, 189, 248, 0.12)',
         hasStreetlight: false,
         description: 'Crisp daylight diffuse illumination.',
       };
     case 'dusk':
       return {
         period: 'dusk',
-        name: 'Dusk (Magenta-Violet)',
-        backgroundClass: 'bg-gradient-to-b from-[#240A26] via-[#180E1E] to-[#121212]',
-        glowColor: 'rgba(255, 61, 139, 0.18)',
+        name: 'Dusk (Peach Tint)',
+        backgroundClass: 'bg-gradient-to-b from-[#FFEAEF] to-[#FFF6E5]',
+        glowColor: 'rgba(255, 61, 139, 0.15)',
         hasStreetlight: false,
-        description: 'Twilight purple skyline reflection.',
+        description: 'Twilight peach skyline reflection on cream paper.',
       };
     case 'night':
     default:
@@ -65,7 +65,7 @@ export function getWallLightingTheme(setting: WallLightingSetting = 'auto'): Wal
         backgroundClass: 'bg-[#121212]',
         glowColor: 'rgba(47, 91, 255, 0.12)',
         hasStreetlight: true,
-        description: 'Cool asphalt blue under an incandescent sodium streetlight.',
+        description: 'Cool asphalt blue under an incandescent sodium streetlight (opt-in).',
       };
   }
 }

@@ -93,7 +93,7 @@ export const PermissionSlip: React.FC = () => {
     ctx.textAlign = 'left';
     ctx.fillStyle = '#666666';
     ctx.font = 'bold 20px "Space Grotesk", sans-serif';
-    ctx.fillText('CAN-DO Energy Budgeting System · Crafted by AJRathod', 100, 960);
+    ctx.fillText('AJRathod / ajaybr2021@gmail.com', 100, 960);
 
     // 7. Download
     canvas.toBlob((blob) => {

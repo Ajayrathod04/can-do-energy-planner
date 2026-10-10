@@ -38,7 +38,7 @@ export const CapLockGuard: React.FC<CapLockGuardProps> = ({ onOpenDeferral, clas
       {/* "CLOSED FOR TODAY" Slapped Sticker */}
       <div className="flex items-center justify-between border-b-2 border-ink pb-2">
         <div className="inline-block px-3 py-1 bg-red-600 text-white font-display text-sm uppercase tracking-wider transform -rotate-2 border-2 border-ink shadow-[2px_2px_0px_#0A0A0A]">
-          🔒 CLOSED FOR TODAY
+          🔒 CAN IS FULL: CLOSED FOR TODAY
         </div>
         <span className="font-mono text-xs font-bold text-neutral-700">
           100% Volume Reached
@@ -51,7 +51,7 @@ export const CapLockGuard: React.FC<CapLockGuardProps> = ({ onOpenDeferral, clas
           The nozzle is safety-latched.
         </p>
         <p>
-          You’ve filled all <strong>{capacity} paint units</strong> budgeted for today. Further additions risk diluting your focus.
+          You’ve filled all <strong>{capacity} paint</strong> budgeted for today. Further additions risk diluting your focus.
         </p>
       </div>
 

@@ -49,7 +49,7 @@ export const OverflowModal: React.FC<OverflowModalProps> = ({ isOpen, onClose })
           <div className="flex items-center gap-2">
             <AlertCircle className="w-6 h-6 text-modeGrind" />
             <h3 id="overflow-modal-title" className="font-display text-2xl uppercase">
-              {isOverflow ? `Volume Exceeded (+${overflowUnits} Units)` : 'Energy Balance Restored'}
+              {isOverflow ? `Too much for today? (+${overflowUnits} paint)` : 'Energy Balance Restored'}
             </h3>
           </div>
           <button
@@ -67,8 +67,8 @@ export const OverflowModal: React.FC<OverflowModalProps> = ({ isOpen, onClose })
             "Physics does not negotiate."
           </p>
           <p className="font-body text-xs text-neutral-800 leading-relaxed">
-            Your spray can holds exactly <strong>{capacity} paint units</strong> of cognitive focus today.
-            Trying to force {totalCost} units guarantees burnout, diluted quality, and late-night exhaustion.
+            Your spray can holds exactly <strong>{capacity} paint</strong> today.
+            Trying to force {totalCost} paint guarantees burnout and late-night exhaustion.
             Postponing work is not giving up—it is deliberate curation.
           </p>
         </div>

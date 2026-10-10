@@ -1,39 +1,68 @@
+/* Self-hosted fonts (OFL-1.1 & Apache-2.0 via @fontsource) */
+@import "@fontsource/archivo-black";
+@import "@fontsource/permanent-marker";
+@import "@fontsource/space-grotesk/400.css";
+@import "@fontsource/space-grotesk/500.css";
+@import "@fontsource/space-grotesk/600.css";
+@import "@fontsource/space-grotesk/700.css";
+
 :root {
-  /* Surfaces */
-  --color-paper: #F4EFE6;
-  --color-ink: #0A0A0A;
+  /* Surfaces - Editorial Light Paper by default */
+  --color-paper: #FFF6E5;
+  --color-paper-card: #FFFFFF;
+  --color-sky-soft: #DDF1FF;
+  --color-ink: #111111;
+  --color-ink-muted: #555555;
   --color-concrete: #121212;
   --color-concrete-light: #1E1E1E;
   --color-concrete-border: #2A2A2A;
 
+  /* Accents */
+  --color-yellow: #FFD93D;
+  --color-pink: #FF3D8B;
+  --color-mint: #00E599;
+  --color-sky: #38BDF8;
+  --color-tangerine: #FF6B2C;
+  --color-lilac: #C084FC;
+
   /* Mode Palette */
   --color-focus: #2F5BFF;
-  --color-focus-text: #6B8CFF; /* Contrast lifted for small body text */
+  --color-focus-text: #6B8CFF;
   --color-grind: #FF6B2C;
   --color-create: #FF3D8B;
   --color-chill: #B6FF3B;
   --color-social: #FFD93D;
-  --color-recover: #8B5CF6;
+  --color-recover: #C084FC;
 
-  /* Active Mode Dynamic Tokens (Default: Focus) */
+  /* Active Mode Dynamic Tokens */
   --active-mode-color: var(--color-focus);
   --active-mode-name: "FOCUS";
 
   /* Neo-brutalist styling */
   --border-width-brutal: 3px;
-  --border-brutal: 3px solid #0A0A0A;
-  --border-brutal-light: 3px solid #F4EFE6;
-  --shadow-brutal: 6px 6px 0px #0A0A0A;
-  --shadow-brutal-sm: 3px 3px 0px #0A0A0A;
-  --shadow-brutal-lg: 10px 10px 0px #0A0A0A;
-  --shadow-brutal-white: 6px 6px 0px #F4EFE6;
-  --shadow-brutal-active: 2px 2px 0px #0A0A0A;
+  --border-brutal: 3px solid #111111;
+  --border-brutal-light: 3px solid #FFF6E5;
+  --shadow-brutal: 4px 4px 0px #111111;
+  --shadow-brutal-sm: 2px 2px 0px #111111;
+  --shadow-brutal-lg: 8px 8px 0px #111111;
+  --shadow-brutal-hover: 6px 6px 0px #111111;
+  --shadow-brutal-active: 1px 1px 0px #111111;
 
   /* Typography */
   --font-display: "Archivo Black", Anton, sans-serif;
   --font-tag: "Permanent Marker", cursive;
   --font-body: "Space Grotesk", sans-serif;
   --font-dyslexic: "OpenDyslexic", "Space Grotesk", sans-serif;
+}
+
+/* Dark theme opt-in */
+[data-theme="dark"] {
+  --color-paper: #121212;
+  --color-paper-card: #1E1E1E;
+  --color-ink: #FFF6E5;
+  --color-ink-muted: #A0A0A0;
+  --border-brutal: 3px solid #FFF6E5;
+  --shadow-brutal: 4px 4px 0px #FFF6E5;
 }
 
 /* Reduced motion preference */

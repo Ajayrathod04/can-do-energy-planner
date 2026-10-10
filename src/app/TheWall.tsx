@@ -101,7 +101,7 @@ export const TheWall: React.FC = () => {
     // 5. Watermark attribution
     ctx.fillStyle = '#FFFFFF';
     ctx.font = 'bold 14px "Space Grotesk", sans-serif';
-    ctx.fillText('Crafted by AJRathod // CAN-DO Energy Planner', 60, 740);
+    ctx.fillText('AJRathod / ajaybr2021@gmail.com', 60, 740);
 
     // 6. Trigger native download
     canvas.toBlob((blob) => {
@@ -123,7 +123,7 @@ export const TheWall: React.FC = () => {
           <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-yellow-300">
             Step 4 // The Permanent Record
           </span>
-          <h2 className="font-display text-xl sm:text-2xl uppercase text-paper">The Wall (Graffiti Gallery)</h2>
+          <h2 className="font-display text-xl sm:text-2xl uppercase text-paper">Your Wall: every finished task becomes a tag</h2>
           <p className="text-xs text-neutral-400 font-body">
             Completed tasks convert into permanent graffiti tags on your wall. Resting counts as capacity renewal.
           </p>

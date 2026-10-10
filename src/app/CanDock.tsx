@@ -36,7 +36,7 @@ export const CanDock: React.FC<CanDockProps> = ({ onOpenDeferral, isOverDropZone
         <div className="text-right">
           <span className="font-mono text-xs font-bold text-neutral-600 block">GAUGE READOUT</span>
           <span className="font-display text-lg">
-            {totalCost} / {capacity} <span className="text-xs font-mono font-normal">UNITS</span>
+            {totalCost} / {capacity} <span className="text-xs font-mono font-normal">paint</span>
           </span>
         </div>
       </div>

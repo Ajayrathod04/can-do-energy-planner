@@ -289,3 +289,6 @@ export const selectCanTotalCost = (state: AppState) =>
 
 export const selectActiveMode = (state: AppState): EnergyMode =>
   MODES.find(m => m.id === state.activeModeId) || DEFAULT_MODE;
+
+export const usePlannerStore = useAppStore;
+

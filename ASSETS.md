@@ -1,34 +1,46 @@
 # ASSETS PROVENANCE & LICENSING (CAN-DO)
 
-All graphical assets used in CAN-DO are 100% original, procedurally created in code, or generated without any copyrighted brands, characters, or protected trademarks.
+All assets used in CAN-DO are 100% original, procedurally created in code, or self-hosted under permissive open-source licenses. Zero copyrighted brands, protected characters, or external trackers are utilized.
 
 ---
 
-## 1. Generated Graphic Assets (`public/img/`)
-
-| Asset Path | Origin & Engine | Original Generation Prompt | License |
-|---|---|---|---|
-| `public/img/concrete-texture.png` | AI Image Synthesis | *"Dark raw architectural concrete wall surface texture, rough grunge surface, subtle pitted details, matte charcoal and deep graphite tones, seamless tileable appearance, high contrast, no text, no logo, no people, photorealistic 8k texture"* | CC0 / Original Work |
-| `public/img/splatter-overlay.png` | AI Image Synthesis | *"Dynamic neon paint splatter and spray mist droplet overlay on pure black background, graffiti spray paint drips and fine speckled dots, vibrant edge highlights, isolated, no text, no logo"* | CC0 / Original Work |
-| `public/img/spray-cap.png` | AI Image Synthesis | *"Macro close-up studio shot of a modern graffiti aerosol spray can nozzle and actuator cap, industrial plastic design with fine spray hole, metallic collar rim, dramatic rim lighting on dark background, no text, no logo"* | CC0 / Original Work |
-| `public/img/hero-poster.png` | AI Image Synthesis | *"Dramatic cinematic 3D render of a blank sleek cylindrical spray paint can floating against a dark textured concrete wall, rim lighting in vivid cobalt and safety orange, minimalist brutalist aesthetic, photorealistic, no text, no brand, no logo"* | CC0 / Original Work |
+## 1. Mascot Character: "Cano"
+- **Component**: `src/components/CanoMascot.tsx`
+- **Origin**: 100% hand-crafted original inline SVG character design.
+- **Poses**:
+  1. `happy`: Waving hand, bright smile, buoyant posture.
+  2. `full`: Puffed cheeks, round belly, wiping forehead (*"Can's full!"*).
+  3. `sleepy`: Nightcap, closed eyes, subtle floating zzz.
+  4. `celebrating`: Jumping arms raised, spray sparkles, confetti star.
+- **License**: CC0 / Original Work by AJRathod.
 
 ---
 
-## 2. Procedural In-Code Assets
+## 2. Custom 16-Icon Vector Suite
+- **Component**: `src/components/icons/index.tsx`
+- **Origin**: Hand-coded vector SVG icons with 3px stroke, rounded caps, and colored blob backdrops.
+- **Icons**:
+  `SunMoonIcon`, `PaintDropIcon`, `SprayCanIcon`, `CalendarIcon`, `PillowRestIcon`, `StarIcon`, `ShieldIcon`, `KeyboardIcon`, `EyeIcon`, `HandIcon`, `TimerIcon`, `DownloadIcon`, `SoundIcon`, `VibrationIcon`, `HelpIcon`, `CheckIcon`.
+- **License**: CC0 / Original Work.
+
+---
+
+## 3. Procedural In-Code Assets
 
 | Asset Type | Generator Source | Technique & Description |
 |---|---|---|
-| **3D Spray Can Geometry** | `src/three/SprayCanGeometry.ts` | Procedural spline rotated via `THREE.LatheGeometry` (concave aerosol chime dome, cylinder body, chiseled shoulder, collar, nozzle). Zero external `.glb`/`.obj` 3D files. |
-| **Can Labels & Splatters** | `src/three/LabelCanvas.ts` | 100% vector HTML5 2D Canvas drawing mode names, barcodes, gauge calibration ticks, and deterministic splatter paths in real time. |
-| **Graffiti Tags on The Wall** | `src/three/GraffitiGenerator.ts` | Seeded procedural canvas graffiti stencil pieces generated dynamically per completed task ID. |
-| **Web Audio Synthesizer** | `src/lib/sound.ts` | Procedural Web Audio API sound generator (biquad filtered white noise hiss, resonant chime, click). Zero recorded audio samples; default OFF. |
+| **3D Spray Can Geometry** | `src/three/SprayCanGeometry.ts` | Procedural spline rotated via `THREE.LatheGeometry` (concave chime dome, cylinder body, chiseled shoulder, collar, nozzle). Zero external `.glb`/`.obj` 3D files. |
+| **Can Labels & Splatters** | `src/three/LabelCanvas.ts` | 100% vector HTML5 2D Canvas drawing mode names, barcodes, gauge ticks, and geometric patterns in real time. |
+| **Graffiti Tags on The Wall** | `src/three/GraffitiGenerator.ts` | Seeded procedural canvas graffiti stencil plaques generated dynamically per completed task ID. |
+| **Overload Fluid Drips** | `src/components/DripCanvas.tsx` | 2D HTML5 Canvas gravity fluid simulation (stream velocity, blob head, lateral wobble) + static SVG fallback. |
+| **Web Audio Synthesizer** | `src/lib/sound.ts` | Procedural Web Audio API sound generator (bandpass filtered white noise hiss, resonant chime, mixing ball bearing clack). Zero recorded audio samples; strictly default OFF. |
 
 ---
 
-## 3. Typography (Google Fonts OFL)
+## 4. Self-Hosted Typography (@fontsource)
 
-- **Archivo Black**: SIL Open Font License 1.1 (Display & Title kinetic typography)
-- **Permanent Marker**: Apache License 2.0 (Graffiti tags & spray can labels)
-- **Space Grotesk**: SIL Open Font License 1.1 (Body, UI controls & data tables)
-- **OpenDyslexic**: OpenDyslexic Font License (A11y accessibility mode)
+Zero runtime third-party network calls. All font files are bundled locally into `dist/assets/`:
+- **Archivo Black**: SIL Open Font License 1.1 (`@fontsource/archivo-black`)
+- **Permanent Marker**: Apache License 2.0 (`@fontsource/permanent-marker`)
+- **Space Grotesk**: SIL Open Font License 1.1 (`@fontsource/space-grotesk`)
+- **OpenDyslexic**: OpenDyslexic Font License (A11y mode)

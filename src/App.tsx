@@ -1,24 +1,36 @@
 import React, { useEffect } from 'react';
 import { HashRouterProvider, useRouter } from './lib/router';
 import { useAppStore, selectActiveMode } from './lib/store';
-import { Navbar } from './components/Navbar';
-import { Footer } from './components/Footer';
 import { JudgeTour } from './components/JudgeTour';
 import { NozzleCursor } from './components/NozzleCursor';
-import { LandingPage } from './scenes/LandingPage';
-import { AppView } from './app/AppView';
-import { SystemShowcase } from './scenes/SystemShowcase';
+import { LandingPage } from './pages/LandingPage';
+import { AppPage } from './pages/AppPage';
+import { SystemPage } from './pages/SystemPage';
+import { NotFoundPage } from './pages/NotFoundPage';
 
 const AppContent: React.FC = () => {
   const { route } = useRouter();
   const activeMode = useAppStore(selectActiveMode);
-  const highContrast = useAppStore(s => s.highContrast);
-  const dyslexiaFont = useAppStore(s => s.dyslexiaFont);
+  const highContrast = useAppStore((s) => s.highContrast);
+  const dyslexiaFont = useAppStore((s) => s.dyslexiaFont);
 
   // Synchronize CSS custom property for active mode color
   useEffect(() => {
     document.documentElement.style.setProperty('--active-mode-color', activeMode.accentColor);
   }, [activeMode.accentColor]);
+
+  const renderRoute = () => {
+    switch (route) {
+      case '/':
+        return <LandingPage />;
+      case '/app':
+        return <AppPage />;
+      case '/system':
+        return <SystemPage />;
+      default:
+        return <NotFoundPage />;
+    }
+  };
 
   return (
     <div
@@ -27,16 +39,12 @@ const AppContent: React.FC = () => {
       } ${dyslexiaFont ? 'font-dyslexic' : ''}`}
     >
       <NozzleCursor />
-      <Navbar />
 
       <main id="main-content" className="flex-1 flex flex-col">
-        {route === '/' && <LandingPage />}
-        {route === '/app' && <AppView />}
-        {route === '/system' && <SystemShowcase />}
+        {renderRoute()}
       </main>
 
       <JudgeTour />
-      <Footer />
     </div>
   );
 };

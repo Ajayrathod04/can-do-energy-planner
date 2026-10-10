@@ -13,11 +13,11 @@ interface TourStep {
 
 const TOUR_STEPS: TourStep[] = [
   {
-    title: '1. The Anti-Burnout Hypothesis',
-    badge: 'HERO SCENE',
+    title: '1. The 5-Second Pitch',
+    badge: 'WHAT IT IS',
     route: '/',
-    caption: 'Students use infinite to-do lists that treat cognitive stamina as an elastic band. CAN-DO treats your day as a finite physical aerosol can of paint.',
-    highlight: 'Move cursor to spray pigment onto the concrete wall.',
+    caption: 'Your day is a spray can. When it’s full, stop. CAN-DO is a daily planner for students with more to-dos than energy. Check in, get today’s paint, load tasks, and stop when full. No guilt.',
+    highlight: 'A stranger understands what it is, who it is for, and what to do within 5 seconds.',
   },
   {
     title: '2. The Aerosol Rattle Ritual',

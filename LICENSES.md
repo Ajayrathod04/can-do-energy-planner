@@ -1,6 +1,6 @@
 # THIRD-PARTY OPEN-SOURCE LICENSES
 
-CAN-DO is committed to total licensing transparency. Every third-party library utilized is strictly permissive (MIT, Apache-2.0, or BSD-3-Clause).
+CAN-DO is committed to total licensing transparency. Every third-party library utilized is strictly permissive (MIT, Apache-2.0, BSD-3-Clause, ISC, or OFL).
 
 ---
 
@@ -16,28 +16,32 @@ CAN-DO is committed to total licensing transparency. Every third-party library u
 | **Zustand** | `^5.0.3` | MIT | pmndrs/zustand | Lightweight state store with guarded storage |
 | **@dnd-kit/core** | `^6.3.1` | MIT | clauderic/dnd-kit | Accessible drag and drop primitives |
 | **@dnd-kit/utilities** | `^3.2.2` | MIT | clauderic/dnd-kit | Pointer and sensor utility helpers |
-| **Lucide-React** | `^1.16.0` | ISC / MIT | lucide-icons/lucide | Accessible vector SVG icons |
 | **Canvas-Confetti** | `^1.9.4` | ISC | catdad/canvas-confetti | Milestone celebration particle effects |
 | **Clsx** | `^2.1.1` | MIT | lukeed/clsx | Conditional classname concatenation |
 | **Tailwind-Merge** | `^3.5.0` | MIT | dcastil/tailwind-merge | Utility class deduplication |
 
 ---
 
-## 2. Build & Developer Tooling
+## 2. Self-Hosted Fonts (@fontsource)
 
-| Tool Name | Version | License | Source | Purpose |
-|---|---|---|---|---|
-| **Vite** | `^6.2.1` | MIT | vitejs/vite | Fast ESM dev server and Rollup static bundler |
-| **TypeScript** | `^5.7.3` | Apache-2.0 | microsoft/TypeScript | Strict static typing and invariant verification |
-| **TailwindCSS** | `^3.4.17` | MIT | tailwindlabs/tailwindcss | Layout utilities and design token bindings |
-| **PostCSS** | `^8.5.3` | MIT | postcss/postcss | CSS transformations |
-| **Autoprefixer** | `^10.4.21` | MIT | postcss/autoprefixer | Vendor prefix parsing |
+Fonts are self-hosted within the static bundle to ensure zero third-party runtime requests and 100% offline-first privacy.
+
+| Package | Font | License |
+|---|---|---|
+| `@fontsource/archivo-black` | Archivo Black | SIL Open Font License (OFL-1.1) |
+| `@fontsource/space-grotesk` | Space Grotesk | SIL Open Font License (OFL-1.1) |
+| `@fontsource/permanent-marker` | Permanent Marker | Apache License 2.0 |
 
 ---
 
-## 3. Typography & Fonts (OFL / Apache)
+## 3. Test & Verification Tooling
 
-- **Archivo Black**: SIL Open Font License, 1.1 (OFL)
-- **Permanent Marker**: Apache License, Version 2.0
-- **Space Grotesk**: SIL Open Font License, 1.1 (OFL)
-- **OpenDyslexic**: OpenDyslexic License
+| Tool Name | License | Purpose |
+|---|---|---|
+| **Vitest** | MIT | Fast unit and integration test runner |
+| **@testing-library/react** | MIT | User-centric DOM testing utilities |
+| **vitest-axe** / **axe-core** | MIT / MPL-2.0 | Automated WCAG 2.1 AA accessibility auditing in jsdom |
+| **jsdom** | MIT | Headless browser DOM environment |
+| **ESLint** | MIT | Static code quality and rule enforcement |
+| **TypeScript** | Apache-2.0 | Static type checker (`tsc --noEmit`) |
+| **Vite** | MIT | Zero-config static bundler and dev server |

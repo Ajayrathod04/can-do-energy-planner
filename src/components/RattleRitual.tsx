@@ -125,7 +125,7 @@ export const RattleRitual: React.FC<{ className?: string }> = ({ className = '' 
         <div className="flex items-center gap-2">
           <Sparkles className="w-4 h-4 text-modeGrind" />
           <span className="font-display text-xs uppercase tracking-wide">
-            Aerosol Ritual // Prime The Mixing Ball
+            Shake to wake the can (just for fun)
           </span>
         </div>
         <span className="text-[10px] font-mono bg-neutral-200 px-1.5 py-0.5 border border-ink text-neutral-600">
