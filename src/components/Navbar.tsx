@@ -8,11 +8,11 @@ import { sound } from '../lib/sound';
 export const Navbar: React.FC = () => {
   const { route, navigate } = useRouter();
   const activeMode = useAppStore(selectActiveMode);
-  const setActiveMode = useAppStore(s => s.setActiveMode);
-  const soundEnabled = useAppStore(s => s.soundEnabled);
-  const toggleSound = useAppStore(s => s.toggleSound);
-  const highContrast = useAppStore(s => s.highContrast);
-  const setA11ySetting = useAppStore(s => s.setA11ySetting);
+  const setActiveMode = useAppStore((s) => s.setActiveMode);
+  const soundEnabled = useAppStore((s) => s.soundEnabled);
+  const toggleSound = useAppStore((s) => s.toggleSound);
+  const highContrast = useAppStore((s) => s.highContrast);
+  const setA11ySetting = useAppStore((s) => s.setA11ySetting);
 
   const handleSoundToggle = () => {
     toggleSound();
@@ -44,7 +44,9 @@ export const Navbar: React.FC = () => {
             title={`Active Mode: ${activeMode.name}`}
           >
             <span className="w-2 h-2 rounded-full bg-ink inline-block animate-pulse"></span>
-            <span>{activeMode.name} ({activeMode.multiplier}x)</span>
+            <span>
+              {activeMode.name} ({activeMode.multiplier}x)
+            </span>
           </div>
         </div>
 
@@ -97,7 +99,9 @@ export const Navbar: React.FC = () => {
         {/* Quick Mode & A11y Controls */}
         <div className="flex items-center gap-2">
           {/* Mode Selector */}
-          <label htmlFor="nav-mode-select" className="sr-only">Select Energy Mode</label>
+          <label htmlFor="nav-mode-select" className="sr-only">
+            Select Energy Mode
+          </label>
           <select
             id="nav-mode-select"
             value={activeMode.id}
@@ -107,7 +111,7 @@ export const Navbar: React.FC = () => {
             }}
             className="bg-neutral-900 text-paper text-xs font-bold border-2 border-neutral-600 px-2 py-1.5 cursor-pointer uppercase focus:border-modeGrind"
           >
-            {MODES.map(m => (
+            {MODES.map((m) => (
               <option key={m.id} value={m.id}>
                 {m.name} ({m.multiplier}x)
               </option>
@@ -122,7 +126,11 @@ export const Navbar: React.FC = () => {
                 ? 'bg-yellow-400 text-ink border-yellow-400'
                 : 'bg-neutral-900 text-neutral-400 border-neutral-700 hover:text-paper'
             }`}
-            aria-label={soundEnabled ? 'Sound effects enabled. Click to mute.' : 'Sound effects muted. Click to enable sound.'}
+            aria-label={
+              soundEnabled
+                ? 'Sound effects enabled. Click to mute.'
+                : 'Sound effects muted. Click to enable sound.'
+            }
             title={soundEnabled ? 'Mute Sound' : 'Enable Sound (Procedural Web Audio)'}
           >
             {soundEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}

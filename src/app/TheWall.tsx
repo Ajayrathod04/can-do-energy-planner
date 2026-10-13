@@ -4,7 +4,7 @@ import { Download, CheckCircle } from 'lucide-react';
 import { sound } from '../lib/sound';
 
 export const TheWall: React.FC = () => {
-  const wallTags = useAppStore(s => s.wallTags);
+  const wallTags = useAppStore((s) => s.wallTags);
 
   // Native Canvas PNG Exporter (zero html2canvas dependency!)
   const handleExportPNG = () => {
@@ -45,7 +45,11 @@ export const TheWall: React.FC = () => {
 
     ctx.fillStyle = '#888888';
     ctx.font = '16px monospace';
-    ctx.fillText(`EXPORTED: ${new Date().toLocaleDateString()} // PIECES: ${wallTags.length}`, 60, 165);
+    ctx.fillText(
+      `EXPORTED: ${new Date().toLocaleDateString()} // PIECES: ${wallTags.length}`,
+      60,
+      165
+    );
 
     // 4. Render tags in a brick pattern
     const startX = 60;
@@ -123,9 +127,12 @@ export const TheWall: React.FC = () => {
           <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-yellow-300">
             Step 4 // The Permanent Record
           </span>
-          <h2 className="font-display text-xl sm:text-2xl uppercase text-paper">Your Wall: every finished task becomes a tag</h2>
+          <h2 className="font-display text-xl sm:text-2xl uppercase text-paper">
+            Your Wall: every finished task becomes a tag
+          </h2>
           <p className="text-xs text-neutral-400 font-body">
-            Completed tasks convert into permanent graffiti tags on your wall. Resting counts as capacity renewal.
+            Completed tasks convert into permanent graffiti tags on your wall. Resting counts as
+            capacity renewal.
           </p>
         </div>
 
@@ -147,7 +154,7 @@ export const TheWall: React.FC = () => {
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pt-2">
-          {wallTags.map(tag => (
+          {wallTags.map((tag) => (
             <div
               key={tag.id}
               className="p-4 bg-neutral-950 border-2 border-neutral-700 relative overflow-hidden group hover:border-paper transition-all shadow-[3px_3px_0px_#000000]"

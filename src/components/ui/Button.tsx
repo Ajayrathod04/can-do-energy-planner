@@ -37,19 +37,12 @@ export const Button: React.FC<ButtonProps> = ({
       'bg-[#FFFFFF] text-[#111111] border-[3px] border-[#111111] shadow-[4px_4px_0_#111111] hover:bg-[#FFF6E5] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0_#111111]',
     outline:
       'bg-transparent text-[#111111] border-[3px] border-[#111111] hover:bg-[#111111] hover:text-[#FFF6E5]',
-    ghost:
-      'bg-transparent text-[#111111] hover:bg-black/5 active:bg-black/10',
+    ghost: 'bg-transparent text-[#111111] hover:bg-black/5 active:bg-black/10',
   }[variant];
 
   return (
     <button
-      className={clsx(
-        baseStyles,
-        sizeStyles,
-        variantStyles,
-        isFullWidth && 'w-full',
-        className
-      )}
+      className={clsx(baseStyles, sizeStyles, variantStyles, isFullWidth && 'w-full', className)}
       disabled={disabled}
       {...props}
     >

@@ -16,56 +16,65 @@ const TOUR_STEPS: TourStep[] = [
     title: '1. The 5-Second Pitch',
     badge: 'WHAT IT IS',
     route: '/',
-    caption: 'Your day is a spray can. When it’s full, stop. CAN-DO is a daily planner for students with more to-dos than energy. Check in, get today’s paint, load tasks, and stop when full. No guilt.',
+    caption:
+      'Your day is a spray can. When it’s full, stop. CAN-DO is a daily planner for students with more to-dos than energy. Check in, get today’s paint, load tasks, and stop when full. No guilt.',
     highlight: 'A stranger understands what it is, who it is for, and what to do within 5 seconds.',
   },
   {
     title: '2. The Aerosol Rattle Ritual',
     badge: 'PHYSICAL RITUAL',
     route: '/app',
-    caption: 'Drag side-to-side to hear the synthesized mixing ball rattle. A spring velocity model charges the pressure ring. Shaking is an agitation ritual that never changes the math.',
-    highlight: 'Desktop pointer velocity / Mobile DeviceMotion accelerometer / Keyboard Accessible.',
+    caption:
+      'Drag side-to-side to hear the synthesized mixing ball rattle. A spring velocity model charges the pressure ring. Shaking is an agitation ritual that never changes the math.',
+    highlight:
+      'Desktop pointer velocity / Mobile DeviceMotion accelerometer / Keyboard Accessible.',
   },
   {
     title: '3. Six Pattern-Coded Modes',
     badge: 'BIOLOGICAL POSTURES',
     route: '/system',
-    caption: 'Six modes adapt to your biological season (FOCUS, GRIND, CREATE, CHILL, SOCIAL, RECOVER). Color is never the only signal: each carries a unique geometric pattern (stripes, dots, waves).',
+    caption:
+      'Six modes adapt to your biological season (FOCUS, GRIND, CREATE, CHILL, SOCIAL, RECOVER). Color is never the only signal: each carries a unique geometric pattern (stripes, dots, waves).',
     highlight: 'All text/background pairs mathematically verified for WCAG 2.1 AA contrast.',
   },
   {
     title: '4. Allocating Paint Units',
     badge: 'DEMO DAY BOARD',
     route: '/app',
-    caption: 'Tasks cost 1 to 5 paint units. Realistic student scenarios (OS homework, Discrete Math, cooking meals) are packed into the pressurized can via drag or keyboard.',
+    caption:
+      'Tasks cost 1 to 5 paint units. Realistic student scenarios (OS homework, Discrete Math, cooking meals) are packed into the pressurized can via drag or keyboard.',
     highlight: 'Live can fill level gauge tracks exact used vs available paint units.',
   },
   {
     title: '5. Overload Fluid Drips',
     badge: 'OVERLOAD PHYSICS',
     route: '/app',
-    caption: 'When volume is exceeded, paint physically leaks. A 2D gravity fluid simulation runs behind the can—1 stream per excess unit. Announce via aria-live.',
+    caption:
+      'When volume is exceeded, paint physically leaks. A 2D gravity fluid simulation runs behind the can—1 stream per excess unit. Announce via aria-live.',
     highlight: 'No guilt alarms. The advisor recommends strategic deferrals ("Move to tomorrow").',
   },
   {
     title: '6. Cap-Lock Safety Guard',
     badge: 'SAFETY LATCH',
     route: '/app',
-    caption: 'At 100% capacity, the actuator cap snaps shut with a "CLOSED FOR TODAY" sticker and haptic vibration. A kind "Open anyway" button keeps the user in control.',
+    caption:
+      'At 100% capacity, the actuator cap snaps shut with a "CLOSED FOR TODAY" sticker and haptic vibration. A kind "Open anyway" button keeps the user in control.',
     highlight: 'Protects evening recovery while respecting human autonomy.',
   },
   {
     title: '7. The Wall of Graffiti Proof',
     badge: 'PERMANENT RECORD',
     route: '/app',
-    caption: 'Completed tasks become permanent graffiti stencil plaques on personal concrete. Rest days also leave tags. Export complete gallery or month mural as high-res PNG.',
+    caption:
+      'Completed tasks become permanent graffiti stencil plaques on personal concrete. Rest days also leave tags. Export complete gallery or month mural as high-res PNG.',
     highlight: '100% native HTML5 Canvas 2D image synthesis (zero html2canvas dependency).',
   },
   {
     title: '8. Sensory Deck & Deployxa Target',
     badge: 'ACCESSIBILITY & DEPLOY',
     route: '/',
-    caption: 'Live sensory panel controls Reduced Motion, High Contrast, Dyslexic font, and procedural Web Audio FX (strictly OFF by default). Static build ready for Deployxa.',
+    caption:
+      'Live sensory panel controls Reduced Motion, High Contrast, Dyslexic font, and procedural Web Audio FX (strictly OFF by default). Static build ready for Deployxa.',
     highlight: 'Zero third-party network trackers. Privacy-first local-only architecture.',
   },
 ];
@@ -100,7 +109,7 @@ export const JudgeTour: React.FC = () => {
 
     const timer = setTimeout(() => {
       if (currentStepIndex < TOUR_STEPS.length - 1) {
-        setCurrentStepIndex(prev => prev + 1);
+        setCurrentStepIndex((prev) => prev + 1);
         sound.playPop();
       } else {
         setIsPlaying(false);
@@ -111,26 +120,29 @@ export const JudgeTour: React.FC = () => {
   }, [isOpen, isPlaying, currentStepIndex]);
 
   // Keyboard navigation
-  const handleKeyDown = useCallback((e: KeyboardEvent) => {
-    if (!isOpen) return;
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      if (!isOpen) return;
 
-    if (e.key === 'ArrowRight' || e.key === 'Enter') {
-      if (currentStepIndex < TOUR_STEPS.length - 1) {
-        setCurrentStepIndex(prev => prev + 1);
-        sound.playPop();
+      if (e.key === 'ArrowRight' || e.key === 'Enter') {
+        if (currentStepIndex < TOUR_STEPS.length - 1) {
+          setCurrentStepIndex((prev) => prev + 1);
+          sound.playPop();
+        }
+      } else if (e.key === 'ArrowLeft') {
+        if (currentStepIndex > 0) {
+          setCurrentStepIndex((prev) => prev - 1);
+          sound.playPop();
+        }
+      } else if (e.key === 'Escape') {
+        setIsOpen(false);
+      } else if (e.key === ' ') {
+        e.preventDefault();
+        setIsPlaying((prev) => !prev);
       }
-    } else if (e.key === 'ArrowLeft') {
-      if (currentStepIndex > 0) {
-        setCurrentStepIndex(prev => prev - 1);
-        sound.playPop();
-      }
-    } else if (e.key === 'Escape') {
-      setIsOpen(false);
-    } else if (e.key === ' ') {
-      e.preventDefault();
-      setIsPlaying(prev => !prev);
-    }
-  }, [isOpen, currentStepIndex]);
+    },
+    [isOpen, currentStepIndex]
+  );
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
@@ -139,7 +151,7 @@ export const JudgeTour: React.FC = () => {
 
   const handleNext = () => {
     if (currentStepIndex < TOUR_STEPS.length - 1) {
-      setCurrentStepIndex(prev => prev + 1);
+      setCurrentStepIndex((prev) => prev + 1);
       sound.playPop();
     } else {
       setIsOpen(false);
@@ -148,7 +160,7 @@ export const JudgeTour: React.FC = () => {
 
   const handlePrev = () => {
     if (currentStepIndex > 0) {
-      setCurrentStepIndex(prev => prev - 1);
+      setCurrentStepIndex((prev) => prev - 1);
       sound.playPop();
     }
   };
@@ -168,7 +180,10 @@ export const JudgeTour: React.FC = () => {
           className="fixed bottom-6 right-6 z-40 brutal-btn px-4 py-2.5 bg-[#FFD93D] text-[#0A0A0A] border-3 border-[#0A0A0A] shadow-[6px_6px_0px_#0A0A0A] font-bold text-xs uppercase flex items-center gap-2 hover:bg-yellow-300 active:translate-x-1 active:translate-y-1"
           aria-label="Start 60-second guided judge tour"
         >
-          <Compass className="w-4 h-4 text-[#0A0A0A] animate-spin" style={{ animationDuration: '8s' }} />
+          <Compass
+            className="w-4 h-4 text-[#0A0A0A] animate-spin"
+            style={{ animationDuration: '8s' }}
+          />
           <span>Tour (60s)</span>
         </button>
       )}
@@ -195,7 +210,7 @@ export const JudgeTour: React.FC = () => {
             <div className="flex items-center gap-1">
               <button
                 type="button"
-                onClick={() => setIsPlaying(prev => !prev)}
+                onClick={() => setIsPlaying((prev) => !prev)}
                 className="p-1.5 hover:bg-neutral-200 border border-[#0A0A0A] text-xs font-bold"
                 title={isPlaying ? 'Pause auto-play (Space)' : 'Play auto-play (Space)'}
                 aria-label={isPlaying ? 'Pause tour' : 'Play tour'}

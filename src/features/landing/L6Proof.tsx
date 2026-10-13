@@ -32,16 +32,12 @@ export const L6Proof: React.FC = () => {
 
           <Card className="text-center p-6 border-[3px] border-[#111111] bg-[#38BDF8] shadow-[4px_4px_0_#111111] rotate-[-0.5deg]">
             <p className="font-display text-4xl md:text-5xl text-[#111111]">0</p>
-            <p className="font-bold text-xs uppercase text-[#333333] mt-2">
-              Third-Party Trackers
-            </p>
+            <p className="font-bold text-xs uppercase text-[#333333] mt-2">Third-Party Trackers</p>
           </Card>
 
           <Card className="text-center p-6 border-[3px] border-[#111111] bg-[#FF3D8B] shadow-[4px_4px_0_#111111] rotate-[1.5deg]">
             <p className="font-display text-4xl md:text-5xl text-white">100%</p>
-            <p className="font-bold text-xs uppercase text-white mt-2">
-              On-Device Local Privacy
-            </p>
+            <p className="font-bold text-xs uppercase text-white mt-2">On-Device Local Privacy</p>
           </Card>
         </div>
 
@@ -54,7 +50,9 @@ export const L6Proof: React.FC = () => {
           <div className="relative h-64 md:h-72 border-[3px] border-[#111111] shadow-[6px_6px_0_#111111] overflow-hidden select-none">
             {/* Before (Left Side) */}
             <div className="absolute inset-0 bg-[#FFF0F0] p-6 flex flex-col justify-center">
-              <span className="font-display text-lg text-[#FF3D8B] mb-2">❌ INFINITE TO-DO LIST</span>
+              <span className="font-display text-lg text-[#FF3D8B] mb-2">
+                ❌ INFINITE TO-DO LIST
+              </span>
               <ul className="text-xs md:text-sm text-[#444444] space-y-1 font-mono">
                 <li>• 27 unprioritized items rolling over</li>
                 <li>• Constant guilt for unfinished tasks</li>
@@ -68,7 +66,9 @@ export const L6Proof: React.FC = () => {
               className="absolute inset-0 bg-[#E8FFF5] p-6 flex flex-col justify-center border-l-[3px] border-[#111111]"
               style={{ clipPath: `inset(0 0 0 ${sliderPos}%)` }}
             >
-              <span className="font-display text-lg text-[#00E599] mb-2">✓ CAN-DO PHYSICAL BUDGET</span>
+              <span className="font-display text-lg text-[#00E599] mb-2">
+                ✓ CAN-DO PHYSICAL BUDGET
+              </span>
               <ul className="text-xs md:text-sm text-[#222222] space-y-1 font-mono">
                 <li>• Strict 4-16 paint capacity calculated daily</li>
                 <li>• Cap locks automatically when full</li>

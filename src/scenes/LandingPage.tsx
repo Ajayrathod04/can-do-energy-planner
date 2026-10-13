@@ -9,13 +9,13 @@ import { sound } from '../lib/sound';
 export const LandingPage: React.FC = () => {
   const { navigate } = useRouter();
   const activeMode = useAppStore(selectActiveMode);
-  const setActiveMode = useAppStore(s => s.setActiveMode);
-  const soundEnabled = useAppStore(s => s.soundEnabled);
-  const toggleSound = useAppStore(s => s.toggleSound);
-  const highContrast = useAppStore(s => s.highContrast);
-  const reducedMotion = useAppStore(s => s.reducedMotion);
-  const dyslexiaFont = useAppStore(s => s.dyslexiaFont);
-  const setA11ySetting = useAppStore(s => s.setA11ySetting);
+  const setActiveMode = useAppStore((s) => s.setActiveMode);
+  const soundEnabled = useAppStore((s) => s.soundEnabled);
+  const toggleSound = useAppStore((s) => s.toggleSound);
+  const highContrast = useAppStore((s) => s.highContrast);
+  const reducedMotion = useAppStore((s) => s.reducedMotion);
+  const dyslexiaFont = useAppStore((s) => s.dyslexiaFont);
+  const setA11ySetting = useAppStore((s) => s.setA11ySetting);
 
   // S6 Comparison slider state (0 to 100)
   const [sliderPos, setSliderPos] = useState(50);
@@ -36,7 +36,8 @@ export const LandingPage: React.FC = () => {
               YOUR DAY IS NOT INFINITE.
             </h2>
             <p className="text-lg text-neutral-800 leading-relaxed font-medium">
-              Standard to-do apps invite you to pile 27 items onto a single Tuesday. They ignore sleep debt, cognitive friction, and biological capacity.
+              Standard to-do apps invite you to pile 27 items onto a single Tuesday. They ignore
+              sleep debt, cognitive friction, and biological capacity.
             </p>
           </div>
 
@@ -54,11 +55,15 @@ export const LandingPage: React.FC = () => {
               <ul className="space-y-2 text-xs font-mono text-neutral-700">
                 <li className="line-through opacity-70">1. Reply to 43 unread Slack threads</li>
                 <li className="line-through opacity-70">2. Refactor entire backend schema</li>
-                <li className="opacity-90 font-bold text-red-900">3. Finish OS Kernel allocator (Due in 3 hours)</li>
+                <li className="opacity-90 font-bold text-red-900">
+                  3. Finish OS Kernel allocator (Due in 3 hours)
+                </li>
                 <li className="opacity-70">4. Review Discrete Math proofs</li>
                 <li className="opacity-70">5. Attend 4 consecutive zoom meetings</li>
                 <li className="opacity-70">6. Meal prep for the rest of week</li>
-                <li className="opacity-70">... 21 more unprioritized tasks crushing your evening</li>
+                <li className="opacity-70">
+                  ... 21 more unprioritized tasks crushing your evening
+                </li>
               </ul>
               <div className="p-3 bg-red-100 border border-red-500 text-xs text-red-900 font-bold">
                 Result: Executive dysfunction, decision paralysis, and 2 AM guilt spirals.
@@ -112,12 +117,13 @@ export const LandingPage: React.FC = () => {
               SIX MODES. ONE CAN.
             </h2>
             <p className="text-neutral-300 text-base sm:text-lg">
-              Different days demand different pacing. Selecting a mode dynamically tunes your capacity multiplier and rim lighting.
+              Different days demand different pacing. Selecting a mode dynamically tunes your
+              capacity multiplier and rim lighting.
             </p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {MODES.map(mode => (
+            {MODES.map((mode) => (
               <button
                 key={mode.id}
                 onClick={() => {
@@ -129,15 +135,19 @@ export const LandingPage: React.FC = () => {
                     ? 'border-4 border-paper shadow-[6px_6px_0px_#FFFFFF] scale-105'
                     : 'bg-neutral-900 text-paper border-2 border-neutral-700 hover:border-paper'
                 }`}
-                style={mode.id === activeMode.id ? { backgroundColor: mode.accentColor, color: '#0A0A0A' } : {}}
+                style={
+                  mode.id === activeMode.id
+                    ? { backgroundColor: mode.accentColor, color: '#0A0A0A' }
+                    : {}
+                }
               >
                 <div className="space-y-1">
                   <span className="font-display text-lg block">{mode.name}</span>
-                  <span className="font-mono text-xs font-bold block">{mode.multiplier}x Multiplier</span>
+                  <span className="font-mono text-xs font-bold block">
+                    {mode.multiplier}x Multiplier
+                  </span>
                 </div>
-                <p className="text-[11px] font-body mt-2 line-clamp-2 opacity-90">
-                  {mode.tagline}
-                </p>
+                <p className="text-[11px] font-body mt-2 line-clamp-2 opacity-90">{mode.tagline}</p>
               </button>
             ))}
           </div>
@@ -165,7 +175,8 @@ export const LandingPage: React.FC = () => {
               BEFORE & AFTER CAN-DO
             </h2>
             <p className="text-neutral-800 text-base sm:text-lg">
-              Slide to compare the mental friction of an infinite list vs. a pressurized paint container.
+              Slide to compare the mental friction of an infinite list vs. a pressurized paint
+              container.
             </p>
           </div>
 
@@ -177,20 +188,28 @@ export const LandingPage: React.FC = () => {
                 className="absolute inset-0 bg-red-950 flex flex-col justify-center p-6 text-red-200"
                 style={{ clipPath: `polygon(0 0, ${sliderPos}% 0, ${sliderPos}% 100%, 0 100%)` }}
               >
-                <span className="font-display text-2xl uppercase text-red-400">Chaos: 27 Tasks Overflow</span>
+                <span className="font-display text-2xl uppercase text-red-400">
+                  Chaos: 27 Tasks Overflow
+                </span>
                 <p className="font-mono text-xs max-w-md mt-2 text-neutral-300">
-                  Tasks spill over midnight. Every unfinished task carries moral guilt and cognitive debt.
+                  Tasks spill over midnight. Every unfinished task carries moral guilt and cognitive
+                  debt.
                 </p>
               </div>
 
               {/* Right Side: 7 Tasks Fit */}
               <div
                 className="absolute inset-0 bg-neutral-900 flex flex-col justify-center items-end p-6 text-green-300 text-right"
-                style={{ clipPath: `polygon(${sliderPos}% 0, 100% 0, 100% 100%, ${sliderPos}% 100%)` }}
+                style={{
+                  clipPath: `polygon(${sliderPos}% 0, 100% 0, 100% 100%, ${sliderPos}% 100%)`,
+                }}
               >
-                <span className="font-display text-2xl uppercase text-green-400">Clarity: 7 Tasks That Fit</span>
+                <span className="font-display text-2xl uppercase text-green-400">
+                  Clarity: 7 Tasks That Fit
+                </span>
                 <p className="font-mono text-xs max-w-md mt-2 text-neutral-300">
-                  Every task has allocated paint units. Remaining items are deferred peacefully to tomorrow.
+                  Every task has allocated paint units. Remaining items are deferred peacefully to
+                  tomorrow.
                 </p>
               </div>
 
@@ -203,7 +222,10 @@ export const LandingPage: React.FC = () => {
 
             {/* Slider Control */}
             <div className="space-y-1">
-              <label htmlFor="comparison-slider" className="flex justify-between text-xs font-mono font-bold uppercase">
+              <label
+                htmlFor="comparison-slider"
+                className="flex justify-between text-xs font-mono font-bold uppercase"
+              >
                 <span>Drag to compare states</span>
                 <span>Split Position: {sliderPos}%</span>
               </label>
@@ -223,7 +245,8 @@ export const LandingPage: React.FC = () => {
               <span className="font-bold uppercase text-ink block mb-1">
                 Empirical Evaluation Notice:
               </span>
-              Results from my 5-person test will be added on Oct 17. (No fabricated numbers or artificial testimonials).
+              Results from my 5-person test will be added on Oct 17. (No fabricated numbers or
+              artificial testimonials).
             </div>
           </div>
         </div>
@@ -249,7 +272,9 @@ export const LandingPage: React.FC = () => {
               <button
                 onClick={() => setA11ySetting('reducedMotion', !reducedMotion)}
                 className={`brutal-btn w-full py-1.5 text-xs font-bold ${
-                  reducedMotion ? 'bg-green-400 text-ink' : 'bg-neutral-800 text-paper border-neutral-600'
+                  reducedMotion
+                    ? 'bg-green-400 text-ink'
+                    : 'bg-neutral-800 text-paper border-neutral-600'
                 }`}
               >
                 {reducedMotion ? 'ENABLED (CALM)' : 'DISABLED'}
@@ -265,7 +290,9 @@ export const LandingPage: React.FC = () => {
               <button
                 onClick={() => setA11ySetting('highContrast', !highContrast)}
                 className={`brutal-btn w-full py-1.5 text-xs font-bold ${
-                  highContrast ? 'bg-white text-ink' : 'bg-neutral-800 text-paper border-neutral-600'
+                  highContrast
+                    ? 'bg-white text-ink'
+                    : 'bg-neutral-800 text-paper border-neutral-600'
                 }`}
               >
                 {highContrast ? 'ACTIVE' : 'DEFAULT'}
@@ -274,14 +301,18 @@ export const LandingPage: React.FC = () => {
 
             {/* Dyslexia Font */}
             <div className="brutal-card-dark p-4 space-y-3">
-              <span className="font-bold text-sm uppercase block text-paper">Dyslexia-Friendly Font</span>
+              <span className="font-bold text-sm uppercase block text-paper">
+                Dyslexia-Friendly Font
+              </span>
               <p className="text-neutral-400 font-body text-xs">
                 Swaps display typography to high-legibility weighted letterforms.
               </p>
               <button
                 onClick={() => setA11ySetting('dyslexiaFont', !dyslexiaFont)}
                 className={`brutal-btn w-full py-1.5 text-xs font-bold ${
-                  dyslexiaFont ? 'bg-yellow-400 text-ink' : 'bg-neutral-800 text-paper border-neutral-600'
+                  dyslexiaFont
+                    ? 'bg-yellow-400 text-ink'
+                    : 'bg-neutral-800 text-paper border-neutral-600'
                 }`}
               >
                 {dyslexiaFont ? 'ACTIVE' : 'DEFAULT'}
@@ -290,14 +321,18 @@ export const LandingPage: React.FC = () => {
 
             {/* Procedural Sound FX (Default OFF) */}
             <div className="brutal-card-dark p-4 space-y-3">
-              <span className="font-bold text-sm uppercase block text-paper">Sound Effects (Web Audio)</span>
+              <span className="font-bold text-sm uppercase block text-paper">
+                Sound Effects (Web Audio)
+              </span>
               <p className="text-neutral-400 font-body text-xs">
                 Procedural spray paint hiss, can rattle clicks, and pop effects.
               </p>
               <button
                 onClick={toggleSound}
                 className={`brutal-btn w-full py-1.5 text-xs font-bold flex items-center justify-center gap-1.5 ${
-                  soundEnabled ? 'bg-yellow-400 text-ink' : 'bg-neutral-800 text-neutral-400 border-neutral-600'
+                  soundEnabled
+                    ? 'bg-yellow-400 text-ink'
+                    : 'bg-neutral-800 text-neutral-400 border-neutral-600'
                 }`}
               >
                 {soundEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
@@ -315,7 +350,8 @@ export const LandingPage: React.FC = () => {
             SPRAY YOUR FIRST DAY.
           </h2>
           <p className="text-lg text-neutral-800 font-medium max-w-xl mx-auto">
-            Ready to stop treating human biology like an infinite conveyor belt? Open the app, calibrate your pressure, and allocate your paint.
+            Ready to stop treating human biology like an infinite conveyor belt? Open the app,
+            calibrate your pressure, and allocate your paint.
           </p>
           <div className="pt-2">
             <button

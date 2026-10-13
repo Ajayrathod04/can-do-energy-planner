@@ -13,7 +13,7 @@ interface Particle {
 export const SprayCanvasTrail: React.FC<{ className?: string }> = ({ className = '' }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const activeMode = useAppStore(selectActiveMode);
-  const reducedMotion = useAppStore(s => s.reducedMotion);
+  const reducedMotion = useAppStore((s) => s.reducedMotion);
   const particlesRef = useRef<Particle[]>([]);
 
   useEffect(() => {

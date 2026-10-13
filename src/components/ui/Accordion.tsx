@@ -16,9 +16,7 @@ export const Accordion: React.FC<AccordionProps> = ({ items, className }) => {
   const [openIds, setOpenIds] = useState<string[]>([]);
 
   const toggle = (id: string) => {
-    setOpenIds((prev) =>
-      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
-    );
+    setOpenIds((prev) => (prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]));
   };
 
   return (

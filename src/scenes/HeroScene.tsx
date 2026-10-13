@@ -8,9 +8,9 @@ import { ArrowRight, Play, Sparkles, Compass } from 'lucide-react';
 export const HeroScene: React.FC = () => {
   const { navigate } = useRouter();
   const activeMode = useAppStore(selectActiveMode);
-  const capacity = useAppStore(s => s.calculatedCapacity);
+  const capacity = useAppStore((s) => s.calculatedCapacity);
   const usedCapacity = useAppStore(selectCanTotalCost);
-  const resetDemo = useAppStore(s => s.resetDemo);
+  const resetDemo = useAppStore((s) => s.resetDemo);
 
   const handleDemoDay = () => {
     resetDemo();
@@ -28,7 +28,10 @@ export const HeroScene: React.FC = () => {
         <div className="lg:col-span-7 flex flex-col items-start gap-6">
           {/* Hackathon Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-ink border-2 border-paper text-xs font-mono text-paper tracking-wider uppercase">
-            <span className="w-2 h-2 rounded-full inline-block animate-ping" style={{ backgroundColor: activeMode.accentColor }} />
+            <span
+              className="w-2 h-2 rounded-full inline-block animate-ping"
+              style={{ backgroundColor: activeMode.accentColor }}
+            />
             <span>Hyperbloom '24 Web Design // Anti-Burnout Engine</span>
           </div>
 
@@ -43,9 +46,9 @@ export const HeroScene: React.FC = () => {
           </p>
 
           <p className="font-body text-base sm:text-lg text-neutral-300 max-w-xl leading-relaxed">
-            Students drown under infinite to-do lists that treat human energy like an elastic string.
-            CAN-DO treats your day as a finite physical spray can of paint. When it’s full, it overflows.
-            Physics doesn’t negotiate.
+            Students drown under infinite to-do lists that treat human energy like an elastic
+            string. CAN-DO treats your day as a finite physical spray can of paint. When it’s full,
+            it overflows. Physics doesn’t negotiate.
           </p>
 
           {/* Action Buttons */}
@@ -99,7 +102,10 @@ export const HeroScene: React.FC = () => {
           {/* Can Stats readout */}
           <div className="mt-4 flex items-center gap-4 text-xs font-mono bg-ink/90 border border-neutral-700 px-4 py-2 text-paper">
             <div>
-              MODE: <span className="font-bold" style={{ color: activeMode.accentColor }}>{activeMode.name}</span>
+              MODE:{' '}
+              <span className="font-bold" style={{ color: activeMode.accentColor }}>
+                {activeMode.name}
+              </span>
             </div>
             <div>|</div>
             <div>

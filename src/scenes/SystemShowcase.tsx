@@ -19,7 +19,8 @@ export const SystemShowcase: React.FC = () => {
             /SYSTEM SHOWCASE
           </h1>
           <p className="text-lg text-neutral-800 max-w-2xl mt-2 font-medium">
-            The Neo-Brutalist Graffiti design system powering CAN-DO. Documenting color mathematics, typography scales, interactive states, and WCAG AA accessibility compliance.
+            The Neo-Brutalist Graffiti design system powering CAN-DO. Documenting color mathematics,
+            typography scales, interactive states, and WCAG AA accessibility compliance.
           </p>
         </div>
 
@@ -27,15 +28,21 @@ export const SystemShowcase: React.FC = () => {
         <section className="space-y-6">
           <div className="flex items-center gap-2 border-b-2 border-ink pb-2">
             <Layers className="w-6 h-6 text-modeGrind" />
-            <h2 className="font-display text-2xl uppercase">1. Mode Palette & Computed WCAG 2.1 Contrast</h2>
+            <h2 className="font-display text-2xl uppercase">
+              1. Mode Palette & Computed WCAG 2.1 Contrast
+            </h2>
           </div>
           <p className="text-sm text-neutral-700">
-            Every ratio below is dynamically computed in code using the official W3C relative luminance formula.
-            Cobalt <code className="bg-neutral-200 px-1 py-0.5 font-bold">#2F5BFF</code> is programmatically flagged: it provides 3.62:1 on dark surfaces (passing 3.0:1 for large text & UI shapes, but failing 4.5:1 for small body text), triggering an automatic lift to <code className="bg-neutral-200 px-1 py-0.5 font-bold">#6B8CFF</code> for small copy.
+            Every ratio below is dynamically computed in code using the official W3C relative
+            luminance formula. Cobalt{' '}
+            <code className="bg-neutral-200 px-1 py-0.5 font-bold">#2F5BFF</code> is
+            programmatically flagged: it provides 3.62:1 on dark surfaces (passing 3.0:1 for large
+            text & UI shapes, but failing 4.5:1 for small body text), triggering an automatic lift
+            to <code className="bg-neutral-200 px-1 py-0.5 font-bold">#6B8CFF</code> for small copy.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {MODES.map(mode => {
+            {MODES.map((mode) => {
               const darkRatio = calculateContrast(mode.accentColor, '#121212');
               const paperRatio = calculateContrast(mode.accentColor, '#F4EFE6');
               const smallTextRatio = calculateContrast(mode.smallTextColor, '#121212');
@@ -71,7 +78,10 @@ export const SystemShowcase: React.FC = () => {
                             <CheckCircle2 className="w-3.5 h-3.5" /> AA Normal (4.5:1) Pass
                           </span>
                         ) : darkRatio.passesAALarge ? (
-                          <span className="text-amber-400 flex items-center gap-1" title="Restricted to large text & UI elements">
+                          <span
+                            className="text-amber-400 flex items-center gap-1"
+                            title="Restricted to large text & UI elements"
+                          >
                             <AlertTriangle className="w-3.5 h-3.5" /> AA Large / UI (3.0:1) Pass
                           </span>
                         ) : (
@@ -83,7 +93,8 @@ export const SystemShowcase: React.FC = () => {
                       {/* Note for lifted small text */}
                       {mode.smallTextColor !== mode.accentColor && (
                         <div className="text-[10px] text-blue-300 pt-1 border-t border-neutral-700">
-                          Small text auto-lifted to {mode.smallTextColor} ({smallTextRatio.ratioString} AA Pass)
+                          Small text auto-lifted to {mode.smallTextColor} (
+                          {smallTextRatio.ratioString} AA Pass)
                         </div>
                       )}
                     </div>
@@ -104,9 +115,7 @@ export const SystemShowcase: React.FC = () => {
                     </div>
                   </div>
 
-                  <p className="text-xs text-neutral-800 italic">
-                    "{mode.tagline}"
-                  </p>
+                  <p className="text-xs text-neutral-800 italic">"{mode.tagline}"</p>
                 </div>
               );
             })}
@@ -117,33 +126,45 @@ export const SystemShowcase: React.FC = () => {
         <section className="space-y-6">
           <div className="flex items-center gap-2 border-b-2 border-ink pb-2">
             <Sparkles className="w-6 h-6 text-modeCreate" />
-            <h2 className="font-display text-2xl uppercase">2. Typography Scale (OFL Google Fonts)</h2>
+            <h2 className="font-display text-2xl uppercase">
+              2. Typography Scale (OFL Google Fonts)
+            </h2>
           </div>
 
           <div className="brutal-card p-6 space-y-6">
             <div className="border-b-2 border-neutral-300 pb-4">
-              <span className="text-xs font-mono text-neutral-600 uppercase">Display / Headlines • Archivo Black</span>
+              <span className="text-xs font-mono text-neutral-600 uppercase">
+                Display / Headlines • Archivo Black
+              </span>
               <p className="font-display text-4xl sm:text-5xl uppercase tracking-tight mt-1">
                 CAN-DO PRESENTS DELIBERATE CAPACITY
               </p>
             </div>
 
             <div className="border-b-2 border-neutral-300 pb-4">
-              <span className="text-xs font-mono text-neutral-600 uppercase">Graffiti Stencils & Tags • Permanent Marker</span>
+              <span className="text-xs font-mono text-neutral-600 uppercase">
+                Graffiti Stencils & Tags • Permanent Marker
+              </span>
               <p className="font-tag text-3xl sm:text-4xl text-modeGrind mt-1">
                 Resting counts as capacity renewal!
               </p>
             </div>
 
             <div className="border-b-2 border-neutral-300 pb-4">
-              <span className="text-xs font-mono text-neutral-600 uppercase">Body & Form UI • Space Grotesk (Regular / Bold)</span>
+              <span className="text-xs font-mono text-neutral-600 uppercase">
+                Body & Form UI • Space Grotesk (Regular / Bold)
+              </span>
               <p className="font-body text-base sm:text-lg text-neutral-800 max-w-3xl mt-1 leading-relaxed">
-                Students burn out not from lack of ambition, but because conventional productivity apps treat daily hours as an infinite scroll. A physical spray can possesses finite volume; energy budgeting requires respect for boundaries.
+                Students burn out not from lack of ambition, but because conventional productivity
+                apps treat daily hours as an infinite scroll. A physical spray can possesses finite
+                volume; energy budgeting requires respect for boundaries.
               </p>
             </div>
 
             <div>
-              <span className="text-xs font-mono text-neutral-600 uppercase">Technical Monospace • Font Mono</span>
+              <span className="text-xs font-mono text-neutral-600 uppercase">
+                Technical Monospace • Font Mono
+              </span>
               <p className="font-mono text-sm text-neutral-700 mt-1">
                 LATHE_PROFILE_POINTS: 48 // PSI_SENSOR: CALIBRATED // DOCK_STATE: READY
               </p>
@@ -163,16 +184,17 @@ export const SystemShowcase: React.FC = () => {
             <div className="brutal-card p-6 space-y-6">
               <h3 className="font-display text-xl uppercase">Button States</h3>
               <div className="flex flex-wrap gap-4 items-center">
-                <button className="brutal-btn px-4 py-2 bg-paper text-ink">
-                  Default Button
-                </button>
+                <button className="brutal-btn px-4 py-2 bg-paper text-ink">Default Button</button>
                 <button className="brutal-btn px-4 py-2 bg-modeGrind text-ink">
                   Primary Action
                 </button>
                 <button className="brutal-btn px-4 py-2 bg-modeCreate text-paper">
                   Accent Action
                 </button>
-                <button disabled className="brutal-btn px-4 py-2 bg-neutral-300 text-neutral-500 cursor-not-allowed opacity-70">
+                <button
+                  disabled
+                  className="brutal-btn px-4 py-2 bg-neutral-300 text-neutral-500 cursor-not-allowed opacity-70"
+                >
                   Disabled
                 </button>
               </div>
@@ -199,7 +221,10 @@ export const SystemShowcase: React.FC = () => {
               <h3 className="font-display text-xl uppercase">Form Inputs & Sliders</h3>
               <div className="space-y-4">
                 <div>
-                  <label htmlFor="demo-text-input" className="block text-xs font-mono font-bold uppercase mb-1">
+                  <label
+                    htmlFor="demo-text-input"
+                    className="block text-xs font-mono font-bold uppercase mb-1"
+                  >
                     Task Title Input
                   </label>
                   <input
@@ -212,7 +237,10 @@ export const SystemShowcase: React.FC = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="demo-slider-input" className="flex justify-between text-xs font-mono font-bold uppercase mb-1">
+                  <label
+                    htmlFor="demo-slider-input"
+                    className="flex justify-between text-xs font-mono font-bold uppercase mb-1"
+                  >
                     <span>Effort Cost Slider</span>
                     <span className="text-modeGrind font-bold">{demoSlider} Paint Units</span>
                   </label>
@@ -235,7 +263,9 @@ export const SystemShowcase: React.FC = () => {
         <section className="space-y-6">
           <div className="flex items-center gap-2 border-b-2 border-ink pb-2">
             <CheckCircle2 className="w-6 h-6 text-green-600" />
-            <h2 className="font-display text-2xl uppercase">4. Accessibility & Inclusive Design Checklist</h2>
+            <h2 className="font-display text-2xl uppercase">
+              4. Accessibility & Inclusive Design Checklist
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono text-xs">
@@ -244,7 +274,8 @@ export const SystemShowcase: React.FC = () => {
                 <CheckCircle2 className="w-4 h-4 text-green-600" /> KEYBOARD ONLY
               </div>
               <p className="text-neutral-700 font-body">
-                Full Tab/Shift+Tab trapping, Enter/Space activation, and keyboard drag alternative buttons ("Pack into Can") on all tasks.
+                Full Tab/Shift+Tab trapping, Enter/Space activation, and keyboard drag alternative
+                buttons ("Pack into Can") on all tasks.
               </p>
             </div>
 
@@ -253,7 +284,8 @@ export const SystemShowcase: React.FC = () => {
                 <CheckCircle2 className="w-4 h-4 text-green-600" /> FOCUS RINGS
               </div>
               <p className="text-neutral-700 font-body">
-                High-contrast yellow <code className="font-bold">#FFD93D</code> 3px outline with 3px offset ensures visible navigation on dark and light surfaces.
+                High-contrast yellow <code className="font-bold">#FFD93D</code> 3px outline with 3px
+                offset ensures visible navigation on dark and light surfaces.
               </p>
             </div>
 
@@ -262,7 +294,8 @@ export const SystemShowcase: React.FC = () => {
                 <CheckCircle2 className="w-4 h-4 text-green-600" /> ARIA LIVE REGIONS
               </div>
               <p className="text-neutral-700 font-body">
-                Dynamic capacity recalculations and overflow warnings broadcast politely to screen readers via <code className="font-bold">aria-live="polite"</code>.
+                Dynamic capacity recalculations and overflow warnings broadcast politely to screen
+                readers via <code className="font-bold">aria-live="polite"</code>.
               </p>
             </div>
           </div>

@@ -33,7 +33,9 @@ export const SprayCanView: React.FC<SprayCanViewProps> = ({
 
   if (!hasWebGL) {
     return (
-      <div className={`relative flex items-center justify-center bg-neutral-900 border-3 border-ink ${className}`}>
+      <div
+        className={`relative flex items-center justify-center bg-neutral-900 border-3 border-ink ${className}`}
+      >
         <img
           src="./img/hero-poster.png"
           alt="CAN-DO Spray Can 3D Preview"
@@ -66,12 +68,7 @@ export const SprayCanView: React.FC<SprayCanViewProps> = ({
             intensity={2.8}
             distance={12}
           />
-          <pointLight
-            position={[4, -2, 2]}
-            color="#FFFFFF"
-            intensity={0.8}
-            distance={8}
-          />
+          <pointLight position={[4, -2, 2]} color="#FFFFFF" intensity={0.8} distance={8} />
 
           {/* The Procedural Spray Can */}
           <SprayCanMesh
@@ -82,13 +79,7 @@ export const SprayCanView: React.FC<SprayCanViewProps> = ({
           />
 
           {/* Contact Shadows on ground */}
-          <ContactShadows
-            position={[0, -2.1, 0]}
-            opacity={0.65}
-            scale={6}
-            blur={1.8}
-            far={4}
-          />
+          <ContactShadows position={[0, -2.1, 0]} opacity={0.65} scale={6} blur={1.8} far={4} />
 
           {/* Interactive Rotation Controls */}
           {enableControls && (
@@ -105,7 +96,10 @@ export const SprayCanView: React.FC<SprayCanViewProps> = ({
 
       {/* Floating Mode indicator tag */}
       <div className="absolute bottom-3 right-3 pointer-events-none flex items-center gap-2 bg-ink/90 border border-neutral-700 px-3 py-1 text-xs font-mono text-paper">
-        <span className="w-2.5 h-2.5 rounded-full inline-block" style={{ backgroundColor: mode.accentColor }} />
+        <span
+          className="w-2.5 h-2.5 rounded-full inline-block"
+          style={{ backgroundColor: mode.accentColor }}
+        />
         <span>3D PROCEDURAL // {mode.name}</span>
       </div>
     </div>

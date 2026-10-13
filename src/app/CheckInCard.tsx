@@ -5,11 +5,11 @@ import { HelpCircle, Moon, Zap, ShieldAlert, X } from 'lucide-react';
 import { sound } from '../lib/sound';
 
 export const CheckInCard: React.FC = () => {
-  const sleepHours = useAppStore(s => s.sleepHours);
-  const energyLevel = useAppStore(s => s.energyLevel);
-  const stressLevel = useAppStore(s => s.stressLevel);
-  const calculatedCapacity = useAppStore(s => s.calculatedCapacity);
-  const setCheckIn = useAppStore(s => s.setCheckIn);
+  const sleepHours = useAppStore((s) => s.sleepHours);
+  const energyLevel = useAppStore((s) => s.energyLevel);
+  const stressLevel = useAppStore((s) => s.stressLevel);
+  const calculatedCapacity = useAppStore((s) => s.calculatedCapacity);
+  const setCheckIn = useAppStore((s) => s.setCheckIn);
   const activeMode = useAppStore(selectActiveMode);
 
   const [showFormulaModal, setShowFormulaModal] = useState(false);
@@ -122,9 +122,7 @@ export const CheckInCard: React.FC = () => {
           <span className="font-mono text-xs font-bold uppercase">
             Today's Paint Budget ({activeMode.name}):
           </span>
-          <span className="font-display text-2xl">
-            {calculatedCapacity} Paint Units
-          </span>
+          <span className="font-display text-2xl">{calculatedCapacity} Paint Units</span>
         </div>
 
         {/* Formula Explanation Modal */}
@@ -137,7 +135,9 @@ export const CheckInCard: React.FC = () => {
           >
             <div className="brutal-card max-w-lg w-full p-6 space-y-4">
               <div className="flex items-center justify-between border-b-2 border-ink pb-3">
-                <h3 id="formula-dialog-title" className="font-display text-xl uppercase">How is Capacity Calculated?</h3>
+                <h3 id="formula-dialog-title" className="font-display text-xl uppercase">
+                  How is Capacity Calculated?
+                </h3>
                 <button
                   onClick={() => setShowFormulaModal(false)}
                   className="p-1 hover:bg-neutral-200 border border-ink"
@@ -149,15 +149,31 @@ export const CheckInCard: React.FC = () => {
 
               <div className="font-mono text-xs space-y-3 bg-neutral-100 p-4 border-2 border-ink">
                 <p className="font-bold text-sm text-ink">
-                  capacity = round(clamp((4 + sleep*0.9 + (energy-3)*1.2 - (stress-3)*0.8) * modeMultiplier, 4, 16))
+                  capacity = round(clamp((4 + sleep*0.9 + (energy-3)*1.2 - (stress-3)*0.8) *
+                  modeMultiplier, 4, 16))
                 </p>
                 <ul className="list-disc list-inside space-y-1 text-neutral-700">
-                  <li><strong>Base constant (4)</strong>: Baseline human wakefulness foundation.</li>
-                  <li><strong>Sleep (0.9x)</strong>: Sleep provides biological restoration.</li>
-                  <li><strong>Energy deviation</strong>: Above or below median baseline (3).</li>
-                  <li><strong>Stress tax (-0.8x)</strong>: Cognitive friction and anxiety drain executive capacity.</li>
-                  <li><strong>Mode Multiplier ({activeMode.multiplier}x)</strong>: Adjusts pacing based on today's active mode.</li>
-                  <li><strong>Clamp [4, 16]</strong>: Prevents burnout collapse (&lt;4) and superhuman overcommitments (&gt;16).</li>
+                  <li>
+                    <strong>Base constant (4)</strong>: Baseline human wakefulness foundation.
+                  </li>
+                  <li>
+                    <strong>Sleep (0.9x)</strong>: Sleep provides biological restoration.
+                  </li>
+                  <li>
+                    <strong>Energy deviation</strong>: Above or below median baseline (3).
+                  </li>
+                  <li>
+                    <strong>Stress tax (-0.8x)</strong>: Cognitive friction and anxiety drain
+                    executive capacity.
+                  </li>
+                  <li>
+                    <strong>Mode Multiplier ({activeMode.multiplier}x)</strong>: Adjusts pacing
+                    based on today's active mode.
+                  </li>
+                  <li>
+                    <strong>Clamp [4, 16]</strong>: Prevents burnout collapse (&lt;4) and superhuman
+                    overcommitments (&gt;16).
+                  </li>
                 </ul>
               </div>
 

@@ -4,14 +4,8 @@ import { usePlannerStore } from '@/lib/store';
 import { ShieldIcon, EyeIcon } from '@/components/icons';
 
 export const L7AccessPrivacy: React.FC = () => {
-  const {
-    soundEnabled,
-    highContrast,
-    reducedMotion,
-    dyslexiaFont,
-    toggleSound,
-    setA11ySetting,
-  } = usePlannerStore();
+  const { soundEnabled, highContrast, reducedMotion, dyslexiaFont, toggleSound, setA11ySetting } =
+    usePlannerStore();
 
   return (
     <section id="accessibility" className="py-20 bg-[#FFF6E5] border-b-[3px] border-[#111111]">

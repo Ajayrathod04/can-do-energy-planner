@@ -12,8 +12,8 @@ import { Sparkles, HeartHandshake } from 'lucide-react';
 
 export const AppView: React.FC = () => {
   const activeMode = useAppStore(selectActiveMode);
-  const setActiveMode = useAppStore(s => s.setActiveMode);
-  const capacity = useAppStore(s => s.calculatedCapacity);
+  const setActiveMode = useAppStore((s) => s.setActiveMode);
+  const capacity = useAppStore((s) => s.calculatedCapacity);
   const totalCost = useAppStore(selectCanTotalCost);
 
   const [isOverflowModalOpen, setIsOverflowModalOpen] = useState(false);
@@ -43,7 +43,7 @@ export const AppView: React.FC = () => {
             <span className="text-xs font-mono font-bold uppercase text-neutral-600 block w-full md:w-auto">
               Active Mode:
             </span>
-            {MODES.map(mode => (
+            {MODES.map((mode) => (
               <button
                 key={mode.id}
                 onClick={() => setActiveMode(mode.id)}
@@ -52,7 +52,11 @@ export const AppView: React.FC = () => {
                     ? 'border-ink shadow-[2px_2px_0px_#0A0A0A] scale-105'
                     : 'border-neutral-400 bg-white hover:border-ink'
                 }`}
-                style={mode.id === activeMode.id ? { backgroundColor: mode.accentColor, color: '#0A0A0A' } : {}}
+                style={
+                  mode.id === activeMode.id
+                    ? { backgroundColor: mode.accentColor, color: '#0A0A0A' }
+                    : {}
+                }
                 title={mode.patternLabel}
               >
                 <span>{mode.name}</span>

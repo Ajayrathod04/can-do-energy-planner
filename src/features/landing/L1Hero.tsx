@@ -12,10 +12,7 @@ export interface L1HeroProps {
   onScrollToHowItWorks: () => void;
 }
 
-export const L1Hero: React.FC<L1HeroProps> = ({
-  onScrollToDemo,
-  onScrollToHowItWorks,
-}) => {
+export const L1Hero: React.FC<L1HeroProps> = ({ onScrollToDemo, onScrollToHowItWorks }) => {
   const currentPeriod = getCircadianPeriod();
   const defaultMode = MODES[0]; // FOCUS mode
 

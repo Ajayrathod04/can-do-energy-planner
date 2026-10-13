@@ -5,19 +5,23 @@ import { Compass, X, ArrowRight, ArrowLeft, Check } from 'lucide-react';
 const TOUR_STEPS = [
   {
     title: '1. The Pressurized Check-In',
-    description: 'Set your sleep, energy, and friction levels. CAN-DO applies a transparent mathematical formula to calibrate your maximum safe paint units for today.',
+    description:
+      'Set your sleep, energy, and friction levels. CAN-DO applies a transparent mathematical formula to calibrate your maximum safe paint units for today.',
   },
   {
     title: '2. The Procedural 3D Spray Can',
-    description: 'Your day is a finite aerosol canister. Drag or rotate the 3D model. The dynamic label and gauge live-update with every task you pack.',
+    description:
+      'Your day is a finite aerosol canister. Drag or rotate the 3D model. The dynamic label and gauge live-update with every task you pack.',
   },
   {
     title: '3. Guilt-Free Overflow Protection',
-    description: 'When tasks exceed capacity, the can visibly overflows. No red guilt sirens—CAN-DO suggests which tasks to strategically postpone to tomorrow.',
+    description:
+      'When tasks exceed capacity, the can visibly overflows. No red guilt sirens—CAN-DO suggests which tasks to strategically postpone to tomorrow.',
   },
   {
     title: '4. The Wall of Graffiti Proof',
-    description: 'Completed tasks become unique procedural graffiti pieces. Even rest days leave celebratory recovery stencils.',
+    description:
+      'Completed tasks become unique procedural graffiti pieces. Even rest days leave celebratory recovery stencils.',
   },
 ];
 
@@ -53,7 +57,9 @@ export const TourGuide: React.FC = () => {
       <div className="flex items-center justify-between border-b-2 border-ink pb-2 mb-3">
         <div className="flex items-center gap-2">
           <Compass className="w-5 h-5 text-modeGrind" />
-          <span className="font-display text-sm uppercase">Guided Product Tour ({currentStep + 1}/{TOUR_STEPS.length})</span>
+          <span className="font-display text-sm uppercase">
+            Guided Product Tour ({currentStep + 1}/{TOUR_STEPS.length})
+          </span>
         </div>
         <button
           onClick={handleClose}
@@ -85,7 +91,9 @@ export const TourGuide: React.FC = () => {
         <button
           onClick={handleNext}
           className="brutal-btn px-4 py-1 text-xs bg-modeGrind text-ink font-bold"
-          aria-label={currentStep === TOUR_STEPS.length - 1 ? 'Finish tour and open app' : 'Next tour step'}
+          aria-label={
+            currentStep === TOUR_STEPS.length - 1 ? 'Finish tour and open app' : 'Next tour step'
+          }
         >
           <span>{currentStep === TOUR_STEPS.length - 1 ? 'Launch App' : 'Next'}</span>
           {currentStep === TOUR_STEPS.length - 1 ? (

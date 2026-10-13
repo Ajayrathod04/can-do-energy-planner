@@ -20,8 +20,8 @@ export const L9FinalCTA: React.FC = () => {
         </h2>
 
         <p className="font-body text-lg md:text-xl text-[#333333] max-w-2xl mx-auto">
-          Close the infinite backlog. Shake your spray can, load today’s tasks, and stop when the cap
-          locks. No signup required.
+          Close the infinite backlog. Shake your spray can, load today’s tasks, and stop when the
+          cap locks. No signup required.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-4 pt-4">

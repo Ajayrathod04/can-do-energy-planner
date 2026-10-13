@@ -7,14 +7,17 @@ export interface ContrastResult {
   ratio: number;
   ratioString: string;
   passesAANormal: boolean; // >= 4.5:1
-  passesAALarge: boolean;  // >= 3.0:1
-  passesAAA: boolean;      // >= 7.0:1
+  passesAALarge: boolean; // >= 3.0:1
+  passesAAA: boolean; // >= 7.0:1
 }
 
 function hexToRgb(hex: string): [number, number, number] {
   let cleanHex = hex.replace('#', '');
   if (cleanHex.length === 3) {
-    cleanHex = cleanHex.split('').map(c => c + c).join('');
+    cleanHex = cleanHex
+      .split('')
+      .map((c) => c + c)
+      .join('');
   }
   const num = parseInt(cleanHex, 16);
   return [(num >> 16) & 255, (num >> 8) & 255, num & 255];

@@ -70,11 +70,50 @@ export const L5Anatomy: React.FC = () => {
                 <line x1="10" y1="270" x2="190" y2="270" stroke="#E5E5E5" strokeDasharray="4 4" />
 
                 {/* Spray Can Vector Outline */}
-                <rect x="75" y="20" width="50" height="25" rx="3" fill="#FFF6E5" stroke="#111111" strokeWidth="3" />
-                <path d="M50 70 C50 48 150 48 150 70" fill="#FFF6E5" stroke="#111111" strokeWidth="3" />
-                <rect x="45" y="70" width="110" height="200" rx="6" fill="#FFF6E5" stroke="#111111" strokeWidth="3" />
-                <rect x="55" y="110" width="90" height="110" rx="3" fill="#FFD93D" stroke="#111111" strokeWidth="2.5" />
-                <text x="100" y="165" textAnchor="middle" fontFamily="'Archivo Black', sans-serif" fontSize="16" fill="#111111">
+                <rect
+                  x="75"
+                  y="20"
+                  width="50"
+                  height="25"
+                  rx="3"
+                  fill="#FFF6E5"
+                  stroke="#111111"
+                  strokeWidth="3"
+                />
+                <path
+                  d="M50 70 C50 48 150 48 150 70"
+                  fill="#FFF6E5"
+                  stroke="#111111"
+                  strokeWidth="3"
+                />
+                <rect
+                  x="45"
+                  y="70"
+                  width="110"
+                  height="200"
+                  rx="6"
+                  fill="#FFF6E5"
+                  stroke="#111111"
+                  strokeWidth="3"
+                />
+                <rect
+                  x="55"
+                  y="110"
+                  width="90"
+                  height="110"
+                  rx="3"
+                  fill="#FFD93D"
+                  stroke="#111111"
+                  strokeWidth="2.5"
+                />
+                <text
+                  x="100"
+                  y="165"
+                  textAnchor="middle"
+                  fontFamily="'Archivo Black', sans-serif"
+                  fontSize="16"
+                  fill="#111111"
+                >
                   CAN-DO
                 </text>
 

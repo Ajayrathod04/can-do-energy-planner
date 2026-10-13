@@ -104,9 +104,7 @@ export const AppPage: React.FC = () => {
 
         {/* Mode Selector Strip */}
         <div className="flex flex-wrap items-center gap-2 p-3 bg-white border-[3px] border-[#111111] shadow-[4px_4px_0_#111111]">
-          <span className="text-xs font-bold uppercase text-[#555555] mr-2">
-            Active Mode:
-          </span>
+          <span className="text-xs font-bold uppercase text-[#555555] mr-2">Active Mode:</span>
           {MODES.map((mode) => (
             <button
               key={mode.id}
@@ -134,7 +132,8 @@ export const AppPage: React.FC = () => {
                   QUICK TIP: Your can has {capacity} paint today.
                 </p>
                 <p className="text-xs text-[#333333]">
-                  Tap or drag tasks into your spray can. When full, the cap locks automatically to save you from burnout!
+                  Tap or drag tasks into your spray can. When full, the cap locks automatically to
+                  save you from burnout!
                 </p>
               </div>
             </div>
@@ -214,7 +213,13 @@ export const AppPage: React.FC = () => {
             <span className="font-bold">Arrow Keys</span>
             <span>Adjust slider values or carousel slides</span>
           </div>
-          <Button onClick={() => setIsShortcutsOpen(false)} variant="brutal" size="sm" isFullWidth className="mt-4">
+          <Button
+            onClick={() => setIsShortcutsOpen(false)}
+            variant="brutal"
+            size="sm"
+            isFullWidth
+            className="mt-4"
+          >
             Close shortcuts
           </Button>
         </div>

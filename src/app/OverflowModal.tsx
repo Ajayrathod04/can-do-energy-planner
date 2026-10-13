@@ -9,10 +9,10 @@ interface OverflowModalProps {
 }
 
 export const OverflowModal: React.FC<OverflowModalProps> = ({ isOpen, onClose }) => {
-  const capacity = useAppStore(s => s.calculatedCapacity);
+  const capacity = useAppStore((s) => s.calculatedCapacity);
   const totalCost = useAppStore(selectCanTotalCost);
-  const tasks = useAppStore(s => s.tasks);
-  const moveTaskToTomorrow = useAppStore(s => s.moveTaskToTomorrow);
+  const tasks = useAppStore((s) => s.tasks);
+  const moveTaskToTomorrow = useAppStore((s) => s.moveTaskToTomorrow);
 
   if (!isOpen) return null;
 
@@ -22,7 +22,7 @@ export const OverflowModal: React.FC<OverflowModalProps> = ({ isOpen, onClose })
   // Identify candidate tasks to defer:
   // Sort candidates: (1) Due date not "Today" first, then (2) highest paint units
   const candidateTasks = tasks
-    .filter(t => t.inCan && !t.completed)
+    .filter((t) => t.inCan && !t.completed)
     .sort((a, b) => {
       const aIsToday = a.dueDate?.toLowerCase() === 'today';
       const bIsToday = b.dueDate?.toLowerCase() === 'today';
@@ -49,7 +49,9 @@ export const OverflowModal: React.FC<OverflowModalProps> = ({ isOpen, onClose })
           <div className="flex items-center gap-2">
             <AlertCircle className="w-6 h-6 text-modeGrind" />
             <h3 id="overflow-modal-title" className="font-display text-2xl uppercase">
-              {isOverflow ? `Too much for today? (+${overflowUnits} paint)` : 'Energy Balance Restored'}
+              {isOverflow
+                ? `Too much for today? (+${overflowUnits} paint)`
+                : 'Energy Balance Restored'}
             </h3>
           </div>
           <button
@@ -67,9 +69,9 @@ export const OverflowModal: React.FC<OverflowModalProps> = ({ isOpen, onClose })
             "Physics does not negotiate."
           </p>
           <p className="font-body text-xs text-neutral-800 leading-relaxed">
-            Your spray can holds exactly <strong>{capacity} paint</strong> today.
-            Trying to force {totalCost} paint guarantees burnout and late-night exhaustion.
-            Postponing work is not giving up—it is deliberate curation.
+            Your spray can holds exactly <strong>{capacity} paint</strong> today. Trying to force{' '}
+            {totalCost} paint guarantees burnout and late-night exhaustion. Postponing work is not
+            giving up—it is deliberate curation.
           </p>
         </div>
 
@@ -81,7 +83,7 @@ export const OverflowModal: React.FC<OverflowModalProps> = ({ isOpen, onClose })
             </span>
 
             <div className="space-y-2.5 max-h-60 overflow-y-auto pr-1">
-              {candidateTasks.map(task => (
+              {candidateTasks.map((task) => (
                 <div
                   key={task.id}
                   className="p-3 bg-white border-2 border-ink flex items-center justify-between gap-3 shadow-[2px_2px_0px_#0A0A0A]"

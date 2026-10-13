@@ -131,7 +131,11 @@ export function drawLabelCanvas(params: LabelParams): HTMLCanvasElement {
   // 7. Warning Text
   ctx.fillStyle = '#AAAAAA';
   ctx.font = '20px monospace';
-  ctx.fillText('CAUTION: ENERGY IS STRICTLY CONSERVED. RESTING ACCUMULATES TOMORROW’S PSI.', 60, 740);
+  ctx.fillText(
+    'CAUTION: ENERGY IS STRICTLY CONSERVED. RESTING ACCUMULATES TOMORROW’S PSI.',
+    60,
+    740
+  );
   ctx.fillText('DIGITAL WALL: PLEASE PAINT LEGAL WALLS ONLY.', 60, 775);
 
   // 8. Procedural Barcode
@@ -142,9 +146,9 @@ export function drawLabelCanvas(params: LabelParams): HTMLCanvasElement {
   ctx.fillStyle = '#000000';
   let curX = barcodeX + 20;
   for (let i = 0; i < 48; i++) {
-    const barW = (i % 3 === 0) ? 6 : (i % 2 === 0) ? 10 : 3;
+    const barW = i % 3 === 0 ? 6 : i % 2 === 0 ? 10 : 3;
     ctx.fillRect(curX, barcodeY + 10, barW, 75);
-    curX += barW + ((i % 5 === 0) ? 6 : 4);
+    curX += barW + (i % 5 === 0 ? 6 : 4);
     if (curX > barcodeX + 480) break;
   }
   ctx.font = '16px monospace';

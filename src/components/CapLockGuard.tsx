@@ -9,7 +9,7 @@ interface CapLockGuardProps {
 }
 
 export const CapLockGuard: React.FC<CapLockGuardProps> = ({ onOpenDeferral, className = '' }) => {
-  const capacity = useAppStore(s => s.calculatedCapacity);
+  const capacity = useAppStore((s) => s.calculatedCapacity);
   const totalCost = useAppStore(selectCanTotalCost);
 
   const isFullOrOver = totalCost >= capacity;
@@ -34,15 +34,15 @@ export const CapLockGuard: React.FC<CapLockGuardProps> = ({ onOpenDeferral, clas
   if (!isFullOrOver || isOverridden) return null;
 
   return (
-    <div className={`brutal-card p-4 bg-yellow-100 border-3 border-ink shadow-[4px_4px_0px_#0A0A0A] space-y-3 relative overflow-hidden animate-fadeIn ${className}`}>
+    <div
+      className={`brutal-card p-4 bg-yellow-100 border-3 border-ink shadow-[4px_4px_0px_#0A0A0A] space-y-3 relative overflow-hidden animate-fadeIn ${className}`}
+    >
       {/* "CLOSED FOR TODAY" Slapped Sticker */}
       <div className="flex items-center justify-between border-b-2 border-ink pb-2">
         <div className="inline-block px-3 py-1 bg-red-600 text-white font-display text-sm uppercase tracking-wider transform -rotate-2 border-2 border-ink shadow-[2px_2px_0px_#0A0A0A]">
           🔒 CAN IS FULL: CLOSED FOR TODAY
         </div>
-        <span className="font-mono text-xs font-bold text-neutral-700">
-          100% Volume Reached
-        </span>
+        <span className="font-mono text-xs font-bold text-neutral-700">100% Volume Reached</span>
       </div>
 
       <div className="space-y-1 font-body text-xs text-neutral-800">
@@ -51,7 +51,8 @@ export const CapLockGuard: React.FC<CapLockGuardProps> = ({ onOpenDeferral, clas
           The nozzle is safety-latched.
         </p>
         <p>
-          You’ve filled all <strong>{capacity} paint</strong> budgeted for today. Further additions risk diluting your focus.
+          You’ve filled all <strong>{capacity} paint</strong> budgeted for today. Further additions
+          risk diluting your focus.
         </p>
       </div>
 

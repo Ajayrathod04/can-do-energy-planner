@@ -3,7 +3,7 @@ import { useAppStore, selectActiveMode } from '../lib/store';
 
 export const NozzleCursor: React.FC = () => {
   const activeMode = useAppStore(selectActiveMode);
-  const reducedMotion = useAppStore(s => s.reducedMotion);
+  const reducedMotion = useAppStore((s) => s.reducedMotion);
 
   const [pos, setPos] = useState({ x: -100, y: -100 });
   const [isVisible, setIsVisible] = useState(false);

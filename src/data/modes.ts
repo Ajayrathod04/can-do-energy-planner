@@ -50,7 +50,8 @@ export const MODES: EnergyMode[] = [
     iconName: 'flame',
     multiplier: 1.1,
     tagline: 'High stamina deadline sprints',
-    description: 'Extra push capacity for exam week or crunch time. Use sparingly to avoid burnout debt.',
+    description:
+      'Extra push capacity for exam week or crunch time. Use sparingly to avoid burnout debt.',
     bestFor: 'Final submissions, project deadlines, exam prep',
     contrastOnDark: calculateContrast('#FF6B2C', DARK_BG),
     contrastOnPaper: calculateContrast('#FF6B2C', PAPER_BG),
@@ -66,7 +67,8 @@ export const MODES: EnergyMode[] = [
     iconName: 'sparkles',
     multiplier: 1.0,
     tagline: 'Exploratory & generative flow',
-    description: 'Messy, open-ended ideation where output is non-linear and experimentation is rewarded.',
+    description:
+      'Messy, open-ended ideation where output is non-linear and experimentation is rewarded.',
     bestFor: 'Design, brainstorming, artistic projects',
     contrastOnDark: calculateContrast('#FF3D8B', DARK_BG),
     contrastOnPaper: calculateContrast('#FF3D8B', PAPER_BG),
