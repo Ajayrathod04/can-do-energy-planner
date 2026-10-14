@@ -4,12 +4,13 @@
  * Failure = STOP and revert.
  */
 import { describe, it, expect } from 'vitest';
-import { readFileSync, readdirSync } from 'fs';
-import { join, extname } from 'path';
+import { readFileSync, readdirSync } from 'node:fs';
+import { join, extname, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 // ── helpers ──────────────────────────────────────────────────────────────────
 
-const ROOT = join(__dirname, '../..');
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..');
 
 function walkFiles(dir: string, exts: string[]): string[] {
   const out: string[] = [];
@@ -32,7 +33,6 @@ function readAll(paths: string[]): string {
 const TS_TSX = ['.ts', '.tsx'];
 const ALL_SRC = walkFiles(join(ROOT, 'src'), TS_TSX);
 const PUB_HTML = [join(ROOT, 'index.html')];
-const DOCS = [join(ROOT, 'README.md'), join(ROOT, 'public', 'manifest.json')];
 
 const EXACT_EMAIL = 'ajaybr2021@gmail.com';
 const EXACT_CREDIT = 'AJRathod';
@@ -91,14 +91,14 @@ describe('Guard 3 – No third-party URLs at runtime', () => {
     const content = readAll(ALL_SRC);
     // Find all https:// URLs
     const urls = content.match(/https:\/\/[^\s"')`>]+/g) ?? [];
-    const blocked = urls.filter((u) => !ALLOWED_URLS.some((allowed) => u.startsWith(allowed)));
+    const blocked = urls.filter((u: string) => !ALLOWED_URLS.some((allowed) => u.startsWith(allowed)));
     expect(blocked).toEqual([]);
   });
 
   it('index.html contains no CDN or third-party https:// links', () => {
     const html = readFileSync(join(ROOT, 'index.html'), 'utf-8');
     const urls = html.match(/https:\/\/[^\s"'>`]+/g) ?? [];
-    const blocked = urls.filter((u) => !ALLOWED_URLS.some((allowed) => u.startsWith(allowed)));
+    const blocked = urls.filter((u: string) => !ALLOWED_URLS.some((allowed) => u.startsWith(allowed)));
     expect(blocked).toEqual([]);
   });
 });

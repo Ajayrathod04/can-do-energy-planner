@@ -2056,7 +2056,7 @@ exports[`C2 – UI snapshots > App page matches snapshot 1`] = `
                 <h3
                   class="font-display text-xl sm:text-2xl uppercase"
                 >
-                  October 2026 Energy Wall
+                  January 2024 Energy Wall
                 </h3>
               </div>
               <button
@@ -2123,15 +2123,6 @@ exports[`C2 – UI snapshots > App page matches snapshot 1`] = `
               <div
                 class="grid grid-cols-7 gap-1 sm:gap-2"
               >
-                <div
-                  class="aspect-square bg-neutral-200/50 border border-dashed border-neutral-300"
-                />
-                <div
-                  class="aspect-square bg-neutral-200/50 border border-dashed border-neutral-300"
-                />
-                <div
-                  class="aspect-square bg-neutral-200/50 border border-dashed border-neutral-300"
-                />
                 <div
                   class="aspect-square bg-neutral-200/50 border border-dashed border-neutral-300"
                 />
@@ -2370,6 +2361,24 @@ exports[`C2 – UI snapshots > App page matches snapshot 1`] = `
                   </span>
                 </div>
                 <div
+                  class="min-h-[55px] sm:min-h-[75px] p-1.5 border-2 flex flex-col justify-between transition-all border-neutral-300 bg-white hover:border-neutral-500"
+                >
+                  <div
+                    class="flex items-center justify-between"
+                  >
+                    <span
+                      class="text-xs font-mono text-neutral-500"
+                    >
+                      14
+                    </span>
+                  </div>
+                  <span
+                    class="text-[10px] text-neutral-400 font-mono"
+                  >
+                    —
+                  </span>
+                </div>
+                <div
                   class="min-h-[55px] sm:min-h-[75px] p-1.5 border-2 flex flex-col justify-between transition-all border-ink bg-amber-50 shadow-[2px_2px_0px_#0A0A0A] font-bold"
                 >
                   <div
@@ -2378,7 +2387,7 @@ exports[`C2 – UI snapshots > App page matches snapshot 1`] = `
                     <span
                       class="text-xs font-mono text-modeGrind font-bold"
                     >
-                      14
+                      15
                     </span>
                     <span
                       class="text-[9px] bg-ink text-paper px-1 font-mono uppercase"
@@ -2425,24 +2434,6 @@ exports[`C2 – UI snapshots > App page matches snapshot 1`] = `
                       </span>
                     </div>
                   </div>
-                </div>
-                <div
-                  class="min-h-[55px] sm:min-h-[75px] p-1.5 border-2 flex flex-col justify-between transition-all border-neutral-300 bg-white hover:border-neutral-500"
-                >
-                  <div
-                    class="flex items-center justify-between"
-                  >
-                    <span
-                      class="text-xs font-mono text-neutral-500"
-                    >
-                      15
-                    </span>
-                  </div>
-                  <span
-                    class="text-[10px] text-neutral-400 font-mono"
-                  >
-                    —
-                  </span>
                 </div>
                 <div
                   class="min-h-[55px] sm:min-h-[75px] p-1.5 border-2 flex flex-col justify-between transition-all border-neutral-300 bg-white hover:border-neutral-500"
@@ -3085,7 +3076,7 @@ exports[`C2 – UI snapshots > Landing page matches snapshot 1`] = `
             <strong
               class="text-[#FF6B2C]"
             >
-              night
+              day
             </strong>
           </span>
           <span
