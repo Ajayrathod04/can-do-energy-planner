@@ -25,16 +25,6 @@ export const Footer: React.FC = () => {
       role="contentinfo"
       aria-label="Author attribution and contact footer"
     >
-      {/* Halftone / grain background overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-10"
-        style={{
-          backgroundImage: 'radial-gradient(#0A0A0A 1.5px, transparent 1.5px)',
-          backgroundSize: '16px 16px',
-        }}
-        aria-hidden="true"
-      />
-
       {/* Screen Reader Live Announcement for Copy Action */}
       <div aria-live="polite" className="sr-only">
         {copied ? 'Email copied to clipboard' : ''}

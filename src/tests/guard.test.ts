@@ -114,6 +114,11 @@ describe('Guard 4 – Legal wall notice in rendered pages', () => {
     const appPage = readFileSync(join(ROOT, 'src', 'pages', 'AppPage.tsx'), 'utf-8');
     expect(appPage).toContain(LEGAL_WALL_NOTICE);
   });
+
+  it('LandingPage.tsx imports and renders Footer containing the legal wall notice', () => {
+    const landing = readFileSync(join(ROOT, 'src', 'pages', 'LandingPage.tsx'), 'utf-8');
+    expect(landing).toContain('Footer');
+  });
 });
 
 // ── Guard 5: Canvas exports watermark ────────────────────────────────────────

@@ -1,7 +1,8 @@
 import React from 'react';
 import { useAppStore } from '../lib/store';
 import { sound } from '../lib/sound';
-import { Calendar, Download, Sparkles } from 'lucide-react';
+import { Calendar, Download } from 'lucide-react';
+import { MonthCalendarGrid } from './MonthCalendarGrid';
 
 export const MonthMural: React.FC = () => {
   const wallTags = useAppStore((s) => s.wallTags);
@@ -10,14 +11,12 @@ export const MonthMural: React.FC = () => {
   const currentMonthName = now.toLocaleString('default', { month: 'long' });
   const currentYear = now.getFullYear();
 
-  // Generate days in month
   const daysInMonth = new Date(currentYear, now.getMonth() + 1, 0).getDate();
-  const firstDayIndex = new Date(currentYear, now.getMonth(), 1).getDay(); // 0 is Sun
+  const firstDayIndex = new Date(currentYear, now.getMonth(), 1).getDay();
 
   const dayTiles = Array.from({ length: daysInMonth }, (_, i) => i + 1);
   const paddingTiles = Array.from({ length: firstDayIndex }, (_, i) => i);
 
-  // Native Canvas 2D 1080x1350 Poster Exporter
   const handleExportMonthPoster = () => {
     sound.playSpray(0.35);
 
@@ -66,17 +65,14 @@ export const MonthMural: React.FC = () => {
     const startX = 70;
     const startY = 320;
 
-    // Day of week headers
     ctx.font = 'bold 16px monospace';
     ctx.fillStyle = '#FFD93D';
     daysOfWeek.forEach((day, idx) => {
       ctx.fillText(day, startX + idx * colWidth + 40, startY);
     });
 
-    // Calendar grid tiles
     const gridY = startY + 20;
     const rowHeight = 150;
-
     let col = firstDayIndex;
     let row = 0;
 
@@ -84,20 +80,17 @@ export const MonthMural: React.FC = () => {
       const tileX = startX + col * colWidth;
       const tileY = gridY + row * rowHeight;
 
-      // Tile card
       ctx.fillStyle = '#1A1A1A';
       ctx.strokeStyle = '#333333';
       ctx.lineWidth = 2;
       ctx.fillRect(tileX, tileY, colWidth - 8, rowHeight - 8);
       ctx.strokeRect(tileX, tileY, colWidth - 8, rowHeight - 8);
 
-      // Day number
       const isToday = day === now.getDate();
       ctx.fillStyle = isToday ? '#FF6B2C' : '#AAAAAA';
       ctx.font = isToday ? 'bold 18px "Archivo Black", sans-serif' : '14px monospace';
       ctx.fillText(`${day}`, tileX + 8, tileY + 22);
 
-      // Render tags for day
       if (isToday && wallTags.length > 0) {
         wallTags.slice(0, 2).forEach((tag, tIdx) => {
           ctx.fillStyle = tag.modeColor;
@@ -169,69 +162,12 @@ export const MonthMural: React.FC = () => {
         </button>
       </div>
 
-      {/* 7-Column Calendar Grid */}
-      <div className="space-y-2">
-        <div className="grid grid-cols-7 gap-1 text-center font-mono font-bold text-xs uppercase text-neutral-600 pb-1">
-          <span>Sun</span>
-          <span>Mon</span>
-          <span>Tue</span>
-          <span>Wed</span>
-          <span>Thu</span>
-          <span>Fri</span>
-          <span>Sat</span>
-        </div>
-
-        <div className="grid grid-cols-7 gap-1 sm:gap-2">
-          {paddingTiles.map((p) => (
-            <div
-              key={`pad-${p}`}
-              className="aspect-square bg-neutral-200/50 border border-dashed border-neutral-300"
-            />
-          ))}
-
-          {dayTiles.map((day) => {
-            const isToday = day === now.getDate();
-            const hasTagsToday = isToday && wallTags.length > 0;
-
-            return (
-              <div
-                key={`day-${day}`}
-                className={`min-h-[55px] sm:min-h-[75px] p-1.5 border-2 flex flex-col justify-between transition-all ${
-                  isToday
-                    ? 'border-ink bg-amber-50 shadow-[2px_2px_0px_#0A0A0A] font-bold'
-                    : 'border-neutral-300 bg-white hover:border-neutral-500'
-                }`}
-              >
-                <div className="flex items-center justify-between">
-                  <span
-                    className={`text-xs font-mono ${isToday ? 'text-modeGrind font-bold' : 'text-neutral-500'}`}
-                  >
-                    {day}
-                  </span>
-                  {isToday && (
-                    <span className="text-[9px] bg-ink text-paper px-1 font-mono uppercase">
-                      Today
-                    </span>
-                  )}
-                </div>
-
-                {hasTagsToday ? (
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-1 text-[10px] font-mono text-green-700 font-bold">
-                      <Sparkles className="w-3 h-3 text-modeGrind" />
-                      <span>
-                        {wallTags.length} {wallTags.length === 1 ? 'tag' : 'tags'}
-                      </span>
-                    </div>
-                  </div>
-                ) : (
-                  <span className="text-[10px] text-neutral-400 font-mono">—</span>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      </div>
+      <MonthCalendarGrid
+        paddingTiles={paddingTiles}
+        dayTiles={dayTiles}
+        wallTags={wallTags}
+        currentDay={now.getDate()}
+      />
     </div>
   );
 };

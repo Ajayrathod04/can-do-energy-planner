@@ -1,21 +1,20 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import { useAppStore, selectActiveMode } from '../lib/store';
 import { sound } from '../lib/sound';
 import { Sparkles, CheckCircle2, Smartphone } from 'lucide-react';
+import { useRattleSensor } from './useRattleSensor';
 
 export const RattleRitual: React.FC<{ className?: string }> = ({ className = '' }) => {
   const activeMode = useAppStore(selectActiveMode);
   const reducedMotion = useAppStore((s) => s.reducedMotion);
 
-  const [pressureCharge, setPressureCharge] = useState(0); // 0 to 100%
+  const [pressureCharge, setPressureCharge] = useState(0);
   const [isPrimed, setIsPrimed] = useState(false);
-  const [shakeIntensity, setShakeIntensity] = useState(0); // For CSS shake displacement
-  const [deviceMotionSupported, setDeviceMotionSupported] = useState(false);
+  const [shakeIntensity, setShakeIntensity] = useState(0);
 
   const lastPosRef = useRef({ x: 0, time: 0 });
   const isDraggingRef = useRef(false);
 
-  // Trigger rattle effect
   const triggerRattle = useCallback((energy: number) => {
     sound.playRattle(Math.min(1.5, Math.max(0.4, energy)));
     if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
@@ -27,7 +26,6 @@ export const RattleRitual: React.FC<{ className?: string }> = ({ className = '' 
     }
   }, []);
 
-  // Update pressure charge
   const addCharge = useCallback(
     (amount: number) => {
       setPressureCharge((prev) => {
@@ -49,7 +47,11 @@ export const RattleRitual: React.FC<{ className?: string }> = ({ className = '' 
     [isPrimed]
   );
 
-  // Pointer drag event handlers (Desktop & Touch)
+  const { deviceMotionSupported, requestMotionPermission } = useRattleSensor(
+    triggerRattle,
+    addCharge
+  );
+
   const handlePointerDown = (e: React.PointerEvent) => {
     isDraggingRef.current = true;
     (e.target as HTMLElement).setPointerCapture?.(e.pointerId);
@@ -61,7 +63,7 @@ export const RattleRitual: React.FC<{ className?: string }> = ({ className = '' 
     const now = performance.now();
     const dt = Math.max(1, now - lastPosRef.current.time);
     const dx = e.clientX - lastPosRef.current.x;
-    const velocity = Math.abs(dx) / dt; // Pixels per ms
+    const velocity = Math.abs(dx) / dt;
 
     lastPosRef.current = { x: e.clientX, time: now };
 
@@ -78,53 +80,9 @@ export const RattleRitual: React.FC<{ className?: string }> = ({ className = '' 
     setShakeIntensity(0);
   };
 
-  // Accessible Keyboard Prime Button
   const handleKeyboardPrime = () => {
     triggerRattle(1.2);
     addCharge(25);
-  };
-
-  // DeviceMotion on mobile
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-
-    if ('DeviceMotionEvent' in window) {
-      setDeviceMotionSupported(true);
-
-      let lastAcc = { x: 0, y: 0, z: 0 };
-      const handleMotion = (e: DeviceMotionEvent) => {
-        const acc = e.accelerationIncludingGravity;
-        if (!acc) return;
-
-        const delta = Math.abs((acc.x || 0) - lastAcc.x) + Math.abs((acc.y || 0) - lastAcc.y);
-        lastAcc = { x: acc.x || 0, y: acc.y || 0, z: acc.z || 0 };
-
-        if (delta > 12) {
-          triggerRattle(1.0);
-          addCharge(8);
-        }
-      };
-
-      window.addEventListener('devicemotion', handleMotion);
-      return () => window.removeEventListener('devicemotion', handleMotion);
-    }
-  }, [addCharge, triggerRattle]);
-
-  const requestMotionPermission = () => {
-    if (
-      typeof window !== 'undefined' &&
-      typeof (DeviceMotionEvent as unknown as { requestPermission?: () => Promise<string> })
-        .requestPermission === 'function'
-    ) {
-      (DeviceMotionEvent as unknown as { requestPermission: () => Promise<string> })
-        .requestPermission()
-        .then((response) => {
-          if (response === 'granted') {
-            sound.playPop();
-          }
-        })
-        .catch(() => {});
-    }
   };
 
   return (
@@ -143,7 +101,6 @@ export const RattleRitual: React.FC<{ className?: string }> = ({ className = '' 
         </span>
       </div>
 
-      {/* Interactive Shake Stage */}
       <div
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
@@ -157,7 +114,6 @@ export const RattleRitual: React.FC<{ className?: string }> = ({ className = '' 
         role="region"
         aria-label="Shake zone: Drag pointer side to side to shake spray can"
       >
-        {/* Fill Indicator Ring / Bar */}
         <div className="w-full flex items-center justify-between text-xs font-mono font-bold">
           <span>MIXING BALL PRESSURE:</span>
           <span style={{ color: isPrimed ? '#16A34A' : activeMode.accentColor }}>
@@ -187,7 +143,6 @@ export const RattleRitual: React.FC<{ className?: string }> = ({ className = '' 
         </p>
       </div>
 
-      {/* Accessible & Mobile Control Buttons */}
       <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
         <button
           type="button"

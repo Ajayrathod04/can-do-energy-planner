@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 export const LandingNav: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   const scrollTo = (id: string) => {
     setMobileMenuOpen(false);
@@ -11,118 +12,146 @@ export const LandingNav: React.FC = () => {
     }
   };
 
+  // Focus trap for mobile full-screen menu
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setMobileMenuOpen(false);
+      }
+      if (e.key === 'Tab' && mobileMenuRef.current) {
+        const focusable = mobileMenuRef.current.querySelectorAll<HTMLElement>(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [mobileMenuOpen]);
+
   return (
-    <header className="sticky top-0 z-40 bg-[#FFF6E5]/95 backdrop-blur-xs border-b-[3px] border-[#111111] px-4 sm:px-8 py-3">
+    <header className="sticky top-0 z-40 bg-[#FFF6E5]/95 backdrop-blur-xs border-b-[3px] border-[#14101F] px-4 sm:px-8 py-2.5">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        {/* Brand */}
-        <a href="#/" className="flex items-center gap-2 group">
-          <span className="w-8 h-8 flex items-center justify-center font-display text-base bg-[#FF6B2C] text-[#111111] border-2 border-[#111111] shadow-[2px_2px_0_#111111] group-hover:rotate-6 transition-transform">
+        {/* Logo */}
+        <a href="#/" className="flex items-center gap-2 group min-h-[44px]" aria-label="CAN-DO Home">
+          <span className="w-8 h-8 flex items-center justify-center font-display text-base bg-[#FF6B2C] text-[#14101F] border-2 border-[#14101F] shadow-[2px_2px_0_#14101F] group-hover:rotate-6 transition-transform">
             C
           </span>
-          <span className="font-display text-xl sm:text-2xl text-[#111111] tracking-tight">
+          <span className="font-display text-xl sm:text-2xl text-[#14101F] tracking-tight">
             CAN-DO.
           </span>
         </a>
 
-        {/* Desktop Nav */}
+        {/* Desktop Nav: logo | Play | Moods | Accessibility | Open full planner | Design system */}
         <nav
           aria-label="Landing Page Navigation"
-          className="hidden md:flex items-center gap-6 font-bold text-sm text-[#111111]"
+          className="hidden md:flex items-center gap-6 font-bold text-sm text-[#14101F]"
         >
           <button
-            onClick={() => scrollTo('how-it-works')}
-            className="hover:text-[#FF3D8B] cursor-pointer"
+            onClick={() => scrollTo('play')}
+            className="hover:text-[#FF3D8B] cursor-pointer min-h-[44px] px-1"
           >
-            How it works
+            Play
           </button>
           <button
-            onClick={() => scrollTo('try-it')}
-            className="hover:text-[#FF3D8B] cursor-pointer"
+            onClick={() => scrollTo('moods')}
+            className="hover:text-[#FF3D8B] cursor-pointer min-h-[44px] px-1"
           >
-            Try it
-          </button>
-          <button onClick={() => scrollTo('modes')} className="hover:text-[#FF3D8B] cursor-pointer">
-            Modes
+            Moods
           </button>
           <button
             onClick={() => scrollTo('accessibility')}
-            className="hover:text-[#FF3D8B] cursor-pointer"
+            className="hover:text-[#FF3D8B] cursor-pointer min-h-[44px] px-1"
           >
             Accessibility
           </button>
-          <a href="#/system" className="hover:text-[#FF3D8B]">
+          <a
+            href="#/app"
+            className="hover:text-[#FF3D8B] min-h-[44px] flex items-center px-1"
+          >
+            Open full planner
+          </a>
+          <a
+            href="#/system"
+            className="hover:text-[#FF3D8B] min-h-[44px] flex items-center px-1"
+          >
             Design system
           </a>
         </nav>
 
-        {/* Right CTA & Mobile Toggle */}
-        <div className="flex items-center gap-3">
-          <a
-            href="#/app"
-            className="hidden sm:inline-flex items-center justify-center font-display text-sm px-5 py-2.5 bg-[#FFD93D] text-[#111111] border-[2px] border-[#111111] shadow-[3px_3px_0_#111111] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0_#111111] active:translate-x-[1px] active:translate-y-[1px]"
-          >
-            Open the app →
-          </a>
-
+        {/* Mobile Toggle Button */}
+        <div className="flex md:hidden items-center">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle mobile menu"
             aria-expanded={mobileMenuOpen}
-            className="md:hidden w-10 h-10 flex items-center justify-center font-display text-lg border-2 border-[#111111] bg-white shadow-[2px_2px_0_#111111]"
+            className="min-w-[44px] min-h-[44px] flex items-center justify-center font-display text-lg border-2 border-[#14101F] bg-white shadow-[2px_2px_0_#14101F]"
           >
             {mobileMenuOpen ? '✕' : '☰'}
           </button>
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Full-Screen Menu with Focus Trap */}
       {mobileMenuOpen && (
         <div
+          ref={mobileMenuRef}
           role="dialog"
           aria-modal="true"
           aria-label="Mobile Navigation Menu"
-          className="md:hidden fixed inset-x-0 top-[60px] bottom-0 bg-[#FFF6E5] z-50 p-6 flex flex-col gap-6 border-b-[3px] border-[#111111] animate-in slide-in-from-top duration-200"
+          className="md:hidden fixed inset-0 top-[54px] bg-[#FFF6E5] z-50 p-6 flex flex-col justify-between border-b-[3px] border-[#14101F]"
         >
-          <nav className="flex flex-col gap-4 font-display text-2xl text-[#111111]">
+          <nav className="flex flex-col gap-4 font-display text-2xl text-[#14101F]">
             <button
-              onClick={() => scrollTo('how-it-works')}
-              className="text-left py-2 border-b-2 border-[#111111]"
+              onClick={() => scrollTo('play')}
+              className="text-left py-3 border-b-2 border-[#14101F]"
             >
-              How it works
+              Play
             </button>
             <button
-              onClick={() => scrollTo('try-it')}
-              className="text-left py-2 border-b-2 border-[#111111]"
+              onClick={() => scrollTo('moods')}
+              className="text-left py-3 border-b-2 border-[#14101F]"
             >
-              Try it
-            </button>
-            <button
-              onClick={() => scrollTo('modes')}
-              className="text-left py-2 border-b-2 border-[#111111]"
-            >
-              Modes
+              Moods
             </button>
             <button
               onClick={() => scrollTo('accessibility')}
-              className="text-left py-2 border-b-2 border-[#111111]"
+              className="text-left py-3 border-b-2 border-[#14101F]"
             >
               Accessibility
             </button>
             <a
+              href="#/app"
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-3 border-b-2 border-[#14101F]"
+            >
+              Open full planner
+            </a>
+            <a
               href="#/system"
               onClick={() => setMobileMenuOpen(false)}
-              className="py-2 border-b-2 border-[#111111]"
+              className="py-3 border-b-2 border-[#14101F]"
             >
               Design system
             </a>
           </nav>
-          <a
-            href="#/app"
+
+          <button
             onClick={() => setMobileMenuOpen(false)}
-            className="w-full text-center py-4 bg-[#FFD93D] font-display text-lg border-[3px] border-[#111111] shadow-[4px_4px_0_#111111]"
+            className="w-full py-3 bg-[#14101F] text-white font-display text-center rounded border-2 border-[#14101F]"
           >
-            Open the app →
-          </a>
+            Close Menu ✕
+          </button>
         </div>
       )}
     </header>

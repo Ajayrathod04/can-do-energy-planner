@@ -1,5 +1,7 @@
 # CAN-DO 🛢️✨
 
+Live: https://can-do-energy-planner.deployxa.app
+
 > **"Your day has a capacity. Spend it on purpose."**
 
 An award-winning, portfolio-grade daily energy budgeting application built for the **Hyperbloom October: UI/UX & Web Design Hackathon (Devpost)**.
