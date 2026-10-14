@@ -27,12 +27,9 @@ export const PermissionSlip: React.FC = () => {
     // 1. Warm parchment background
     ctx.fillStyle = '#F4EFE6';
     ctx.fillRect(0, 0, 1080, 1080);
-
-    // 2. Texture & borders
     ctx.strokeStyle = '#0A0A0A';
     ctx.lineWidth = 12;
     ctx.strokeRect(40, 40, 1000, 1000);
-
     ctx.lineWidth = 4;
     ctx.setLineDash([16, 12]);
     ctx.strokeRect(60, 60, 960, 960);
@@ -41,41 +38,29 @@ export const PermissionSlip: React.FC = () => {
     // 3. Stencil Header
     ctx.fillStyle = '#8B5CF6';
     ctx.fillRect(80, 100, 920, 140);
-
     ctx.fillStyle = '#F4EFE6';
     ctx.font = '900 68px "Archivo Black", sans-serif';
     ctx.fillText('PERMISSION TO REST', 110, 195);
-
     ctx.fillStyle = '#0A0A0A';
     ctx.font = 'bold 24px monospace';
     ctx.fillText('OFFICIAL SANCTION OF DELIBERATE CAPACITY', 100, 290);
-    ctx.fillText(
-      `DATE OF ISSUANCE: ${new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}`,
-      100,
-      325
-    );
+    const dateStr = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+    ctx.fillText(`DATE OF ISSUANCE: ${dateStr}`, 100, 325);
 
     // 4. Affirmation Body
     ctx.font = '32px "Space Grotesk", sans-serif';
     ctx.fillStyle = '#1A1A1A';
     const lines = [
       'This document confirms that you do not need to',
-      'earn the right to be a human being.',
-      '',
+      'earn the right to be a human being.', '',
       'Your daily energy budget is zero paint units today,',
-      'and that is an act of deliberate courage.',
-      '',
+      'and that is an act of deliberate courage.', '',
       'Rest is not the absence of productivity.',
-      "Rest is the biological manufacturing of tomorrow's stamina.",
-      '',
+      "Rest is the biological manufacturing of tomorrow's stamina.", '',
       'Put down the tools. You are officially excused.',
     ];
-
     let startY = 410;
-    lines.forEach((line) => {
-      ctx.fillText(line, 100, startY);
-      startY += 44;
-    });
+    lines.forEach((line) => { ctx.fillText(line, 100, startY); startY += 44; });
 
     // 5. Official Rubber Stamp
     ctx.save();

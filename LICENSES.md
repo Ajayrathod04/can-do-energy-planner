@@ -14,11 +14,8 @@ CAN-DO is committed to total licensing transparency. Every third-party library u
 | **@react-three/fiber** | `^8.18.0` | MIT | pmndrs/react-three-fiber | Declarative Three.js scene graph in React |
 | **@react-three/drei** | `^9.122.0` | MIT | pmndrs/drei | Three.js orbit controls and contact shadows |
 | **Zustand** | `^5.0.3` | MIT | pmndrs/zustand | Lightweight state store with guarded storage |
-| **@dnd-kit/core** | `^6.3.1` | MIT | clauderic/dnd-kit | Accessible drag and drop primitives |
-| **@dnd-kit/utilities** | `^3.2.2` | MIT | clauderic/dnd-kit | Pointer and sensor utility helpers |
 | **Canvas-Confetti** | `^1.9.4` | ISC | catdad/canvas-confetti | Milestone celebration particle effects |
 | **Clsx** | `^2.1.1` | MIT | lukeed/clsx | Conditional classname concatenation |
-| **Tailwind-Merge** | `^3.5.0` | MIT | dcastil/tailwind-merge | Utility class deduplication |
 
 ---
 
@@ -28,6 +25,7 @@ Fonts are self-hosted within the static bundle to ensure zero third-party runtim
 
 | Package | Font | License |
 |---|---|---|
+| `@fontsource/titan-one` | Titan One | SIL Open Font License (OFL-1.1) |
 | `@fontsource/archivo-black` | Archivo Black | SIL Open Font License (OFL-1.1) |
 | `@fontsource/space-grotesk` | Space Grotesk | SIL Open Font License (OFL-1.1) |
 | `@fontsource/permanent-marker` | Permanent Marker | Apache License 2.0 |

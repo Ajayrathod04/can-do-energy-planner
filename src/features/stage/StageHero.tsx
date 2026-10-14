@@ -19,12 +19,8 @@ export const StageHero: React.FC = () => {
   const energyLevel = useAppStore((s) => s.energyLevel);
   const stressLevel = useAppStore((s) => s.stressLevel);
   const reducedMotion = useAppStore((s) => s.reducedMotion);
-  const setCheckIn = useAppStore((s) => s.setCheckIn);
-  const toggleInCan = useAppStore((s) => s.toggleInCan);
-  const completeTask = useAppStore((s) => s.completeTask);
-  const logRestSession = useAppStore((s) => s.logRestSession);
-  const resetDemo = useAppStore((s) => s.resetDemo);
-  const moveTaskToTomorrow = useAppStore((s) => s.moveTaskToTomorrow);
+  const { setCheckIn, toggleInCan, completeTask, logRestSession, resetDemo, moveTaskToTomorrow } =
+    useAppStore.getState();
 
   const [stageState, setStageState] = useState<StageState>('SLEEPING');
   const [ariaMessage, setAriaMessage] = useState('');
@@ -37,23 +33,15 @@ export const StageHero: React.FC = () => {
   const isOver = capacity > 0 && totalCost > capacity;
 
   const emotion: CanoEmotion =
-    stageState === 'SLEEPING'
-      ? 'SLEEPING'
-      : stageState === 'RESTING'
-      ? 'RESTING'
-      : stageState === 'FOCUS'
-      ? 'FOCUS'
-      : stageState === 'DONE'
-      ? 'PROUD'
-      : isOver
-      ? 'WORRIED'
-      : isFull
-      ? 'STUFFED'
-      : 'HAPPY';
+    stageState === 'SLEEPING' ? 'SLEEPING'
+    : stageState === 'RESTING' ? 'RESTING'
+    : stageState === 'FOCUS' ? 'FOCUS'
+    : stageState === 'DONE' ? 'PROUD'
+    : isOver ? 'WORRIED'
+    : isFull ? 'STUFFED'
+    : 'HAPPY';
 
-  const announce = useCallback((msg: string) => {
-    setAriaMessage(msg);
-  }, []);
+  const announce = useCallback((msg: string) => setAriaMessage(msg), []);
 
   useEffect(() => {
     if (stageState !== 'SLEEPING') {

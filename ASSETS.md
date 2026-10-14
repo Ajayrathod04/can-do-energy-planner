@@ -4,20 +4,18 @@ All assets used in CAN-DO are 100% original, procedurally created in code, or se
 
 ---
 
-## 1. Mascot Character: "Cano"
-- **Component**: `src/components/CanoMascot.tsx`
-- **Origin**: 100% hand-crafted original inline SVG character design.
-- **Poses**:
-  1. `happy`: Waving hand, bright smile, buoyant posture.
-  2. `full`: Puffed cheeks, round belly, wiping forehead (*"Can's full!"*).
-  3. `sleepy`: Nightcap, closed eyes, subtle floating zzz.
-  4. `celebrating`: Jumping arms raised, spray sparkles, confetti star.
+## 1. Mascot Character: "Cano" (3D Procedural & 2D SVG)
+- **3D Procedural Character**: `src/three/cano/*`
+  - Under 10k triangles, procedural Three.js lathe body, pointer-tracking eyes, blinking eyelids, expressive mouth, translucent belly paint window, capsule arms, rounded feet, nozzle hat, mode accessories (glasses, headband, beret, sunhat, headphones, blanket).
+  - Damped-spring physics animations via useFrame.
+- **2D SVG Fallback**: `src/components/CanoMascot.tsx`
+  - Hand-crafted original inline SVG character design with poses: `happy`, `full`, `sleepy`, `celebrating`.
 - **License**: CC0 / Original Work by AJRathod.
 
 ---
 
 ## 2. Custom 16-Icon Vector Suite
-- **Component**: `src/components/icons/index.tsx`
+- **Component**: `src/components/icons/*`
 - **Origin**: Hand-coded vector SVG icons with 3px stroke, rounded caps, and colored blob backdrops.
 - **Icons**:
   `SunMoonIcon`, `PaintDropIcon`, `SprayCanIcon`, `CalendarIcon`, `PillowRestIcon`, `StarIcon`, `ShieldIcon`, `KeyboardIcon`, `EyeIcon`, `HandIcon`, `TimerIcon`, `DownloadIcon`, `SoundIcon`, `VibrationIcon`, `HelpIcon`, `CheckIcon`.
@@ -40,6 +38,7 @@ All assets used in CAN-DO are 100% original, procedurally created in code, or se
 ## 4. Self-Hosted Typography (@fontsource)
 
 Zero runtime third-party network calls. All font files are bundled locally into `dist/assets/`:
+- **Titan One**: SIL Open Font License 1.1 (`@fontsource/titan-one`)
 - **Archivo Black**: SIL Open Font License 1.1 (`@fontsource/archivo-black`)
 - **Permanent Marker**: Apache License 2.0 (`@fontsource/permanent-marker`)
 - **Space Grotesk**: SIL Open Font License 1.1 (`@fontsource/space-grotesk`)
