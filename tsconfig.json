@@ -21,7 +21,7 @@
     },
 
     /* Test Types */
-    "types": ["vitest/globals", "@testing-library/jest-dom"],
+    "types": ["vitest/globals", "@testing-library/jest-dom", "node"],
 
     /* Linting */
     "strict": true,

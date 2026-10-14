@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
 import { useAppStore, selectActiveMode } from '../lib/store';
 import { TaskItem } from '../data/demoTasks';
-import { Plus, Check, Trash2, ArrowUpRight, ArrowDownRight, RefreshCw, CheckCircle2 } from 'lucide-react';
+import {
+  Plus,
+  Check,
+  Trash2,
+  ArrowUpRight,
+  ArrowDownRight,
+  RefreshCw,
+  CheckCircle2,
+} from 'lucide-react';
 import { sound } from '../lib/sound';
 import confetti from 'canvas-confetti';
 
@@ -10,12 +18,12 @@ interface TaskBoardProps {
 }
 
 export const TaskBoard: React.FC<TaskBoardProps> = () => {
-  const tasks = useAppStore(s => s.tasks);
-  const addTask = useAppStore(s => s.addTask);
-  const deleteTask = useAppStore(s => s.deleteTask);
-  const toggleInCan = useAppStore(s => s.toggleInCan);
-  const completeTask = useAppStore(s => s.completeTask);
-  const resetDemo = useAppStore(s => s.resetDemo);
+  const tasks = useAppStore((s) => s.tasks);
+  const addTask = useAppStore((s) => s.addTask);
+  const deleteTask = useAppStore((s) => s.deleteTask);
+  const toggleInCan = useAppStore((s) => s.toggleInCan);
+  const completeTask = useAppStore((s) => s.completeTask);
+  const resetDemo = useAppStore((s) => s.resetDemo);
   const activeMode = useAppStore(selectActiveMode);
 
   // Form State
@@ -25,9 +33,9 @@ export const TaskBoard: React.FC<TaskBoardProps> = () => {
   const [newCategory, setNewCategory] = useState<TaskItem['category']>('Academics');
   const [newDueDate, setNewDueDate] = useState('Today');
 
-  const inCanTasks = tasks.filter(t => t.inCan && !t.completed);
-  const backlogTasks = tasks.filter(t => !t.inCan && !t.completed);
-  const completedTasks = tasks.filter(t => t.completed);
+  const inCanTasks = tasks.filter((t) => t.inCan && !t.completed);
+  const backlogTasks = tasks.filter((t) => !t.inCan && !t.completed);
+  const completedTasks = tasks.filter((t) => t.completed);
 
   const handleCreate = (e: React.FormEvent) => {
     e.preventDefault();
@@ -91,11 +99,17 @@ export const TaskBoard: React.FC<TaskBoardProps> = () => {
 
       {/* Add Task Drawer */}
       {isAdding && (
-        <form onSubmit={handleCreate} className="brutal-card p-4 space-y-4 bg-yellow-50 border-3 border-ink animate-fadeIn">
+        <form
+          onSubmit={handleCreate}
+          className="brutal-card p-4 space-y-4 bg-yellow-50 border-3 border-ink animate-fadeIn"
+        >
           <h3 className="font-display text-lg uppercase">Add New Task</h3>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-3">
             <div className="md:col-span-6">
-              <label htmlFor="task-title" className="block text-xs font-mono font-bold uppercase mb-1">
+              <label
+                htmlFor="task-title"
+                className="block text-xs font-mono font-bold uppercase mb-1"
+              >
                 Task Description
               </label>
               <input
@@ -110,7 +124,10 @@ export const TaskBoard: React.FC<TaskBoardProps> = () => {
             </div>
 
             <div className="md:col-span-2">
-              <label htmlFor="task-cost" className="block text-xs font-mono font-bold uppercase mb-1">
+              <label
+                htmlFor="task-cost"
+                className="block text-xs font-mono font-bold uppercase mb-1"
+              >
                 Cost: {newCost} Units
               </label>
               <input
@@ -125,7 +142,10 @@ export const TaskBoard: React.FC<TaskBoardProps> = () => {
             </div>
 
             <div className="md:col-span-2">
-              <label htmlFor="task-category" className="block text-xs font-mono font-bold uppercase mb-1">
+              <label
+                htmlFor="task-category"
+                className="block text-xs font-mono font-bold uppercase mb-1"
+              >
                 Category
               </label>
               <select
@@ -143,7 +163,10 @@ export const TaskBoard: React.FC<TaskBoardProps> = () => {
             </div>
 
             <div className="md:col-span-2">
-              <label htmlFor="task-due-date" className="block text-xs font-mono font-bold uppercase mb-1">
+              <label
+                htmlFor="task-due-date"
+                className="block text-xs font-mono font-bold uppercase mb-1"
+              >
                 Due Date
               </label>
               <select
@@ -168,10 +191,7 @@ export const TaskBoard: React.FC<TaskBoardProps> = () => {
             >
               Cancel
             </button>
-            <button
-              type="submit"
-              className="brutal-btn px-5 py-1.5 text-xs bg-ink text-paper"
-            >
+            <button type="submit" className="brutal-btn px-5 py-1.5 text-xs bg-ink text-paper">
               Allocate Paint
             </button>
           </div>
@@ -198,7 +218,7 @@ export const TaskBoard: React.FC<TaskBoardProps> = () => {
             </div>
           ) : (
             <div className="space-y-2.5">
-              {inCanTasks.map(task => (
+              {inCanTasks.map((task) => (
                 <div
                   key={task.id}
                   className="brutal-card p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white"
@@ -279,7 +299,7 @@ export const TaskBoard: React.FC<TaskBoardProps> = () => {
             </div>
           ) : (
             <div className="space-y-2.5">
-              {backlogTasks.map(task => (
+              {backlogTasks.map((task) => (
                 <div
                   key={task.id}
                   className="brutal-card p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-neutral-50 opacity-90"
@@ -341,8 +361,11 @@ export const TaskBoard: React.FC<TaskBoardProps> = () => {
             <span>Completed Today ({completedTasks.length}) — Stenciled on The Wall</span>
           </div>
           <div className="flex flex-wrap gap-2">
-            {completedTasks.map(t => (
-              <span key={t.id} className="text-xs bg-green-100 border border-green-700 px-2.5 py-1 font-mono line-through text-neutral-700">
+            {completedTasks.map((t) => (
+              <span
+                key={t.id}
+                className="text-xs bg-green-100 border border-green-700 px-2.5 py-1 font-mono line-through text-neutral-700"
+              >
                 {t.title} ({t.cost} units)
               </span>
             ))}

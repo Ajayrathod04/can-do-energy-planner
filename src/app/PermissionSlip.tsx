@@ -5,8 +5,8 @@ import { Heart, Download, X, Award } from 'lucide-react';
 
 export const PermissionSlip: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const setActiveMode = useAppStore(s => s.setActiveMode);
-  const logRestSession = useAppStore(s => s.logRestSession);
+  const setActiveMode = useAppStore((s) => s.setActiveMode);
+  const logRestSession = useAppStore((s) => s.logRestSession);
 
   const handleClaimRest = () => {
     sound.playSpray(0.3);
@@ -49,7 +49,11 @@ export const PermissionSlip: React.FC = () => {
     ctx.fillStyle = '#0A0A0A';
     ctx.font = 'bold 24px monospace';
     ctx.fillText('OFFICIAL SANCTION OF DELIBERATE CAPACITY', 100, 290);
-    ctx.fillText(`DATE OF ISSUANCE: ${new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}`, 100, 325);
+    ctx.fillText(
+      `DATE OF ISSUANCE: ${new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}`,
+      100,
+      325
+    );
 
     // 4. Affirmation Body
     ctx.font = '32px "Space Grotesk", sans-serif';
@@ -62,13 +66,13 @@ export const PermissionSlip: React.FC = () => {
       'and that is an act of deliberate courage.',
       '',
       'Rest is not the absence of productivity.',
-      'Rest is the biological manufacturing of tomorrow\'s stamina.',
+      "Rest is the biological manufacturing of tomorrow's stamina.",
       '',
-      'Put down the tools. You are officially excused.'
+      'Put down the tools. You are officially excused.',
     ];
 
     let startY = 410;
-    lines.forEach(line => {
+    lines.forEach((line) => {
       ctx.fillText(line, 100, startY);
       startY += 44;
     });
@@ -115,9 +119,7 @@ export const PermissionSlip: React.FC = () => {
             <Heart className="w-4 h-4 text-modeRecover fill-modeRecover" />
             1.6 Bio-Recovery Protocol
           </span>
-          <h3 className="font-display text-lg uppercase text-ink">
-            Need to shut down today?
-          </h3>
+          <h3 className="font-display text-lg uppercase text-ink">Need to shut down today?</h3>
           <p className="text-xs text-neutral-700 font-body">
             Resting is not wasted time. It is replenishing your aerosol canister's PSI.
           </p>
@@ -171,7 +173,8 @@ export const PermissionSlip: React.FC = () => {
               </p>
 
               <p className="text-xs text-neutral-800 leading-relaxed font-body">
-                Today’s target is zero paint units. The world will wait. Your nervous system is recalibrating, and this recovery session counts as legitimate progress.
+                Today’s target is zero paint units. The world will wait. Your nervous system is
+                recalibrating, and this recovery session counts as legitimate progress.
               </p>
 
               <div className="p-2.5 bg-white border border-ink text-[11px] font-mono text-purple-800 flex items-center justify-between">

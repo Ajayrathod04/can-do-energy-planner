@@ -5,7 +5,7 @@ import { sound } from '../lib/sound';
 
 export const Footer: React.FC = () => {
   const [copied, setCopied] = useState(false);
-  const reducedMotion = useAppStore(s => s.reducedMotion);
+  const reducedMotion = useAppStore((s) => s.reducedMotion);
 
   const handleCopyEmail = async () => {
     try {

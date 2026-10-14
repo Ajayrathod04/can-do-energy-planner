@@ -20,10 +20,7 @@ export const Container: React.FC<ContainerProps> = ({
   }[size];
 
   return (
-    <div
-      className={clsx('w-full mx-auto px-4 sm:px-6 md:px-8', maxW, className)}
-      {...props}
-    >
+    <div className={clsx('w-full mx-auto px-4 sm:px-6 md:px-8', maxW, className)} {...props}>
       {children}
     </div>
   );

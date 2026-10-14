@@ -59,9 +59,7 @@ export const L4Modes: React.FC = () => {
             >
               {currentMode.name}
             </h3>
-            <p className="font-tag text-xl md:text-2xl text-[#111111]">
-              {currentMode.tagline}
-            </p>
+            <p className="font-tag text-xl md:text-2xl text-[#111111]">{currentMode.tagline}</p>
             <p className="font-body text-base md:text-lg text-[#333333] max-w-xl mx-auto">
               {currentMode.description}
             </p>
@@ -101,9 +99,7 @@ export const L4Modes: React.FC = () => {
                   aria-label={`Go to ${mode.name} mode`}
                   className={clsx(
                     'w-3.5 h-3.5 border-2 border-[#111111] transition-transform',
-                    idx === activeIndex
-                      ? 'bg-[#111111] scale-125'
-                      : 'bg-white hover:scale-110'
+                    idx === activeIndex ? 'bg-[#111111] scale-125' : 'bg-white hover:scale-110'
                   )}
                 />
               ))}
@@ -120,7 +116,8 @@ export const L4Modes: React.FC = () => {
 
           {/* Live Announcer for Screen Readers */}
           <div aria-live="polite" className="sr-only">
-            Active mode: {currentMode.name}. {currentMode.tagline}. Multiplier: {currentMode.multiplier}x.
+            Active mode: {currentMode.name}. {currentMode.tagline}. Multiplier:{' '}
+            {currentMode.multiplier}x.
           </div>
         </div>
       </div>

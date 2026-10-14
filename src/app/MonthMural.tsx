@@ -4,7 +4,7 @@ import { sound } from '../lib/sound';
 import { Calendar, Download, Sparkles } from 'lucide-react';
 
 export const MonthMural: React.FC = () => {
-  const wallTags = useAppStore(s => s.wallTags);
+  const wallTags = useAppStore((s) => s.wallTags);
 
   const now = new Date();
   const currentMonthName = now.toLocaleString('default', { month: 'long' });
@@ -80,7 +80,7 @@ export const MonthMural: React.FC = () => {
     let col = firstDayIndex;
     let row = 0;
 
-    dayTiles.forEach(day => {
+    dayTiles.forEach((day) => {
       const tileX = startX + col * colWidth;
       const tileY = gridY + row * rowHeight;
 
@@ -127,10 +127,14 @@ export const MonthMural: React.FC = () => {
 
     ctx.fillStyle = '#888888';
     ctx.font = '14px monospace';
-    ctx.fillText('Hyperbloom October: UI/UX & Web Design // Digital wall. Paint legal walls only.', 70, 1295);
+    ctx.fillText(
+      'Hyperbloom October: UI/UX & Web Design // Digital wall. Paint legal walls only.',
+      70,
+      1295
+    );
 
     // 7. Trigger download
-    canvas.toBlob(blob => {
+    canvas.toBlob((blob) => {
       if (!blob) return;
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
@@ -178,11 +182,14 @@ export const MonthMural: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-7 gap-1 sm:gap-2">
-          {paddingTiles.map(p => (
-            <div key={`pad-${p}`} className="aspect-square bg-neutral-200/50 border border-dashed border-neutral-300" />
+          {paddingTiles.map((p) => (
+            <div
+              key={`pad-${p}`}
+              className="aspect-square bg-neutral-200/50 border border-dashed border-neutral-300"
+            />
           ))}
 
-          {dayTiles.map(day => {
+          {dayTiles.map((day) => {
             const isToday = day === now.getDate();
             const hasTagsToday = isToday && wallTags.length > 0;
 
@@ -196,7 +203,9 @@ export const MonthMural: React.FC = () => {
                 }`}
               >
                 <div className="flex items-center justify-between">
-                  <span className={`text-xs font-mono ${isToday ? 'text-modeGrind font-bold' : 'text-neutral-500'}`}>
+                  <span
+                    className={`text-xs font-mono ${isToday ? 'text-modeGrind font-bold' : 'text-neutral-500'}`}
+                  >
                     {day}
                   </span>
                   {isToday && (
@@ -210,7 +219,9 @@ export const MonthMural: React.FC = () => {
                   <div className="space-y-1">
                     <div className="flex items-center gap-1 text-[10px] font-mono text-green-700 font-bold">
                       <Sparkles className="w-3 h-3 text-modeGrind" />
-                      <span>{wallTags.length} {wallTags.length === 1 ? 'tag' : 'tags'}</span>
+                      <span>
+                        {wallTags.length} {wallTags.length === 1 ? 'tag' : 'tags'}
+                      </span>
                     </div>
                   </div>
                 ) : (

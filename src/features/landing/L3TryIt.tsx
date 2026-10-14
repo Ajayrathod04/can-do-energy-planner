@@ -165,7 +165,8 @@ export const L3TryIt: React.FC = () => {
                       “Can’s full! Save that for tomorrow.”
                     </p>
                     <p className="text-xs text-[#333333] font-medium mt-0.5">
-                      You are {totalCost - capacity} paint over capacity. No guilt—untap a task to balance your day.
+                      You are {totalCost - capacity} paint over capacity. No guilt—untap a task to
+                      balance your day.
                     </p>
                   </div>
                 </div>
@@ -173,7 +174,8 @@ export const L3TryIt: React.FC = () => {
                 <div className="flex items-center gap-4 p-3 bg-[#00E599]/20 border-2 border-[#111111]">
                   <CanoMascot pose="happy" size={50} />
                   <p className="font-body text-xs md:text-sm font-bold text-[#111111]">
-                    Healthy volume! You have {capacity - totalCost} paint remaining for rest or small tasks.
+                    Healthy volume! You have {capacity - totalCost} paint remaining for rest or
+                    small tasks.
                   </p>
                 </div>
               )}
@@ -189,17 +191,26 @@ export const L3TryIt: React.FC = () => {
         title="The Scientific Capacity Formula"
       >
         <div className="space-y-4 text-sm leading-relaxed text-[#222222]">
-          <p>
-            CAN-DO computes your daily capacity based on physiological recovery research:
-          </p>
+          <p>CAN-DO computes your daily capacity based on physiological recovery research:</p>
           <div className="p-3 bg-[#FFF6E5] border-2 border-[#111111] font-mono text-xs">
-            Capacity = Math.round(Math.min(16, Math.max(4, 4 + Sleep × 0.9 + (Energy - 3) × 1.2 - (Stress - 3) × 0.8)))
+            Capacity = Math.round(Math.min(16, Math.max(4, 4 + Sleep × 0.9 + (Energy - 3) × 1.2 -
+            (Stress - 3) × 0.8)))
           </div>
           <ul className="list-disc pl-5 space-y-1 text-xs text-[#444444]">
-            <li><strong>Sleep:</strong> Every hour contributes 0.9 units of neural stamina.</li>
-            <li><strong>Energy:</strong> High subjective readiness multiplies daily cognitive reserve.</li>
-            <li><strong>Stress:</strong> Cortisol load reduces working memory bandwidth by up to 1.6 units.</li>
-            <li><strong>Hard Limits:</strong> Bounded between 4 paint (rest day) and 16 paint (peak flow).</li>
+            <li>
+              <strong>Sleep:</strong> Every hour contributes 0.9 units of neural stamina.
+            </li>
+            <li>
+              <strong>Energy:</strong> High subjective readiness multiplies daily cognitive reserve.
+            </li>
+            <li>
+              <strong>Stress:</strong> Cortisol load reduces working memory bandwidth by up to 1.6
+              units.
+            </li>
+            <li>
+              <strong>Hard Limits:</strong> Bounded between 4 paint (rest day) and 16 paint (peak
+              flow).
+            </li>
           </ul>
           <Button onClick={() => setIsFormulaOpen(false)} variant="brutal" size="sm" isFullWidth>
             Got it, close

@@ -41,10 +41,7 @@ export const LandingNav: React.FC = () => {
           >
             Try it
           </button>
-          <button
-            onClick={() => scrollTo('modes')}
-            className="hover:text-[#FF3D8B] cursor-pointer"
-          >
+          <button onClick={() => scrollTo('modes')} className="hover:text-[#FF3D8B] cursor-pointer">
             Modes
           </button>
           <button

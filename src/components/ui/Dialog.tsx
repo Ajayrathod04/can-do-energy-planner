@@ -9,13 +9,7 @@ export interface DialogProps {
   className?: string;
 }
 
-export const Dialog: React.FC<DialogProps> = ({
-  isOpen,
-  onClose,
-  title,
-  children,
-  className,
-}) => {
+export const Dialog: React.FC<DialogProps> = ({ isOpen, onClose, title, children, className }) => {
   const dialogRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

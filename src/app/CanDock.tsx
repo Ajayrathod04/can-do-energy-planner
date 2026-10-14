@@ -12,7 +12,7 @@ interface CanDockProps {
 
 export const CanDock: React.FC<CanDockProps> = ({ onOpenDeferral, isOverDropZone = false }) => {
   const activeMode = useAppStore(selectActiveMode);
-  const capacity = useAppStore(s => s.calculatedCapacity);
+  const capacity = useAppStore((s) => s.calculatedCapacity);
   const totalCost = useAppStore(selectCanTotalCost);
 
   const isOverflow = totalCost > capacity;
@@ -47,7 +47,9 @@ export const CanDock: React.FC<CanDockProps> = ({ onOpenDeferral, isOverDropZone
           <div className="flex items-center gap-2">
             <AlertTriangle className="w-5 h-5 text-red-600 flex-shrink-0" />
             <div>
-              <p className="font-display text-sm uppercase">OVERFLOW: +{overflowAmount} UNITS OVER</p>
+              <p className="font-display text-sm uppercase">
+                OVERFLOW: +{overflowAmount} UNITS OVER
+              </p>
               <p className="text-xs font-body text-red-800">
                 Physics doesn't lie. Your can is leaking pressure.
               </p>
@@ -131,7 +133,9 @@ export const CanDock: React.FC<CanDockProps> = ({ onOpenDeferral, isOverDropZone
         {!isOverflow ? (
           <>
             <CheckCircle className="w-4 h-4 text-green-600" />
-            <span>Capacity in balance. {capacity - totalCost} paint units remaining for today.</span>
+            <span>
+              Capacity in balance. {capacity - totalCost} paint units remaining for today.
+            </span>
           </>
         ) : (
           <>

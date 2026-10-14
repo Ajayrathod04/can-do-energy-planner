@@ -5,7 +5,7 @@ import { Sparkles, CheckCircle2, Smartphone } from 'lucide-react';
 
 export const RattleRitual: React.FC<{ className?: string }> = ({ className = '' }) => {
   const activeMode = useAppStore(selectActiveMode);
-  const reducedMotion = useAppStore(s => s.reducedMotion);
+  const reducedMotion = useAppStore((s) => s.reducedMotion);
 
   const [pressureCharge, setPressureCharge] = useState(0); // 0 to 100%
   const [isPrimed, setIsPrimed] = useState(false);
@@ -28,23 +28,26 @@ export const RattleRitual: React.FC<{ className?: string }> = ({ className = '' 
   }, []);
 
   // Update pressure charge
-  const addCharge = useCallback((amount: number) => {
-    setPressureCharge(prev => {
-      const next = Math.min(100, prev + amount);
-      if (next >= 100 && !isPrimed) {
-        setIsPrimed(true);
-        sound.playPop();
-        if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
-          try {
-            navigator.vibrate([20, 50, 30]);
-          } catch {
-            // Haptics optional
+  const addCharge = useCallback(
+    (amount: number) => {
+      setPressureCharge((prev) => {
+        const next = Math.min(100, prev + amount);
+        if (next >= 100 && !isPrimed) {
+          setIsPrimed(true);
+          sound.playPop();
+          if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
+            try {
+              navigator.vibrate([20, 50, 30]);
+            } catch {
+              // Haptics optional
+            }
           }
         }
-      }
-      return next;
-    });
-  }, [isPrimed]);
+        return next;
+      });
+    },
+    [isPrimed]
+  );
 
   // Pointer drag event handlers (Desktop & Touch)
   const handlePointerDown = (e: React.PointerEvent) => {
@@ -108,9 +111,14 @@ export const RattleRitual: React.FC<{ className?: string }> = ({ className = '' 
   }, [addCharge, triggerRattle]);
 
   const requestMotionPermission = () => {
-    if (typeof window !== 'undefined' && typeof (DeviceMotionEvent as unknown as { requestPermission?: () => Promise<string> }).requestPermission === 'function') {
-      (DeviceMotionEvent as unknown as { requestPermission: () => Promise<string> }).requestPermission()
-        .then(response => {
+    if (
+      typeof window !== 'undefined' &&
+      typeof (DeviceMotionEvent as unknown as { requestPermission?: () => Promise<string> })
+        .requestPermission === 'function'
+    ) {
+      (DeviceMotionEvent as unknown as { requestPermission: () => Promise<string> })
+        .requestPermission()
+        .then((response) => {
           if (response === 'granted') {
             sound.playPop();
           }
@@ -120,7 +128,9 @@ export const RattleRitual: React.FC<{ className?: string }> = ({ className = '' 
   };
 
   return (
-    <div className={`brutal-card p-4 space-y-3 bg-neutral-100 border-3 border-ink select-none ${className}`}>
+    <div
+      className={`brutal-card p-4 space-y-3 bg-neutral-100 border-3 border-ink select-none ${className}`}
+    >
       <div className="flex items-center justify-between border-b-2 border-ink pb-2">
         <div className="flex items-center gap-2">
           <Sparkles className="w-4 h-4 text-modeGrind" />
@@ -168,7 +178,8 @@ export const RattleRitual: React.FC<{ className?: string }> = ({ className = '' 
         <p className="text-xs text-neutral-700 font-body text-center pt-1">
           {isPrimed ? (
             <span className="text-green-700 font-bold flex items-center justify-center gap-1">
-              <CheckCircle2 className="w-4 h-4" /> Aerosol pigment fully agitated. Can ready to allocate.
+              <CheckCircle2 className="w-4 h-4" /> Aerosol pigment fully agitated. Can ready to
+              allocate.
             </span>
           ) : (
             <span>⇄ Drag side-to-side or shake phone to hear the steel ball rattle</span>

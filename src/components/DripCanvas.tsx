@@ -24,19 +24,19 @@ export const DripCanvas: React.FC<DripCanvasProps> = ({
   className = '',
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const reducedMotion = useAppStore(s => s.reducedMotion);
+  const reducedMotion = useAppStore((s) => s.reducedMotion);
   const streamsRef = useRef<DripStream[]>([]);
 
   // Update drip streams when overflowUnits changes
   useEffect(() => {
     if (overflowUnits <= 0) {
       // Mark current drips as drying
-      streamsRef.current.forEach(s => (s.drying = true));
+      streamsRef.current.forEach((s) => (s.drying = true));
       return;
     }
 
     // Adjust stream count to match overflowUnits
-    const currentCount = streamsRef.current.filter(s => !s.drying).length;
+    const currentCount = streamsRef.current.filter((s) => !s.drying).length;
     if (overflowUnits > currentCount) {
       const needed = overflowUnits - currentCount;
       const width = canvasRef.current?.width || 360;
@@ -82,7 +82,7 @@ export const DripCanvas: React.FC<DripCanvasProps> = ({
     const render = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      streamsRef.current.forEach(stream => {
+      streamsRef.current.forEach((stream) => {
         if (!stream.drying) {
           stream.y += stream.speed;
           stream.speed += 0.008; // Gravity acceleration
@@ -115,7 +115,7 @@ export const DripCanvas: React.FC<DripCanvasProps> = ({
 
       // Filter out drips that reached past bottom or fully dried
       streamsRef.current = streamsRef.current.filter(
-        s => s.y < canvas.height + 20 && (!s.drying || s.speed > 0)
+        (s) => s.y < canvas.height + 20 && (!s.drying || s.speed > 0)
       );
 
       animId = requestAnimationFrame(render);

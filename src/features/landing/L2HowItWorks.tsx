@@ -32,8 +32,8 @@ export const L2HowItWorks: React.FC = () => {
             </div>
             <h3 className="font-display text-2xl text-[#111111]">CHECK IN</h3>
             <p className="font-body text-base text-[#444444] leading-relaxed">
-              Tell us how you slept and how you feel. We don’t ask for a life story—just 3 quick sliders
-              for sleep, mood, and cognitive load.
+              Tell us how you slept and how you feel. We don’t ask for a life story—just 3 quick
+              sliders for sleep, mood, and cognitive load.
             </p>
           </Card>
 
@@ -47,8 +47,8 @@ export const L2HowItWorks: React.FC = () => {
             </div>
             <h3 className="font-display text-2xl text-[#111111]">GET YOUR PAINT</h3>
             <p className="font-body text-base text-[#444444] leading-relaxed">
-              We turn your check-in into a real number for today. Tired means less paint (e.g. 6 units);
-              rested means more (up to 16 units).
+              We turn your check-in into a real number for today. Tired means less paint (e.g. 6
+              units); rested means more (up to 16 units).
             </p>
           </Card>
 

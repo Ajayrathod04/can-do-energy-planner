@@ -54,8 +54,8 @@ export const SystemPage: React.FC = () => {
               /SYSTEM SHOWCASE
             </h1>
             <p className="text-lg text-[#333333] max-w-2xl mt-2 font-medium">
-              Editorial Neo-Brutalism + Graffiti Accents. Documenting color mathematics, 16 chunky SVG
-              icons, Cano mascot poses, interactive UI components, and WCAG AA contrast.
+              Editorial Neo-Brutalism + Graffiti Accents. Documenting color mathematics, 16 chunky
+              SVG icons, Cano mascot poses, interactive UI components, and WCAG AA contrast.
             </p>
           </div>
           <a

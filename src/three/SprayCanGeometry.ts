@@ -12,7 +12,7 @@ export function createSprayCanProfile(): THREE.Vector2[] {
   points.push(new THREE.Vector2(0.4, 0.15));
   points.push(new THREE.Vector2(0.8, 0.05));
   points.push(new THREE.Vector2(0.95, 0.0));
-  
+
   // 2. Bottom chime rim crimp
   points.push(new THREE.Vector2(1.02, 0.05));
   points.push(new THREE.Vector2(0.98, 0.15));
@@ -25,7 +25,7 @@ export function createSprayCanProfile(): THREE.Vector2[] {
 
   // 4. Inward chiseled shoulder taper
   points.push(new THREE.Vector2(0.98, 3.0));
-  points.push(new THREE.Vector2(0.90, 3.2));
+  points.push(new THREE.Vector2(0.9, 3.2));
   points.push(new THREE.Vector2(0.75, 3.4));
   points.push(new THREE.Vector2(0.55, 3.52));
 

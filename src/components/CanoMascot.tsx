@@ -32,7 +32,16 @@ export const CanoMascot: React.FC<CanoMascotProps> = ({
       {...props}
     >
       {/* 1. Spray Nozzle Cap */}
-      <rect x="65" y="15" width="30" height="20" rx="4" fill="#FFFFFF" stroke="#111111" strokeWidth="3" />
+      <rect
+        x="65"
+        y="15"
+        width="30"
+        height="20"
+        rx="4"
+        fill="#FFFFFF"
+        stroke="#111111"
+        strokeWidth="3"
+      />
       <circle cx="80" cy="25" r="4" fill="#FF6B2C" />
       <line x1="65" y1="22" x2="95" y2="22" stroke="#111111" strokeWidth="2" />
 
@@ -62,8 +71,24 @@ export const CanoMascot: React.FC<CanoMascotProps> = ({
       )}
 
       {/* 4. Can Belly Label */}
-      <rect x="48" y="75" width="64" height="60" rx="4" fill="#FFFFFF" stroke="#111111" strokeWidth="2.5" />
-      <text x="80" y="112" textAnchor="middle" fontFamily="'Archivo Black', sans-serif" fontSize="13" fill="#111111">
+      <rect
+        x="48"
+        y="75"
+        width="64"
+        height="60"
+        rx="4"
+        fill="#FFFFFF"
+        stroke="#111111"
+        strokeWidth="2.5"
+      />
+      <text
+        x="80"
+        y="112"
+        textAnchor="middle"
+        fontFamily="'Archivo Black', sans-serif"
+        fontSize="13"
+        fill="#111111"
+      >
         CAN-DO
       </text>
 
@@ -83,10 +108,42 @@ export const CanoMascot: React.FC<CanoMascotProps> = ({
           {/* Left Arm Resting */}
           <path d="M42 70 Q28 85 32 95" stroke="#111111" strokeWidth="4" strokeLinecap="round" />
           {/* Legs */}
-          <line x1="62" y1="165" x2="62" y2="185" stroke="#111111" strokeWidth="4" strokeLinecap="round" />
-          <line x1="98" y1="165" x2="98" y2="185" stroke="#111111" strokeWidth="4" strokeLinecap="round" />
-          <ellipse cx="58" cy="188" rx="8" ry="4" fill="#FF6B2C" stroke="#111111" strokeWidth="2.5" />
-          <ellipse cx="102" cy="188" rx="8" ry="4" fill="#FF6B2C" stroke="#111111" strokeWidth="2.5" />
+          <line
+            x1="62"
+            y1="165"
+            x2="62"
+            y2="185"
+            stroke="#111111"
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
+          <line
+            x1="98"
+            y1="165"
+            x2="98"
+            y2="185"
+            stroke="#111111"
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
+          <ellipse
+            cx="58"
+            cy="188"
+            rx="8"
+            ry="4"
+            fill="#FF6B2C"
+            stroke="#111111"
+            strokeWidth="2.5"
+          />
+          <ellipse
+            cx="102"
+            cy="188"
+            rx="8"
+            ry="4"
+            fill="#FF6B2C"
+            stroke="#111111"
+            strokeWidth="2.5"
+          />
         </>
       )}
 
@@ -103,30 +160,86 @@ export const CanoMascot: React.FC<CanoMascotProps> = ({
           {/* Belly-holding arm */}
           <path d="M36 80 Q25 110 50 115" stroke="#111111" strokeWidth="4" strokeLinecap="round" />
           {/* Legs splayed */}
-          <line x1="58" y1="165" x2="52" y2="185" stroke="#111111" strokeWidth="4" strokeLinecap="round" />
-          <line x1="102" y1="165" x2="108" y2="185" stroke="#111111" strokeWidth="4" strokeLinecap="round" />
-          <ellipse cx="48" cy="188" rx="8" ry="4" fill="#FF6B2C" stroke="#111111" strokeWidth="2.5" />
-          <ellipse cx="112" cy="188" rx="8" ry="4" fill="#FF6B2C" stroke="#111111" strokeWidth="2.5" />
+          <line
+            x1="58"
+            y1="165"
+            x2="52"
+            y2="185"
+            stroke="#111111"
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
+          <line
+            x1="102"
+            y1="165"
+            x2="108"
+            y2="185"
+            stroke="#111111"
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
+          <ellipse
+            cx="48"
+            cy="188"
+            rx="8"
+            ry="4"
+            fill="#FF6B2C"
+            stroke="#111111"
+            strokeWidth="2.5"
+          />
+          <ellipse
+            cx="112"
+            cy="188"
+            rx="8"
+            ry="4"
+            fill="#FF6B2C"
+            stroke="#111111"
+            strokeWidth="2.5"
+          />
         </>
       )}
 
       {pose === 'sleepy' && (
         <>
           {/* Nightcap */}
-          <path d="M60 25 Q90 -5 125 10 L105 35 Z" fill="#C084FC" stroke="#111111" strokeWidth="3" />
+          <path
+            d="M60 25 Q90 -5 125 10 L105 35 Z"
+            fill="#C084FC"
+            stroke="#111111"
+            strokeWidth="3"
+          />
           <circle cx="125" cy="10" r="5" fill="#FFFFFF" stroke="#111111" strokeWidth="2" />
           {/* Closed sleeping eyes */}
           <path d="M65 64 Q70 68 75 64" stroke="#111111" strokeWidth="3" strokeLinecap="round" />
           <path d="M85 64 Q90 68 95 64" stroke="#111111" strokeWidth="3" strokeLinecap="round" />
           {/* Zzz text */}
-          <text x="120" y="45" fontFamily="'Space Grotesk', sans-serif" fontWeight="bold" fontSize="16" fill="#111111">
+          <text
+            x="120"
+            y="45"
+            fontFamily="'Space Grotesk', sans-serif"
+            fontWeight="bold"
+            fontSize="16"
+            fill="#111111"
+          >
             Z
           </text>
-          <text x="132" y="32" fontFamily="'Space Grotesk', sans-serif" fontWeight="bold" fontSize="12" fill="#111111">
+          <text
+            x="132"
+            y="32"
+            fontFamily="'Space Grotesk', sans-serif"
+            fontWeight="bold"
+            fontSize="12"
+            fill="#111111"
+          >
             z
           </text>
           {/* Crossed legs / sitting */}
-          <path d="M55 165 Q80 180 105 165" stroke="#111111" strokeWidth="4" strokeLinecap="round" />
+          <path
+            d="M55 165 Q80 180 105 165"
+            stroke="#111111"
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
         </>
       )}
 
@@ -145,7 +258,10 @@ export const CanoMascot: React.FC<CanoMascotProps> = ({
           <path d="M100 165 L110 180" stroke="#111111" strokeWidth="4" strokeLinecap="round" />
           {/* Sparkles / Confetti */}
           <path d="M25 15 L28 22 L35 25 L28 28 L25 35 L22 28 L15 25 L22 22 Z" fill="#FFD93D" />
-          <path d="M135 15 L138 22 L145 25 L138 28 L135 35 L132 28 L125 25 L132 22 Z" fill="#00E599" />
+          <path
+            d="M135 15 L138 22 L145 25 L138 28 L135 35 L132 28 L125 25 L132 22 Z"
+            fill="#00E599"
+          />
           <circle cx="80" cy="5" r="3" fill="#FF3D8B" />
         </>
       )}
