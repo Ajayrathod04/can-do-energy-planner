@@ -74,9 +74,9 @@ export const FirstScreenHero: React.FC = () => {
   };
 
   return (
-    <section className="relative w-full max-w-[1280px] mx-auto px-4 py-3 sm:py-6 overflow-hidden">
+    <section className="relative w-full max-w-[1280px] mx-auto px-3 sm:px-4 py-1 sm:py-6 overflow-hidden">
       {/* Reset & Quick Links top bar */}
-      <div className="flex items-center justify-between pb-2 mb-2 border-b border-ink/10 text-xs font-mono">
+      <div className="flex items-center justify-between pb-1 mb-1 border-b border-ink/10 text-[10px] sm:text-xs font-mono">
         <span className="text-[11px] font-bold text-[var(--text-muted)]">
           MODE // {activeMode.name} ({activeMode.multiplier}x)
         </span>
@@ -107,18 +107,18 @@ export const FirstScreenHero: React.FC = () => {
       </div>
 
       {/* 12-Column Responsive Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-6 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-2 sm:gap-6 items-center">
         {/* Left Columns (1 to 5 on desktop) */}
-        <div className="lg:col-span-5 flex flex-col justify-center space-y-2 sm:space-y-4">
-          <span className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-neutral-600">
+        <div className="lg:col-span-5 flex flex-col justify-center space-y-1 sm:space-y-4">
+          <span className="hidden sm:block text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-neutral-600">
             For students with more to-dos than energy
           </span>
 
-          <h1 className="font-display text-2xl sm:text-4xl lg:text-[clamp(2.2rem,4vw,3.6rem)] text-[#14101F] leading-[1.08] tracking-tight">
+          <h1 className="font-display text-xl sm:text-4xl lg:text-[clamp(2.2rem,4vw,3.6rem)] text-[#14101F] leading-tight tracking-tight">
             Stop planning more than you can do.
           </h1>
 
-          <p className="font-body text-xs sm:text-sm text-neutral-700 leading-relaxed max-w-md">
+          <p className="hidden sm:block font-body text-xs sm:text-sm text-neutral-700 leading-relaxed max-w-md">
             CAN-DO turns how you slept into a daily budget of paint. Add tasks until the can is full. The rest waits for tomorrow.
           </p>
 
@@ -126,13 +126,13 @@ export const FirstScreenHero: React.FC = () => {
             <button
               type="button"
               onClick={focusFirstChip}
-              className="px-4 sm:px-5 py-2 sm:py-2.5 bg-[#FF6B2C] text-[#14101F] font-display text-xs sm:text-sm uppercase tracking-wide border-3 border-[#14101F] shadow-[3px_3px_0px_#14101F] sm:shadow-[4px_4px_0px_#14101F] hover:brightness-105 active:translate-y-0.5 rounded-lg min-h-[44px]"
+              className="px-3 sm:px-5 py-1.5 sm:py-2.5 bg-[#FF6B2C] text-[#14101F] font-display text-xs sm:text-sm uppercase tracking-wide border-2 sm:border-3 border-[#14101F] shadow-[2px_2px_0px_#14101F] sm:shadow-[4px_4px_0px_#14101F] hover:brightness-105 active:translate-y-0.5 rounded-lg min-h-[44px]"
             >
               Try it in 20 seconds
             </button>
             <a
               href="#/app"
-              className="px-3 sm:px-4 py-2 text-xs font-mono font-bold text-[#14101F] hover:underline min-h-[44px] inline-flex items-center"
+              className="px-3 sm:px-4 py-1.5 text-xs font-mono font-bold text-[#14101F] hover:underline min-h-[44px] inline-flex items-center"
             >
               Open the full planner →
             </a>
@@ -140,10 +140,10 @@ export const FirstScreenHero: React.FC = () => {
         </div>
 
         {/* Right Columns (7 to 12 on desktop) */}
-        <div className="lg:col-span-7 flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-between">
+        <div className="lg:col-span-7 flex flex-col sm:flex-row gap-2 sm:gap-4 items-center justify-between">
           {/* Flat Color Field Frame holding the Giant Can */}
           <div
-            className="relative w-full sm:w-[50%] h-[18vh] sm:h-[65vh] max-h-[580px] rounded-2xl flex items-center justify-center p-2 transition-colors duration-400"
+            className="relative w-full sm:w-[50%] h-[20vh] sm:h-[65vh] max-h-[580px] rounded-xl flex items-center justify-center p-1 sm:p-2 transition-colors duration-400"
             style={{ backgroundColor: activeMode.accentColor }}
           >
             <div ref={canRef} className="w-full h-[112%] flex items-center justify-center">
@@ -163,17 +163,19 @@ export const FirstScreenHero: React.FC = () => {
           </div>
 
           {/* Beside the can: Compact control panel + Stats */}
-          <div className="w-full sm:w-[48%] flex flex-col space-y-1.5 sm:space-y-3">
+          <div className="w-full sm:w-[48%] flex flex-col space-y-1 sm:space-y-3">
             <HeroStatNumbers capacity={capacity} usedPaint={totalCost} remaining={remaining} />
             <HeroModeChips activeModeId={activeMode.id} onSelectMode={setActiveMode} />
-            <HeroCheckin
-              sleepHours={sleepHours}
-              energyLevel={energyLevel}
-              stressLevel={stressLevel}
-              onUpdate={({ sleepHours: s, energyLevel: e, stressLevel: st }) => {
-                setCheckIn(s ?? sleepHours, e ?? energyLevel, st ?? stressLevel);
-              }}
-            />
+            <div className="hidden sm:block">
+              <HeroCheckin
+                sleepHours={sleepHours}
+                energyLevel={energyLevel}
+                stressLevel={stressLevel}
+                onUpdate={({ sleepHours: s, energyLevel: e, stressLevel: st }) => {
+                  setCheckIn(s ?? sleepHours, e ?? energyLevel, st ?? stressLevel);
+                }}
+              />
+            </div>
             <HeroTaskChips
               tasks={tasks}
               isFull={isFull}

@@ -40,7 +40,7 @@ export const LandingNav: React.FC = () => {
   }, [mobileMenuOpen]);
 
   return (
-    <header className="sticky top-0 z-40 bg-[#FFF6E5]/95 backdrop-blur-xs border-b-[3px] border-[#14101F] px-4 sm:px-8 py-2.5">
+    <header className="sticky top-0 z-40 bg-[#FFF6E5]/95 backdrop-blur-xs border-b-[3px] border-[#14101F] px-4 sm:px-8 py-1.5 sm:py-2.5">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <a href="#/" className="flex items-center gap-2 group min-h-[44px]" aria-label="CAN-DO Home">
