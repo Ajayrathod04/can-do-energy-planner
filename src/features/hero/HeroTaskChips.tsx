@@ -49,7 +49,7 @@ export const HeroTaskChips: React.FC<HeroTaskChipsProps> = ({
   return (
     <div className="w-full space-y-2">
       <div className="flex items-center justify-between">
-        <span className="block text-[10px] font-mono font-bold uppercase text-neutral-600">
+        <span className="block text-[10px] font-mono font-bold uppercase text-[var(--text-muted)]">
           Demo Tasks (Tap to Pack into Can)
         </span>
         {toastMessage && (
@@ -87,7 +87,7 @@ export const HeroTaskChips: React.FC<HeroTaskChipsProps> = ({
                 isPacked
                   ? 'bg-[#B6FF3B] text-[#14101F] shadow-[2px_2px_0px_#14101F] font-bold'
                   : isBlocked
-                  ? 'bg-neutral-100 opacity-60 cursor-not-allowed text-neutral-500'
+                  ? 'bg-neutral-100 cursor-not-allowed text-[var(--text-muted)]'
                   : 'bg-white hover:bg-[#FFF6E5] text-[#14101F] shadow-[2px_2px_0px_#14101F]'
               }`}
             >
@@ -95,7 +95,7 @@ export const HeroTaskChips: React.FC<HeroTaskChipsProps> = ({
                 <span className="block text-[11px] font-body truncate leading-tight">
                   {task.title}
                 </span>
-                <span className="text-[10px] font-mono text-neutral-600">
+                <span className="text-[10px] font-mono text-[var(--text-muted)]">
                   {task.category}
                 </span>
               </div>

@@ -20,7 +20,7 @@ export const SixMoodsSection: React.FC = () => {
     <section id="moods" className="w-full py-16 px-4 bg-white border-t-[3px] border-[#14101F]">
       <div className="max-w-5xl mx-auto space-y-8">
         <div className="text-center space-y-2">
-          <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#5B21B6]">
+          <span className="font-mono text-xs font-bold uppercase tracking-widest text-[var(--text-violet)]">
             Biological Postures
           </span>
           <h2 className="font-display text-3xl sm:text-4xl uppercase text-[#14101F]">
@@ -63,7 +63,7 @@ export const SixMoodsSection: React.FC = () => {
                   <span className="font-mono text-[10px] text-[#14101F] font-bold block">
                     {mode.multiplier}× paint
                   </span>
-                  <span className="font-mono text-[9px] text-[#14101F]/80 block mt-0.5">
+                  <span className="font-mono text-[9px] text-[var(--text-muted)] block mt-0.5">
                     {SKIN_ACCESSORY_LABELS[mode.id]}
                   </span>
                 </div>

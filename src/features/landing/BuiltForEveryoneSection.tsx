@@ -20,7 +20,7 @@ export const BuiltForEveryoneSection: React.FC = () => {
     >
       <div className="max-w-5xl mx-auto space-y-6">
         <div className="text-center space-y-2">
-          <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#9D174D]">
+          <span className="font-mono text-xs font-bold uppercase tracking-widest text-[var(--text-pink)]">
             Sensory Deck & Inclusivity
           </span>
           <h2 className="font-display text-3xl sm:text-4xl uppercase text-[#14101F]">
@@ -116,7 +116,7 @@ export const BuiltForEveryoneSection: React.FC = () => {
             aria-label="Cycle text size scale"
           >
             <span>🔠 Text Size</span>
-            <span className="text-[10px] text-[#666666]">{Math.round(fontScale * 100)}%</span>
+            <span className="text-[10px] text-[var(--text-muted)]">{Math.round(fontScale * 100)}%</span>
           </button>
 
           {/* 6. Sound */}

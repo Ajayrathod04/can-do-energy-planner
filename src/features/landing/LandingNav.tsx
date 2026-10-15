@@ -59,31 +59,31 @@ export const LandingNav: React.FC = () => {
         >
           <button
             onClick={() => scrollTo('play')}
-            className="hover:text-[#FF3D8B] cursor-pointer min-h-[44px] px-1"
+            className="hover:text-[var(--text-pink)] cursor-pointer min-h-[44px] px-1"
           >
             Try it
           </button>
           <button
             onClick={() => scrollTo('how-it-works')}
-            className="hover:text-[#FF3D8B] cursor-pointer min-h-[44px] px-1"
+            className="hover:text-[var(--text-pink)] cursor-pointer min-h-[44px] px-1"
           >
             How it works
           </button>
           <button
             onClick={() => scrollTo('moods')}
-            className="hover:text-[#FF3D8B] cursor-pointer min-h-[44px] px-1"
+            className="hover:text-[var(--text-pink)] cursor-pointer min-h-[44px] px-1"
           >
             Moods
           </button>
           <a
             href="#/process"
-            className="hover:text-[#FF3D8B] min-h-[44px] flex items-center px-1"
+            className="hover:text-[var(--text-pink)] min-h-[44px] flex items-center px-1"
           >
             Process
           </a>
           <button
             onClick={() => scrollTo('accessibility')}
-            className="hover:text-[#FF3D8B] cursor-pointer min-h-[44px] px-1"
+            className="hover:text-[var(--text-pink)] cursor-pointer min-h-[44px] px-1"
           >
             Accessibility
           </button>

@@ -77,14 +77,14 @@ export const FirstScreenHero: React.FC = () => {
     <section className="relative w-full max-w-[1280px] mx-auto px-4 py-3 sm:py-6 overflow-hidden">
       {/* Reset & Quick Links top bar */}
       <div className="flex items-center justify-between pb-2 mb-2 border-b border-ink/10 text-xs font-mono">
-        <span className="text-[11px] font-bold text-neutral-600">
+        <span className="text-[11px] font-bold text-[var(--text-muted)]">
           MODE // {activeMode.name} ({activeMode.multiplier}x)
         </span>
         <div className="flex items-center gap-3">
           {inCanTasks.length > 0 && (
             <a
               href="#/app"
-              className="inline-flex items-center gap-1 font-bold text-[#7C5CFF] hover:underline"
+              className="inline-flex items-center gap-1 font-bold text-[var(--text-violet)] hover:underline"
             >
               <span>Start first task in App</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -97,7 +97,7 @@ export const FirstScreenHero: React.FC = () => {
               setOverrideFull(false);
               if (soundEnabled) sound.playPop();
             }}
-            className="inline-flex items-center gap-1 text-neutral-600 hover:text-black font-semibold"
+            className="inline-flex items-center gap-1 text-[var(--text-muted)] hover:text-black font-semibold"
             aria-label="Reset demo to initial state"
           >
             <RotateCcw className="w-3 h-3" />
@@ -126,7 +126,7 @@ export const FirstScreenHero: React.FC = () => {
             <button
               type="button"
               onClick={focusFirstChip}
-              className="px-4 sm:px-5 py-2 sm:py-2.5 bg-[#14101F] text-white font-display text-xs sm:text-sm uppercase tracking-wide border-3 border-[#14101F] shadow-[3px_3px_0px_#14101F] sm:shadow-[4px_4px_0px_#14101F] hover:bg-neutral-800 active:translate-y-0.5 rounded-lg min-h-[44px]"
+              className="px-4 sm:px-5 py-2 sm:py-2.5 bg-[#FF6B2C] text-[#14101F] font-display text-xs sm:text-sm uppercase tracking-wide border-3 border-[#14101F] shadow-[3px_3px_0px_#14101F] sm:shadow-[4px_4px_0px_#14101F] hover:brightness-105 active:translate-y-0.5 rounded-lg min-h-[44px]"
             >
               Try it in 20 seconds
             </button>

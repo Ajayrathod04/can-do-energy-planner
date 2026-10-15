@@ -17,7 +17,7 @@ export const ProcessPage: React.FC = () => {
       <main className="flex-1 w-full max-w-5xl mx-auto px-4 py-12 space-y-12">
         {/* Header */}
         <div className="space-y-3 text-center sm:text-left border-b-3 border-[#14101F] pb-6">
-          <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#C2410C]">
+          <span className="font-mono text-xs font-bold uppercase tracking-wider text-[var(--text-orange)]">
             Design Case Study & Systems Architecture
           </span>
           <h1 className="font-display text-3xl sm:text-5xl uppercase tracking-tight text-[#14101F]">
@@ -35,11 +35,11 @@ export const ProcessPage: React.FC = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="p-5 bg-white border-3 border-[#14101F] shadow-[4px_4px_0px_#14101F] rounded-xl space-y-2">
-              <span className="font-mono text-xs font-bold text-[#9D174D] uppercase">The Core Friction</span>
+              <span className="font-mono text-xs font-bold text-[var(--text-pink)] uppercase">The Core Friction</span>
               <p className="text-sm leading-relaxed text-neutral-800">{PROCESS_DATA.problemStatement}</p>
             </div>
             <div className="p-5 bg-white border-3 border-[#14101F] shadow-[4px_4px_0px_#14101F] rounded-xl space-y-2">
-              <span className="font-mono text-xs font-bold text-[#5B21B6] uppercase">Who It Is For</span>
+              <span className="font-mono text-xs font-bold text-[var(--text-violet)] uppercase">Who It Is For</span>
               <p className="text-sm leading-relaxed text-neutral-800">{PROCESS_DATA.whoItIsFor}</p>
             </div>
           </div>
@@ -55,7 +55,7 @@ export const ProcessPage: React.FC = () => {
               <div key={p.name} className="p-5 bg-white border-2 border-[#14101F] shadow-[3px_3px_0px_#14101F] rounded-xl space-y-2 font-body">
                 <div className="flex items-center justify-between">
                   <span className="font-display text-lg">{p.name}</span>
-                  <span className="font-mono text-xs text-neutral-500 font-bold">{p.role}</span>
+                  <span className="font-mono text-xs text-[var(--text-muted)] font-bold">{p.role}</span>
                 </div>
                 <p className="text-xs text-red-900 bg-red-50 p-2 border border-red-200 rounded">
                   <strong>Pain Point:</strong> {p.painPoint}
@@ -105,9 +105,9 @@ export const ProcessPage: React.FC = () => {
                 href={s.route}
                 className="p-4 bg-white border-2 border-[#14101F] shadow-[3px_3px_0px_#14101F] rounded-lg space-y-1 block hover:bg-[#FFF6E5] transition-colors"
               >
-                <span className="font-mono text-xs font-bold text-[#5B21B6] block">{s.route}</span>
+                <span className="font-mono text-xs font-bold text-[var(--text-violet)] block">{s.route}</span>
                 <span className="font-display text-sm block">{s.label}</span>
-                <p className="text-[11px] text-neutral-600 font-body">{s.description}</p>
+                <p className="text-[11px] text-[var(--text-muted)] font-body">{s.description}</p>
               </a>
             ))}
           </div>
@@ -126,12 +126,12 @@ export const ProcessPage: React.FC = () => {
                   <div className="p-3 bg-emerald-50 border border-emerald-300 rounded">
                     <span className="font-bold text-emerald-900 block mb-1">✓ Chosen Solution:</span>
                     <p className="text-neutral-800">{d.chosen}</p>
-                    <p className="text-neutral-600 mt-1 italic">{d.rationale}</p>
+                    <p className="text-[var(--text-muted)] mt-1 italic">{d.rationale}</p>
                   </div>
                   <div className="p-3 bg-neutral-100 border border-neutral-300 rounded">
                     <span className="font-bold text-neutral-800 block mb-1">✗ Rejected Alternative:</span>
                     <p className="text-neutral-800">{d.rejected}</p>
-                    <p className="text-neutral-600 mt-1 italic">{d.rejectedRationale}</p>
+                    <p className="text-[var(--text-muted)] mt-1 italic">{d.rejectedRationale}</p>
                   </div>
                 </div>
               </div>

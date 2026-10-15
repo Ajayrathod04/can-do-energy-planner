@@ -12,6 +12,7 @@ import { PermissionSlip } from '@/app/PermissionSlip';
 import { AppHeader } from '@/app/AppHeader';
 import { ShortcutsDialog } from '@/app/ShortcutsDialog';
 import { MODES } from '@/data/modes';
+import { getReadableText } from '@/lib/contrast';
 
 export const AppPage: React.FC = () => {
   const activeMode = useAppStore(selectActiveMode);
@@ -70,24 +71,33 @@ export const AppPage: React.FC = () => {
 
         <div className="flex flex-wrap items-center gap-2 p-3 bg-white border-[3px] border-[#111111] shadow-[4px_4px_0_#111111]">
           <span className="text-xs font-bold uppercase text-neutral-700 mr-2">Active Mode:</span>
-          {MODES.map((mode) => (
-            <button
-              key={mode.id}
-              onClick={() => setActiveMode(mode.id)}
-              className={`px-3 py-1 text-xs font-bold border-2 transition-all flex items-center gap-1.5 ${
-                mode.id === activeMode.id
-                  ? 'border-[#14101F] bg-[#14101F] text-white shadow-[2px_2px_0_#111111] scale-105'
-                  : 'border-neutral-300 bg-[#FAFAFA] text-[#14101F] hover:border-[#14101F]'
-              }`}
-            >
-              <span
-                className="w-2.5 h-2.5 rounded-full border border-neutral-400"
-                style={{ backgroundColor: mode.accentColor }}
-              />
-              <span>{mode.name}</span>
-              <span className="text-[10px]">({mode.multiplier}×)</span>
-            </button>
-          ))}
+          {MODES.map((mode) => {
+            const isSelected = mode.id === activeMode.id;
+            const textColor = getReadableText(mode.accentColor);
+            return (
+              <button
+                key={mode.id}
+                onClick={() => setActiveMode(mode.id)}
+                style={
+                  isSelected
+                    ? { backgroundColor: mode.accentColor, color: textColor, borderColor: '#14101F' }
+                    : undefined
+                }
+                className={`px-3 py-1 text-xs font-bold border-2 transition-all flex items-center gap-1.5 ${
+                  isSelected
+                    ? 'shadow-[2px_2px_0_#111111] scale-105'
+                    : 'border-neutral-300 bg-[#FAFAFA] text-[#14101F] hover:border-[#14101F]'
+                }`}
+              >
+                <span
+                  className="w-2.5 h-2.5 rounded-full border border-neutral-400"
+                  style={{ backgroundColor: isSelected ? textColor : mode.accentColor }}
+                />
+                <span>{mode.name}</span>
+                <span className="text-[10px]">({mode.multiplier}×)</span>
+              </button>
+            );
+          })}
         </div>
 
         {coachStep > 0 && (
@@ -137,7 +147,7 @@ export const AppPage: React.FC = () => {
               Productivity without capacity limits is just burnout on an installment plan.
             </p>
           </div>
-          <span className="font-mono text-[11px] text-[#666666] border-l-2 border-[#CCCCCC] pl-3 whitespace-nowrap">
+          <span className="font-mono text-[11px] text-[var(--text-muted)] border-l-2 border-[#CCCCCC] pl-3 whitespace-nowrap">
             Digital wall. Please paint legal walls only.
           </span>
         </div>

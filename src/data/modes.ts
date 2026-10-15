@@ -108,7 +108,7 @@ export const MODES: EnergyMode[] = [
   {
     id: 'recover',
     name: 'RECOVER',
-    accentColor: '#8B5CF6', // Graffiti violet
+    accentColor: '#7A4FF0', // Graffiti violet (re-calibrated for WCAG AA >= 5.0:1)
     smallTextColor: '#A78BFA',
     canColor: '#6D28D9',
     pattern: 'solid',
@@ -118,8 +118,8 @@ export const MODES: EnergyMode[] = [
     tagline: 'Restoration & boundary protection',
     description: 'Gentle, minimum-viable effort. Sickness, burnout prevention, or active rest.',
     bestFor: 'Rest, sleep catch-up, hydration, self-care',
-    contrastOnDark: calculateContrast('#8B5CF6', DARK_BG),
-    contrastOnPaper: calculateContrast('#8B5CF6', PAPER_BG),
+    contrastOnDark: calculateContrast('#7A4FF0', DARK_BG),
+    contrastOnPaper: calculateContrast('#7A4FF0', PAPER_BG),
   },
 ];
 

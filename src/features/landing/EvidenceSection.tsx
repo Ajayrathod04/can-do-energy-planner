@@ -55,10 +55,10 @@ export const EvidenceSection: React.FC = () => {
                   key={u.id}
                   className="p-4 bg-white border-2 border-[#14101F] shadow-[3px_3px_0px_#14101F] rounded-lg space-y-1 font-body"
                 >
-                  <span className="font-mono text-[10px] text-neutral-500 block">
+                  <span className="font-mono text-[10px] text-[var(--text-muted)] block">
                     n={u.n} · {u.date}
                   </span>
-                  <div className="font-display text-xl text-[#7C5CFF]">{u.metric}</div>
+                  <div className="font-display text-xl text-[var(--text-violet)]">{u.metric}</div>
                   <p className="text-xs text-neutral-700">{u.finding}</p>
                 </div>
               ))}
@@ -76,8 +76,8 @@ export const EvidenceSection: React.FC = () => {
                   className="p-3 bg-[#FFF6E5] border-2 border-[#14101F] rounded-lg space-y-1"
                 >
                   <div className="font-bold text-[#14101F]">{a.standard}</div>
-                  <div className="text-sm font-display text-[#10B981]">{a.score}</div>
-                  <div className="text-[11px] text-neutral-600">{a.notes}</div>
+                  <div className="text-sm font-display text-[var(--text-green)]">{a.score}</div>
+                  <div className="text-[11px] text-[var(--text-muted)]">{a.notes}</div>
                 </div>
               ))}
             </div>

@@ -24,7 +24,15 @@
   --color-create: #FF3D8B;
   --color-chill: #B6FF3B;
   --color-social: #FFD93D;
-  --color-recover: #C084FC;
+  --color-recover: #7A4FF0;
+
+  /* Text-Safe Mode Tokens for WCAG AA (>= 4.5:1 on light paper & white) */
+  --text-orange: #B93C00;
+  --text-violet: #5B3FD6;
+  --text-pink: #BE185D;
+  --text-green: #047857;
+  --text-blue: #1D3FD0;
+  --text-muted: #595959;
 
   /* Active Mode Dynamic Tokens */
   --active-mode-color: var(--color-focus);

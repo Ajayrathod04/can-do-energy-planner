@@ -120,17 +120,20 @@ export const TheWall: React.FC = () => {
   };
 
   return (
-    <div className="brutal-card-dark p-5 space-y-4">
+    <div
+      className="p-5 space-y-4 border-2 border-neutral-700 shadow-[4px_4px_0px_#000000]"
+      style={{ backgroundColor: 'var(--color-ink, #14101F)' }}
+    >
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b-2 border-neutral-700 pb-3">
         <div>
-          <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-yellow-300">
+          <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#E5E5E5]">
             Step 4 // The Permanent Record
           </span>
-          <h2 className="font-display text-xl sm:text-2xl uppercase text-paper">
+          <h2 className="font-display text-xl sm:text-2xl uppercase text-[#FFFFFF]">
             Your Wall: every finished task becomes a tag
           </h2>
-          <p className="text-xs text-neutral-400 font-body">
+          <p className="text-xs text-[#D4D4D4] font-body">
             Completed tasks convert into permanent graffiti tags on your wall. Resting counts as
             capacity renewal.
           </p>
@@ -149,7 +152,7 @@ export const TheWall: React.FC = () => {
 
       {/* Gallery Grid */}
       {wallTags.length === 0 ? (
-        <div className="p-8 text-center text-neutral-400 font-mono text-xs border border-dashed border-neutral-700">
+        <div className="p-8 text-center text-[#D4D4D4] font-mono text-xs border border-dashed border-neutral-700">
           No tags sprayed yet. Finish a task or log a recovery session to leave your mark.
         </div>
       ) : (
@@ -157,7 +160,7 @@ export const TheWall: React.FC = () => {
           {wallTags.map((tag) => (
             <div
               key={tag.id}
-              className="p-4 bg-neutral-950 border-2 border-neutral-700 relative overflow-hidden group hover:border-paper transition-all shadow-[3px_3px_0px_#000000]"
+              className="p-4 bg-neutral-950 border-2 border-neutral-700 relative overflow-hidden group hover:border-[#FFFFFF] transition-all shadow-[3px_3px_0px_#000000]"
             >
               {/* Accent colored spray rim */}
               <div
@@ -165,19 +168,19 @@ export const TheWall: React.FC = () => {
                 style={{ backgroundColor: tag.modeColor }}
               />
 
-              <div className="flex items-center justify-between text-[11px] font-mono text-neutral-400 pt-1">
+              <div className="flex items-center justify-between text-[11px] font-mono text-[#D4D4D4] pt-1">
                 <span className="font-bold uppercase" style={{ color: tag.modeColor }}>
                   {tag.modeName}
                 </span>
                 <span>{tag.completedAt}</span>
               </div>
 
-              <p className="font-tag text-lg text-paper mt-2 leading-snug tracking-wide group-hover:text-yellow-300 transition-colors">
+              <p className="font-tag text-lg text-[#FFFFFF] mt-2 leading-snug tracking-wide group-hover:text-yellow-300 transition-colors">
                 "{tag.title}"
               </p>
 
               <div className="mt-3 flex items-center justify-between text-xs font-mono">
-                <span className="bg-neutral-800 border border-neutral-700 px-2 py-0.5 text-neutral-300">
+                <span className="bg-neutral-800 border border-neutral-700 px-2 py-0.5 text-[#E5E5E5]">
                   {tag.cost} Paint Units
                 </span>
                 <span className="text-green-400 flex items-center gap-1 text-[11px]">

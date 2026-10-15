@@ -65,7 +65,7 @@ export const OverflowModal: React.FC<OverflowModalProps> = ({ isOpen, onClose })
 
         {/* Guilt-Free Philosophy Message */}
         <div className="p-4 bg-orange-100 border-2 border-ink space-y-1">
-          <p className="font-tag text-lg text-modeGrind tracking-wide">
+          <p className="font-tag text-lg text-[var(--text-orange)] tracking-wide">
             "Physics does not negotiate."
           </p>
           <p className="font-body text-xs text-neutral-800 leading-relaxed">
@@ -78,7 +78,7 @@ export const OverflowModal: React.FC<OverflowModalProps> = ({ isOpen, onClose })
         {/* Suggested Deferrals */}
         {isOverflow ? (
           <div className="space-y-3 font-body">
-            <span className="text-xs font-mono font-bold uppercase text-neutral-600 block">
+            <span className="text-xs font-mono font-bold uppercase text-[var(--text-muted)] block">
               Recommended Deferrals (Prioritized by cost & due date):
             </span>
 

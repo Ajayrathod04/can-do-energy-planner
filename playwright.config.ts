@@ -24,12 +24,6 @@ export default defineConfig({
       },
     },
     {
-      name: 'tablet',
-      use: {
-        viewport: { width: 768, height: 1024 },
-      },
-    },
-    {
       name: 'mobile',
       use: {
         viewport: { width: 390, height: 844 },

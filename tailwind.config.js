@@ -16,8 +16,14 @@ export default {
         modeGrind: '#FF6B2C',
         modeCreate: '#FF3D8B',
         modeChill: '#B6FF3B',
-        modeSocial: '#FFD93D',
-        modeRecover: '#8B5CF6',
+        modeRecover: '#7A4FF0',
+        // Text-Safe Tokens for WCAG AA on light backgrounds
+        textOrange: '#B93C00',
+        textViolet: '#5B3FD6',
+        textPink: '#BE185D',
+        textGreen: '#047857',
+        textBlue: '#1D3FD0',
+        textMuted: '#595959',
       },
       fontFamily: {
         display: ['"Archivo Black"', 'Anton', 'sans-serif'],

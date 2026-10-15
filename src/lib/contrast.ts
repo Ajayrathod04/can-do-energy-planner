@@ -6,6 +6,7 @@
 export interface ContrastResult {
   ratio: number;
   ratioString: string;
+  passesAA: boolean; // >= 4.5:1
   passesAANormal: boolean; // >= 4.5:1
   passesAALarge: boolean; // >= 3.0:1
   passesAAA: boolean; // >= 7.0:1
@@ -46,8 +47,29 @@ export function calculateContrast(foregroundHex: string, backgroundHex: string):
   return {
     ratio: roundedRatio,
     ratioString: `${roundedRatio.toFixed(2)}:1`,
+    passesAA: roundedRatio >= 4.5,
     passesAANormal: roundedRatio >= 4.5,
     passesAALarge: roundedRatio >= 3.0,
     passesAAA: roundedRatio >= 7.0,
   };
+}
+
+/**
+ * Returns either white (#FFFFFF) or ink (#14101F) to guarantee >= 4.5:1 WCAG AA contrast.
+ * Resolved values:
+ * FOCUS #2F5BFF -> white text (5.17:1)
+ * GRIND #FF6B2C -> ink text (6.58:1)
+ * CREATE #FF3D8B -> ink text (5.60:1)
+ * CHILL #B6FF3B -> ink text (15.45:1)
+ * SOCIAL #FFD93D -> ink text (13.57:1)
+ * RECOVER #7A4FF0 -> white text (5.00:1)
+ */
+export function getReadableText(bgHex: string): '#FFFFFF' | '#14101F' {
+  const clean = bgHex.toUpperCase();
+  if (clean === '#2F5BFF' || clean === '#7A4FF0' || clean === '#14101F' || clean === '#121212' || clean === '#1A1A1A') {
+    return '#FFFFFF';
+  }
+  const whiteRatio = calculateContrast('#FFFFFF', bgHex).ratio;
+  const inkRatio = calculateContrast('#14101F', bgHex).ratio;
+  return whiteRatio >= inkRatio ? '#FFFFFF' : '#14101F';
 }

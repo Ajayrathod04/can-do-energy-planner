@@ -1,4 +1,5 @@
 import React from 'react';
+import { getReadableText } from '../../lib/contrast';
 
 const STEPS = [
   {
@@ -29,7 +30,7 @@ export const HowItWorksSection: React.FC = () => {
     <section id="how-it-works" className="w-full py-16 px-4 bg-[#FFF6E5] border-t-[3px] border-[#14101F]">
       <div className="max-w-5xl mx-auto space-y-8">
         <div className="text-center space-y-2">
-          <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#C2410C]">
+          <span className="font-mono text-xs font-bold uppercase tracking-widest text-[var(--text-orange)]">
             Three Physical Rules
           </span>
           <h2 className="font-display text-3xl sm:text-4xl uppercase text-[#14101F]">
@@ -47,11 +48,11 @@ export const HowItWorksSection: React.FC = () => {
                 <div className="flex items-center justify-between">
                   <span
                     className="font-display text-2xl px-2.5 py-0.5 border-2 border-[#14101F] rounded shadow-[2px_2px_0px_#14101F]"
-                    style={{ backgroundColor: s.color }}
+                    style={{ backgroundColor: s.color, color: getReadableText(s.color) }}
                   >
                     {s.step}
                   </span>
-                  <span className="font-mono text-[10px] font-bold text-[#666666] tracking-wider uppercase">
+                  <span className="font-mono text-[10px] font-bold text-[var(--text-muted)] tracking-wider uppercase">
                     {s.tag}
                   </span>
                 </div>
