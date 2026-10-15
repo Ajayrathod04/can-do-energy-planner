@@ -69,20 +69,23 @@ export const AppPage: React.FC = () => {
         <Stepper steps={steps} currentStep={currentStepperStage} />
 
         <div className="flex flex-wrap items-center gap-2 p-3 bg-white border-[3px] border-[#111111] shadow-[4px_4px_0_#111111]">
-          <span className="text-xs font-bold uppercase text-[#555555] mr-2">Active Mode:</span>
+          <span className="text-xs font-bold uppercase text-neutral-700 mr-2">Active Mode:</span>
           {MODES.map((mode) => (
             <button
               key={mode.id}
               onClick={() => setActiveMode(mode.id)}
               className={`px-3 py-1 text-xs font-bold border-2 transition-all flex items-center gap-1.5 ${
                 mode.id === activeMode.id
-                  ? 'border-[#111111] shadow-[2px_2px_0_#111111] scale-105'
-                  : 'border-[#CCCCCC] bg-[#FAFAFA] hover:border-[#111111]'
+                  ? 'border-[#14101F] bg-[#14101F] text-white shadow-[2px_2px_0_#111111] scale-105'
+                  : 'border-neutral-300 bg-[#FAFAFA] text-[#14101F] hover:border-[#14101F]'
               }`}
-              style={mode.id === activeMode.id ? { backgroundColor: mode.accentColor } : {}}
             >
+              <span
+                className="w-2.5 h-2.5 rounded-full border border-neutral-400"
+                style={{ backgroundColor: mode.accentColor }}
+              />
               <span>{mode.name}</span>
-              <span className="text-[10px] opacity-75">({mode.multiplier}×)</span>
+              <span className="text-[10px]">({mode.multiplier}×)</span>
             </button>
           ))}
         </div>

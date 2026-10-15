@@ -1,5 +1,4 @@
 /* Self-hosted fonts (OFL-1.1 & Apache-2.0 via @fontsource) */
-@import "@fontsource/titan-one";
 @import "@fontsource/archivo-black";
 @import "@fontsource/permanent-marker";
 @import "@fontsource/space-grotesk/400.css";
@@ -17,18 +16,6 @@
   --color-concrete: #121212;
   --color-concrete-light: #1E1E1E;
   --color-concrete-border: #2A2A2A;
-
-  /* Pop Poster Core Accents */
-  --color-stage-orange: #FF6B2C;
-  --color-violet: #7C5CFF;
-  --color-pink: #FF3D8B;
-  --color-lime: #B6FF3B;
-  --color-sky: #7DD3FC;
-  --color-sun: #FFD93D;
-  --color-yellow: #FFD93D;
-  --color-mint: #00E599;
-  --color-tangerine: #FF6B2C;
-  --color-lilac: #C084FC;
 
   /* Mode Palette */
   --color-focus: #7C5CFF;
@@ -53,8 +40,8 @@
   --shadow-brutal-hover: 6px 6px 0px #14101F;
   --shadow-brutal-active: 1px 1px 0px #14101F;
 
-  /* Typography */
-  --font-display: "Titan One", "Archivo Black", Anton, sans-serif;
+  /* Typography: Archivo Black (headlines) & Space Grotesk (body) */
+  --font-display: "Archivo Black", sans-serif;
   --font-tag: "Permanent Marker", cursive;
   --font-body: "Space Grotesk", sans-serif;
   --font-dyslexic: "OpenDyslexic", "Space Grotesk", sans-serif;

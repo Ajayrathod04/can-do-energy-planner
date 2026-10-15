@@ -82,6 +82,30 @@
   color: #0A0A0A;
 }
 
+/* SVG Can Animations */
+@keyframes wave {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100px); }
+}
+
+@keyframes bubble {
+  0% { transform: translateY(0); opacity: 0; }
+  50% { opacity: 0.8; }
+  100% { transform: translateY(-70px); opacity: 0; }
+}
+
+@keyframes capSnap {
+  0% { transform: translateY(-16px); }
+  100% { transform: translateY(8px); }
+}
+
+@keyframes splash1 { 0% { transform: translate(0, 0) scale(1); opacity: 1; } 100% { transform: translate(-30px, -40px) scale(0); opacity: 0; } }
+@keyframes splash2 { 0% { transform: translate(0, 0) scale(1); opacity: 1; } 100% { transform: translate(30px, -40px) scale(0); opacity: 0; } }
+@keyframes splash3 { 0% { transform: translate(0, 0) scale(1); opacity: 1; } 100% { transform: translate(-45px, 0px) scale(0); opacity: 0; } }
+@keyframes splash4 { 0% { transform: translate(0, 0) scale(1); opacity: 1; } 100% { transform: translate(45px, 0px) scale(0); opacity: 0; } }
+@keyframes splash5 { 0% { transform: translate(0, 0) scale(1); opacity: 1; } 100% { transform: translate(-30px, 35px) scale(0); opacity: 0; } }
+@keyframes splash6 { 0% { transform: translate(0, 0) scale(1); opacity: 1; } 100% { transform: translate(30px, 35px) scale(0); opacity: 0; } }
+
 /* Concrete pattern overlay */
 .concrete-texture {
   background-color: #121212;

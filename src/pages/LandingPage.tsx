@@ -1,9 +1,10 @@
 import React from 'react';
-import { StageHero } from '@/features/stage';
+import { FirstScreenHero } from '@/features/hero';
 import {
   LandingNav,
   HowItWorksSection,
   SixMoodsSection,
+  EvidenceSection,
   BuiltForEveryoneSection,
   FAQSection,
 } from '@/features/landing';
@@ -15,14 +16,15 @@ export const LandingPage: React.FC = () => {
       {/* Sticky Navigation */}
       <LandingNav />
 
-      {/* Main Playable Hero Stage ("THE PAGE IS THE PRODUCT") */}
-      <main id="play" className="w-full flex-1">
-        <StageHero />
-      </main>
+      {/* Main Playable Hero Can (First Screen) */}
+      <section id="play" aria-label="Interactive Can Demo" className="w-full flex-1">
+        <FirstScreenHero />
+      </section>
 
-      {/* S4 Below the fold sections */}
+      {/* Below the fold sections (max 4) */}
       <HowItWorksSection />
       <SixMoodsSection />
+      <EvidenceSection />
       <BuiltForEveryoneSection />
       <FAQSection />
 

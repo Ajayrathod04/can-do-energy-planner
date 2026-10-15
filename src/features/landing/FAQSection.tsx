@@ -20,7 +20,7 @@ export const FAQSection: React.FC = () => {
     <section className="w-full py-16 px-4 bg-white border-t-[3px] border-[#14101F]">
       <div className="max-w-4xl mx-auto space-y-8">
         <div className="text-center space-y-2">
-          <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#FF6B2C]">
+          <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#C2410C]">
             Common Inquiries
           </span>
           <h2 className="font-display text-3xl sm:text-4xl uppercase text-[#14101F]">

@@ -40,7 +40,7 @@ export const SystemPaletteSection: React.FC = () => {
                 </div>
                 <div className="flex justify-between border-b border-[#E5E5E5] pb-1">
                   <span className="text-[#666666]">Contrast on Paper (#FFF6E5):</span>
-                  <span className="font-bold text-[#00A86B]">
+                  <span className="font-bold text-[#047857]">
                     {contrastOnPaper.ratio}:1 (AA Pass)
                   </span>
                 </div>

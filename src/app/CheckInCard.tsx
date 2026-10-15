@@ -115,10 +115,7 @@ export const CheckInCard: React.FC = () => {
         </div>
 
         {/* Capacity Result Badge */}
-        <div
-          className="p-3 border-2 border-ink flex items-center justify-between shadow-[2px_2px_0px_#0A0A0A]"
-          style={{ backgroundColor: activeMode.accentColor, color: '#0A0A0A' }}
-        >
+        <div className="p-3 border-2 border-ink flex items-center justify-between shadow-[2px_2px_0px_#0A0A0A] bg-amber-100 text-ink">
           <span className="font-mono text-xs font-bold uppercase">
             Today's Paint Budget ({activeMode.name}):
           </span>

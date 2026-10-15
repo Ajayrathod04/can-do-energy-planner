@@ -12,7 +12,7 @@ describe('Landing & App Feature Smoke Tests', () => {
   it('renders LandingNav with brand and navigation links', () => {
     const { getByText } = render(<LandingNav />);
     expect(getByText('CAN-DO.')).toBeInTheDocument();
-    expect(getByText('Play')).toBeInTheDocument();
+    expect(getByText('Try it')).toBeInTheDocument();
   });
 
   it('renders HowItWorksSection with three step cards and unit definition', () => {

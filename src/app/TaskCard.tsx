@@ -50,7 +50,7 @@ export const TaskCard: React.FC<TaskCardProps> = ({
             {task.category}
           </span>
           {task.dueDate && (
-            <span className={inCan ? 'text-neutral-600' : 'text-neutral-500'}>
+            <span className="text-neutral-700 font-medium">
               Due: {task.dueDate}
             </span>
           )}

@@ -50,7 +50,7 @@ export const MonthCalendarGrid: React.FC<MonthCalendarGridProps> = ({
             >
               <div className="flex items-center justify-between">
                 <span
-                  className={`text-xs font-mono ${isToday ? 'text-modeGrind font-bold' : 'text-neutral-500'}`}
+                  className={`text-xs font-mono ${isToday ? 'text-[#C2410C] font-bold' : 'text-neutral-500'}`}
                 >
                   {day}
                 </span>

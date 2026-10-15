@@ -120,7 +120,7 @@ export const TheWall: React.FC = () => {
   };
 
   return (
-    <div className="brutal-card p-5 space-y-4 bg-neutral-900 text-paper border-3 border-paper shadow-[6px_6px_0px_#FFFFFF]">
+    <div className="brutal-card-dark p-5 space-y-4">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b-2 border-neutral-700 pb-3">
         <div>

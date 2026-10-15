@@ -16,7 +16,7 @@ export const DEMO_TASKS: TaskItem[] = [
     cost: 4,
     category: 'Academics',
     dueDate: 'Today',
-    inCan: true,
+    inCan: false,
     completed: false,
   },
   {
@@ -25,7 +25,7 @@ export const DEMO_TASKS: TaskItem[] = [
     cost: 3,
     category: 'Academics',
     dueDate: 'Tomorrow',
-    inCan: true,
+    inCan: false,
     completed: false,
   },
   {
@@ -34,7 +34,7 @@ export const DEMO_TASKS: TaskItem[] = [
     cost: 2,
     category: 'Life',
     dueDate: 'Today',
-    inCan: true,
+    inCan: false,
     completed: false,
   },
   {

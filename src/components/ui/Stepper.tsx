@@ -27,8 +27,8 @@ export const Stepper: React.FC<StepperProps> = ({ steps, currentStep, className 
               className={clsx(
                 'flex items-center gap-3 p-3 border-[3px] border-[#111111] transition-all',
                 isCurrent && 'bg-[#FFD93D] shadow-[4px_4px_0_#111111] scale-[1.02]',
-                isCompleted && 'bg-[#00E599] opacity-90',
-                !isCurrent && !isCompleted && 'bg-white opacity-60'
+                isCompleted && 'bg-[#00E599]',
+                !isCurrent && !isCompleted && 'bg-white'
               )}
               aria-current={isCurrent ? 'step' : undefined}
             >
@@ -42,7 +42,7 @@ export const Stepper: React.FC<StepperProps> = ({ steps, currentStep, className 
               <div>
                 <p className="font-bold text-sm text-[#111111] leading-tight">{step.label}</p>
                 {step.sublabel && (
-                  <p className="text-xs text-[#444444] font-medium">{step.sublabel}</p>
+                  <p className="text-xs text-neutral-700 font-medium">{step.sublabel}</p>
                 )}
               </div>
             </li>

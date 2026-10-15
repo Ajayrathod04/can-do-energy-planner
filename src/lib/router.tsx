@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState, useMemo } from 'react';
 
-export type AppRoute = '/' | '/app' | '/system';
+export type AppRoute = '/' | '/app' | '/system' | '/process';
 
 interface RouterContextType {
   route: AppRoute;
@@ -41,6 +41,8 @@ export const HashRouterProvider: React.FC<{ children: React.ReactNode }> = ({ ch
       normalizedRoute = '/app';
     } else if (pathPart === '/system' || pathPart === 'system') {
       normalizedRoute = '/system';
+    } else if (pathPart === '/process' || pathPart === 'process') {
+      normalizedRoute = '/process';
     }
 
     const tour = searchParams.get('tour') === '1';

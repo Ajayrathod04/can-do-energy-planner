@@ -18,6 +18,8 @@ export default defineConfig({
     setupFiles: ['./src/tests/setup.ts'],
     css: false,
     isolate: false,
+    include: ['src/**/*.{test,spec}.{ts,tsx}'],
+    exclude: ['e2e/**', 'node_modules/**'],
   },
   build: {
     outDir: 'dist',

@@ -52,16 +52,22 @@ export const LandingNav: React.FC = () => {
           </span>
         </a>
 
-        {/* Desktop Nav: logo | Play | Moods | Accessibility | Open full planner | Design system */}
+        {/* Desktop Nav: Try it | How it works | Moods | Process | Accessibility | Open planner */}
         <nav
           aria-label="Landing Page Navigation"
-          className="hidden md:flex items-center gap-6 font-bold text-sm text-[#14101F]"
+          className="hidden md:flex items-center gap-5 font-bold text-sm text-[#14101F]"
         >
           <button
             onClick={() => scrollTo('play')}
             className="hover:text-[#FF3D8B] cursor-pointer min-h-[44px] px-1"
           >
-            Play
+            Try it
+          </button>
+          <button
+            onClick={() => scrollTo('how-it-works')}
+            className="hover:text-[#FF3D8B] cursor-pointer min-h-[44px] px-1"
+          >
+            How it works
           </button>
           <button
             onClick={() => scrollTo('moods')}
@@ -69,6 +75,12 @@ export const LandingNav: React.FC = () => {
           >
             Moods
           </button>
+          <a
+            href="#/process"
+            className="hover:text-[#FF3D8B] min-h-[44px] flex items-center px-1"
+          >
+            Process
+          </a>
           <button
             onClick={() => scrollTo('accessibility')}
             className="hover:text-[#FF3D8B] cursor-pointer min-h-[44px] px-1"
@@ -77,15 +89,9 @@ export const LandingNav: React.FC = () => {
           </button>
           <a
             href="#/app"
-            className="hover:text-[#FF3D8B] min-h-[44px] flex items-center px-1"
+            className="px-3 py-1.5 bg-[#14101F] text-white font-display text-xs uppercase border-2 border-[#14101F] shadow-[2px_2px_0px_#14101F] hover:bg-neutral-800 rounded min-h-[44px] flex items-center"
           >
-            Open full planner
-          </a>
-          <a
-            href="#/system"
-            className="hover:text-[#FF3D8B] min-h-[44px] flex items-center px-1"
-          >
-            Design system
+            Open planner
           </a>
         </nav>
 
@@ -111,38 +117,44 @@ export const LandingNav: React.FC = () => {
           aria-label="Mobile Navigation Menu"
           className="md:hidden fixed inset-0 top-[54px] bg-[#FFF6E5] z-50 p-6 flex flex-col justify-between border-b-[3px] border-[#14101F]"
         >
-          <nav className="flex flex-col gap-4 font-display text-2xl text-[#14101F]">
+          <nav className="flex flex-col gap-3 font-display text-xl text-[#14101F]">
             <button
               onClick={() => scrollTo('play')}
-              className="text-left py-3 border-b-2 border-[#14101F]"
+              className="text-left py-2.5 border-b-2 border-[#14101F]"
             >
-              Play
+              Try it
+            </button>
+            <button
+              onClick={() => scrollTo('how-it-works')}
+              className="text-left py-2.5 border-b-2 border-[#14101F]"
+            >
+              How it works
             </button>
             <button
               onClick={() => scrollTo('moods')}
-              className="text-left py-3 border-b-2 border-[#14101F]"
+              className="text-left py-2.5 border-b-2 border-[#14101F]"
             >
               Moods
             </button>
+            <a
+              href="#/process"
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-2.5 border-b-2 border-[#14101F]"
+            >
+              Process
+            </a>
             <button
               onClick={() => scrollTo('accessibility')}
-              className="text-left py-3 border-b-2 border-[#14101F]"
+              className="text-left py-2.5 border-b-2 border-[#14101F]"
             >
               Accessibility
             </button>
             <a
               href="#/app"
               onClick={() => setMobileMenuOpen(false)}
-              className="py-3 border-b-2 border-[#14101F]"
+              className="py-2.5 border-b-2 border-[#14101F] text-[#C2410C]"
             >
-              Open full planner
-            </a>
-            <a
-              href="#/system"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-3 border-b-2 border-[#14101F]"
-            >
-              Design system
+              Open planner
             </a>
           </nav>
 

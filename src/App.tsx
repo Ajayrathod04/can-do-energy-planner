@@ -1,12 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense, lazy } from 'react';
 import { HashRouterProvider, useRouter } from './lib/router';
 import { useAppStore, selectActiveMode } from './lib/store';
 import { JudgeTour } from './components/JudgeTour';
 import { NozzleCursor } from './components/NozzleCursor';
 import { LandingPage } from './pages/LandingPage';
-import { AppPage } from './pages/AppPage';
-import { SystemPage } from './pages/SystemPage';
 import { NotFoundPage } from './pages/NotFoundPage';
+
+const AppPage = lazy(() => import('./pages/AppPage').then((m) => ({ default: m.AppPage })));
+const SystemPage = lazy(() => import('./pages/SystemPage').then((m) => ({ default: m.SystemPage })));
+const ProcessPage = lazy(() => import('./pages/ProcessPage').then((m) => ({ default: m.ProcessPage })));
 
 const AppContent: React.FC = () => {
   const { route } = useRouter();
@@ -24,9 +26,23 @@ const AppContent: React.FC = () => {
       case '/':
         return <LandingPage />;
       case '/app':
-        return <AppPage />;
+        return (
+          <Suspense fallback={<div className="p-8 font-mono text-center">Loading planner...</div>}>
+            <AppPage />
+          </Suspense>
+        );
       case '/system':
-        return <SystemPage />;
+        return (
+          <Suspense fallback={<div className="p-8 font-mono text-center">Loading design system...</div>}>
+            <SystemPage />
+          </Suspense>
+        );
+      case '/process':
+        return (
+          <Suspense fallback={<div className="p-8 font-mono text-center">Loading case study...</div>}>
+            <ProcessPage />
+          </Suspense>
+        );
       default:
         return <NotFoundPage />;
     }

@@ -20,13 +20,13 @@ export const SixMoodsSection: React.FC = () => {
     <section id="moods" className="w-full py-16 px-4 bg-white border-t-[3px] border-[#14101F]">
       <div className="max-w-5xl mx-auto space-y-8">
         <div className="text-center space-y-2">
-          <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#7C5CFF]">
+          <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#5B21B6]">
             Biological Postures
           </span>
           <h2 className="font-display text-3xl sm:text-4xl uppercase text-[#14101F]">
             Six Moods, Six Canos
           </h2>
-          <p className="font-body text-xs text-[#555555] max-w-md mx-auto">
+          <p className="font-body text-xs text-[#404040] max-w-md mx-auto">
             Click any mode to re-skin Cano and dynamically recolor your stage palette.
           </p>
         </div>
@@ -46,10 +46,9 @@ export const SixMoodsSection: React.FC = () => {
                 }}
                 className={`min-h-[120px] p-3 rounded-xl border-[3px] border-[#14101F] flex flex-col items-center justify-between transition-all ${
                   isSelected
-                    ? 'shadow-[4px_4px_0px_#14101F] scale-105'
+                    ? 'bg-white ring-4 ring-[#14101F] shadow-[4px_4px_0px_#14101F] scale-105'
                     : 'bg-[#FFF6E5] hover:bg-neutral-50 shadow-[2px_2px_0px_#14101F]'
                 }`}
-                style={isSelected ? { backgroundColor: mode.accentColor } : {}}
                 aria-label={`Switch to ${mode.name} mode`}
               >
                 <div
@@ -61,10 +60,10 @@ export const SixMoodsSection: React.FC = () => {
                   <span className="font-display text-sm uppercase text-[#14101F] block">
                     {mode.name}
                   </span>
-                  <span className="font-mono text-[10px] text-[#444444] font-bold block">
+                  <span className="font-mono text-[10px] text-[#14101F] font-bold block">
                     {mode.multiplier}× paint
                   </span>
-                  <span className="font-mono text-[9px] text-[#666666] block mt-0.5">
+                  <span className="font-mono text-[9px] text-[#14101F]/80 block mt-0.5">
                     {SKIN_ACCESSORY_LABELS[mode.id]}
                   </span>
                 </div>

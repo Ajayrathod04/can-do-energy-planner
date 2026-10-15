@@ -11,6 +11,8 @@ export const BuiltForEveryoneSection: React.FC = () => {
   const fontScale = useAppStore((s) => s.fontScale);
   const setA11ySetting = useAppStore((s) => s.setA11ySetting);
 
+  const [showKbHelp, setShowKbHelp] = React.useState(false);
+
   return (
     <section
       id="accessibility"
@@ -18,7 +20,7 @@ export const BuiltForEveryoneSection: React.FC = () => {
     >
       <div className="max-w-5xl mx-auto space-y-6">
         <div className="text-center space-y-2">
-          <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#FF3D8B]">
+          <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#9D174D]">
             Sensory Deck & Inclusivity
           </span>
           <h2 className="font-display text-3xl sm:text-4xl uppercase text-[#14101F]">
@@ -35,14 +37,17 @@ export const BuiltForEveryoneSection: React.FC = () => {
           <button
             type="button"
             onClick={() => {
+              setShowKbHelp(!showKbHelp);
               sound.playPop();
-              alert('Keyboard Shortcuts:\n• Enter/Space: Activate buttons & wake Cano\n• Tab: Focus through controls\n• Esc: Close dialogs');
             }}
-            className="min-h-[50px] p-2 bg-white border-2 border-[#14101F] shadow-[2px_2px_0px_#14101F] rounded-lg font-mono text-xs font-bold text-[#14101F] hover:bg-neutral-50 flex flex-col items-center justify-center gap-0.5"
+            className={`min-h-[50px] p-2 border-2 border-[#14101F] shadow-[2px_2px_0px_#14101F] rounded-lg font-mono text-xs font-bold transition-all flex flex-col items-center justify-center gap-0.5 ${
+              showKbHelp ? 'bg-[#7C5CFF] text-white shadow-[3px_3px_0px_#14101F]' : 'bg-white text-[#14101F] hover:bg-neutral-50'
+            }`}
+            aria-expanded={showKbHelp}
             aria-label="View keyboard shortcuts"
           >
             <span>⌨️ Keyboard</span>
-            <span className="text-[10px] text-[#666666]">Help (?)</span>
+            <span className="text-[10px]">{showKbHelp ? 'HIDE HELP' : 'Help (?)'}</span>
           </button>
 
           {/* 2. Reduced Motion */}
@@ -132,6 +137,17 @@ export const BuiltForEveryoneSection: React.FC = () => {
             <span className="text-[10px]">{soundEnabled ? 'FX ON' : 'OFF (Silent)'}</span>
           </button>
         </div>
+
+        {showKbHelp && (
+          <div role="region" aria-label="Keyboard Shortcuts Guide" className="p-4 bg-white border-2 border-[#14101F] shadow-[3px_3px_0px_#14101F] rounded-lg font-mono text-xs space-y-1.5">
+            <div className="font-bold text-[#14101F] uppercase">Keyboard Navigation Quick Reference:</div>
+            <ul className="list-disc pl-5 space-y-1 text-neutral-700">
+              <li><strong>Tab / Shift+Tab</strong>: Move between interactive controls and task chips.</li>
+              <li><strong>Enter / Space</strong>: Add or remove tasks into the Can, toggle modes, activate buttons.</li>
+              <li><strong>Esc</strong>: Dismiss open popovers and modals.</li>
+            </ul>
+          </div>
+        )}
 
         {/* Privacy line */}
         <p className="font-mono text-xs text-center text-[#555555] pt-2">
